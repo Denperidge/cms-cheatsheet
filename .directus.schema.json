@@ -1,0 +1,752 @@
+{
+    "version": 1,
+    "directus": "11.1.0",
+    "vendor": "postgres",
+    "collections": [
+        {
+            "collection": "DenperidgeCheatsheet",
+            "meta": {
+                "accountability": "all",
+                "archive_app_filter": true,
+                "archive_field": "status",
+                "archive_value": "archived",
+                "collapse": "open",
+                "collection": "DenperidgeCheatsheet",
+                "color": "#FFC23B",
+                "display_template": null,
+                "group": null,
+                "hidden": false,
+                "icon": "code_blocks",
+                "item_duplication_fields": null,
+                "note": null,
+                "preview_url": null,
+                "singleton": false,
+                "sort": 13,
+                "sort_field": "sort",
+                "translations": null,
+                "unarchive_value": "draft",
+                "versioning": false
+            },
+            "schema": {
+                "name": "DenperidgeCheatsheet"
+            }
+        },
+        {
+            "collection": "DenperidgeCheatsheet_DenperidgeCheatsheet",
+            "meta": {
+                "accountability": "all",
+                "archive_app_filter": true,
+                "archive_field": null,
+                "archive_value": null,
+                "collapse": "open",
+                "collection": "DenperidgeCheatsheet_DenperidgeCheatsheet",
+                "color": null,
+                "display_template": null,
+                "group": "DenperidgeCheatsheet",
+                "hidden": true,
+                "icon": "import_export",
+                "item_duplication_fields": null,
+                "note": null,
+                "preview_url": null,
+                "singleton": false,
+                "sort": 1,
+                "sort_field": null,
+                "translations": null,
+                "unarchive_value": null,
+                "versioning": false
+            },
+            "schema": {
+                "name": "DenperidgeCheatsheet_DenperidgeCheatsheet"
+            }
+        }
+    ],
+    "fields": [
+        {
+            "collection": "DenperidgeCheatsheet",
+            "field": "id",
+            "type": "integer",
+            "meta": {
+                "collection": "DenperidgeCheatsheet",
+                "conditions": null,
+                "display": null,
+                "display_options": null,
+                "field": "id",
+                "group": null,
+                "hidden": true,
+                "interface": "input",
+                "note": null,
+                "options": null,
+                "readonly": true,
+                "required": false,
+                "sort": 1,
+                "special": null,
+                "translations": null,
+                "validation": null,
+                "validation_message": null,
+                "width": "full"
+            },
+            "schema": {
+                "name": "id",
+                "table": "DenperidgeCheatsheet",
+                "data_type": "integer",
+                "default_value": "nextval('\"DenperidgeCheatsheet_id_seq\"'::regclass)",
+                "max_length": null,
+                "numeric_precision": 32,
+                "numeric_scale": 0,
+                "is_nullable": false,
+                "is_unique": true,
+                "is_primary_key": true,
+                "is_generated": false,
+                "generation_expression": null,
+                "has_auto_increment": true,
+                "foreign_key_table": null,
+                "foreign_key_column": null
+            }
+        },
+        {
+            "collection": "DenperidgeCheatsheet",
+            "field": "status",
+            "type": "string",
+            "meta": {
+                "collection": "DenperidgeCheatsheet",
+                "conditions": null,
+                "display": "labels",
+                "display_options": {
+                    "choices": [
+                        {
+                            "text": "$t:published",
+                            "value": "published",
+                            "color": "var(--theme--primary)",
+                            "foreground": "var(--theme--primary)",
+                            "background": "var(--theme--primary-background)"
+                        },
+                        {
+                            "text": "$t:draft",
+                            "value": "draft",
+                            "color": "var(--theme--foreground)",
+                            "foreground": "var(--theme--foreground)",
+                            "background": "var(--theme--background-normal)"
+                        },
+                        {
+                            "text": "$t:archived",
+                            "value": "archived",
+                            "color": "var(--theme--warning)",
+                            "foreground": "var(--theme--warning)",
+                            "background": "var(--theme--warning-background)"
+                        }
+                    ],
+                    "showAsDot": true
+                },
+                "field": "status",
+                "group": null,
+                "hidden": false,
+                "interface": "select-dropdown",
+                "note": null,
+                "options": {
+                    "choices": [
+                        {
+                            "text": "$t:published",
+                            "value": "published",
+                            "color": "var(--theme--primary)"
+                        },
+                        {
+                            "text": "$t:draft",
+                            "value": "draft",
+                            "color": "var(--theme--foreground)"
+                        },
+                        {
+                            "text": "$t:archived",
+                            "value": "archived",
+                            "color": "var(--theme--warning)"
+                        }
+                    ]
+                },
+                "readonly": false,
+                "required": false,
+                "sort": 5,
+                "special": null,
+                "translations": null,
+                "validation": null,
+                "validation_message": null,
+                "width": "full"
+            },
+            "schema": {
+                "name": "status",
+                "table": "DenperidgeCheatsheet",
+                "data_type": "character varying",
+                "default_value": "draft",
+                "max_length": 255,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_nullable": false,
+                "is_unique": false,
+                "is_primary_key": false,
+                "is_generated": false,
+                "generation_expression": null,
+                "has_auto_increment": false,
+                "foreign_key_table": null,
+                "foreign_key_column": null
+            }
+        },
+        {
+            "collection": "DenperidgeCheatsheet",
+            "field": "sort",
+            "type": "integer",
+            "meta": {
+                "collection": "DenperidgeCheatsheet",
+                "conditions": null,
+                "display": null,
+                "display_options": null,
+                "field": "sort",
+                "group": null,
+                "hidden": true,
+                "interface": "input",
+                "note": null,
+                "options": null,
+                "readonly": false,
+                "required": false,
+                "sort": 4,
+                "special": null,
+                "translations": null,
+                "validation": null,
+                "validation_message": null,
+                "width": "full"
+            },
+            "schema": {
+                "name": "sort",
+                "table": "DenperidgeCheatsheet",
+                "data_type": "integer",
+                "default_value": null,
+                "max_length": null,
+                "numeric_precision": 32,
+                "numeric_scale": 0,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "is_generated": false,
+                "generation_expression": null,
+                "has_auto_increment": false,
+                "foreign_key_table": null,
+                "foreign_key_column": null
+            }
+        },
+        {
+            "collection": "DenperidgeCheatsheet",
+            "field": "date_created",
+            "type": "timestamp",
+            "meta": {
+                "collection": "DenperidgeCheatsheet",
+                "conditions": null,
+                "display": "datetime",
+                "display_options": {
+                    "relative": true
+                },
+                "field": "date_created",
+                "group": null,
+                "hidden": true,
+                "interface": "datetime",
+                "note": null,
+                "options": null,
+                "readonly": true,
+                "required": false,
+                "sort": 2,
+                "special": [
+                    "date-created"
+                ],
+                "translations": null,
+                "validation": null,
+                "validation_message": null,
+                "width": "half"
+            },
+            "schema": {
+                "name": "date_created",
+                "table": "DenperidgeCheatsheet",
+                "data_type": "timestamp with time zone",
+                "default_value": null,
+                "max_length": null,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "is_generated": false,
+                "generation_expression": null,
+                "has_auto_increment": false,
+                "foreign_key_table": null,
+                "foreign_key_column": null
+            }
+        },
+        {
+            "collection": "DenperidgeCheatsheet",
+            "field": "date_updated",
+            "type": "timestamp",
+            "meta": {
+                "collection": "DenperidgeCheatsheet",
+                "conditions": null,
+                "display": "datetime",
+                "display_options": {
+                    "relative": true
+                },
+                "field": "date_updated",
+                "group": null,
+                "hidden": true,
+                "interface": "datetime",
+                "note": null,
+                "options": null,
+                "readonly": true,
+                "required": false,
+                "sort": 3,
+                "special": [
+                    "date-updated"
+                ],
+                "translations": null,
+                "validation": null,
+                "validation_message": null,
+                "width": "half"
+            },
+            "schema": {
+                "name": "date_updated",
+                "table": "DenperidgeCheatsheet",
+                "data_type": "timestamp with time zone",
+                "default_value": null,
+                "max_length": null,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "is_generated": false,
+                "generation_expression": null,
+                "has_auto_increment": false,
+                "foreign_key_table": null,
+                "foreign_key_column": null
+            }
+        },
+        {
+            "collection": "DenperidgeCheatsheet",
+            "field": "links",
+            "type": "json",
+            "meta": {
+                "collection": "DenperidgeCheatsheet",
+                "conditions": null,
+                "display": null,
+                "display_options": null,
+                "field": "links",
+                "group": null,
+                "hidden": false,
+                "interface": "list",
+                "note": null,
+                "options": {
+                    "addLabel": "Add a source link",
+                    "fields": [
+                        {
+                            "field": "label",
+                            "name": "label",
+                            "type": "text",
+                            "meta": {
+                                "field": "label",
+                                "type": "text",
+                                "interface": "input",
+                                "options": {
+                                    "placeholder": "Solution from NAME (example.com)",
+                                    "iconLeft": "format_color_text"
+                                }
+                            }
+                        },
+                        {
+                            "field": "url",
+                            "name": "url",
+                            "type": "string",
+                            "meta": {
+                                "field": "url",
+                                "width": "full",
+                                "type": "string",
+                                "note": null,
+                                "interface": "input",
+                                "options": {
+                                    "placeholder": "https://example.com/a/12985125",
+                                    "iconLeft": "link"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "readonly": false,
+                "required": false,
+                "sort": 9,
+                "special": [
+                    "cast-json"
+                ],
+                "translations": null,
+                "validation": null,
+                "validation_message": null,
+                "width": "half"
+            },
+            "schema": {
+                "name": "links",
+                "table": "DenperidgeCheatsheet",
+                "data_type": "json",
+                "default_value": null,
+                "max_length": null,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "is_generated": false,
+                "generation_expression": null,
+                "has_auto_increment": false,
+                "foreign_key_table": null,
+                "foreign_key_column": null
+            }
+        },
+        {
+            "collection": "DenperidgeCheatsheet",
+            "field": "tags",
+            "type": "json",
+            "meta": {
+                "collection": "DenperidgeCheatsheet",
+                "conditions": null,
+                "display": null,
+                "display_options": null,
+                "field": "tags",
+                "group": null,
+                "hidden": false,
+                "interface": "tags",
+                "note": null,
+                "options": {
+                    "iconLeft": "keyboard_previous_language",
+                    "presets": [
+                        "JavaScript",
+                        "Nix",
+                        "NixOS",
+                        "Python",
+                        "TypeScript"
+                    ],
+                    "whitespace": "-"
+                },
+                "readonly": false,
+                "required": false,
+                "sort": 8,
+                "special": [
+                    "cast-json"
+                ],
+                "translations": null,
+                "validation": null,
+                "validation_message": null,
+                "width": "full"
+            },
+            "schema": {
+                "name": "tags",
+                "table": "DenperidgeCheatsheet",
+                "data_type": "json",
+                "default_value": null,
+                "max_length": null,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "is_generated": false,
+                "generation_expression": null,
+                "has_auto_increment": false,
+                "foreign_key_table": null,
+                "foreign_key_column": null
+            }
+        },
+        {
+            "collection": "DenperidgeCheatsheet",
+            "field": "related",
+            "type": "alias",
+            "meta": {
+                "collection": "DenperidgeCheatsheet",
+                "conditions": null,
+                "display": null,
+                "display_options": null,
+                "field": "related",
+                "group": null,
+                "hidden": false,
+                "interface": "list-m2m",
+                "note": null,
+                "options": null,
+                "readonly": false,
+                "required": false,
+                "sort": 10,
+                "special": [
+                    "m2m"
+                ],
+                "translations": null,
+                "validation": null,
+                "validation_message": null,
+                "width": "half"
+            }
+        },
+        {
+            "collection": "DenperidgeCheatsheet",
+            "field": "problem",
+            "type": "string",
+            "meta": {
+                "collection": "DenperidgeCheatsheet",
+                "conditions": null,
+                "display": null,
+                "display_options": null,
+                "field": "problem",
+                "group": null,
+                "hidden": false,
+                "interface": "input",
+                "note": null,
+                "options": {
+                    "iconLeft": "title",
+                    "placeholder": "Disabling a NixOS service on startup"
+                },
+                "readonly": false,
+                "required": false,
+                "sort": 6,
+                "special": null,
+                "translations": null,
+                "validation": null,
+                "validation_message": null,
+                "width": "full"
+            },
+            "schema": {
+                "name": "problem",
+                "table": "DenperidgeCheatsheet",
+                "data_type": "character varying",
+                "default_value": null,
+                "max_length": 255,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "is_generated": false,
+                "generation_expression": null,
+                "has_auto_increment": false,
+                "foreign_key_table": null,
+                "foreign_key_column": null
+            }
+        },
+        {
+            "collection": "DenperidgeCheatsheet",
+            "field": "solution",
+            "type": "text",
+            "meta": {
+                "collection": "DenperidgeCheatsheet",
+                "conditions": null,
+                "display": null,
+                "display_options": null,
+                "field": "solution",
+                "group": null,
+                "hidden": false,
+                "interface": "input-rich-text-md",
+                "note": null,
+                "options": {
+                    "folder": "afd83831-456f-458f-a0e8-d23b3f45ff91"
+                },
+                "readonly": false,
+                "required": false,
+                "sort": 7,
+                "special": null,
+                "translations": null,
+                "validation": null,
+                "validation_message": null,
+                "width": "full"
+            },
+            "schema": {
+                "name": "solution",
+                "table": "DenperidgeCheatsheet",
+                "data_type": "text",
+                "default_value": null,
+                "max_length": null,
+                "numeric_precision": null,
+                "numeric_scale": null,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "is_generated": false,
+                "generation_expression": null,
+                "has_auto_increment": false,
+                "foreign_key_table": null,
+                "foreign_key_column": null
+            }
+        },
+        {
+            "collection": "DenperidgeCheatsheet_DenperidgeCheatsheet",
+            "field": "id",
+            "type": "integer",
+            "meta": {
+                "collection": "DenperidgeCheatsheet_DenperidgeCheatsheet",
+                "conditions": null,
+                "display": null,
+                "display_options": null,
+                "field": "id",
+                "group": null,
+                "hidden": true,
+                "interface": null,
+                "note": null,
+                "options": null,
+                "readonly": false,
+                "required": false,
+                "sort": 1,
+                "special": null,
+                "translations": null,
+                "validation": null,
+                "validation_message": null,
+                "width": "full"
+            },
+            "schema": {
+                "name": "id",
+                "table": "DenperidgeCheatsheet_DenperidgeCheatsheet",
+                "data_type": "integer",
+                "default_value": "nextval('\"DenperidgeCheatsheet_DenperidgeCheatsheet_id_seq\"'::regclass)",
+                "max_length": null,
+                "numeric_precision": 32,
+                "numeric_scale": 0,
+                "is_nullable": false,
+                "is_unique": true,
+                "is_primary_key": true,
+                "is_generated": false,
+                "generation_expression": null,
+                "has_auto_increment": true,
+                "foreign_key_table": null,
+                "foreign_key_column": null
+            }
+        },
+        {
+            "collection": "DenperidgeCheatsheet_DenperidgeCheatsheet",
+            "field": "DenperidgeCheatsheet_id",
+            "type": "integer",
+            "meta": {
+                "collection": "DenperidgeCheatsheet_DenperidgeCheatsheet",
+                "conditions": null,
+                "display": null,
+                "display_options": null,
+                "field": "DenperidgeCheatsheet_id",
+                "group": null,
+                "hidden": true,
+                "interface": null,
+                "note": null,
+                "options": null,
+                "readonly": false,
+                "required": false,
+                "sort": 2,
+                "special": null,
+                "translations": null,
+                "validation": null,
+                "validation_message": null,
+                "width": "full"
+            },
+            "schema": {
+                "name": "DenperidgeCheatsheet_id",
+                "table": "DenperidgeCheatsheet_DenperidgeCheatsheet",
+                "data_type": "integer",
+                "default_value": null,
+                "max_length": null,
+                "numeric_precision": 32,
+                "numeric_scale": 0,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "is_generated": false,
+                "generation_expression": null,
+                "has_auto_increment": false,
+                "foreign_key_table": "DenperidgeCheatsheet",
+                "foreign_key_column": "id"
+            }
+        },
+        {
+            "collection": "DenperidgeCheatsheet_DenperidgeCheatsheet",
+            "field": "related_DenperidgeCheatsheet_id",
+            "type": "integer",
+            "meta": {
+                "collection": "DenperidgeCheatsheet_DenperidgeCheatsheet",
+                "conditions": null,
+                "display": null,
+                "display_options": null,
+                "field": "related_DenperidgeCheatsheet_id",
+                "group": null,
+                "hidden": true,
+                "interface": null,
+                "note": null,
+                "options": null,
+                "readonly": false,
+                "required": false,
+                "sort": 3,
+                "special": null,
+                "translations": null,
+                "validation": null,
+                "validation_message": null,
+                "width": "full"
+            },
+            "schema": {
+                "name": "related_DenperidgeCheatsheet_id",
+                "table": "DenperidgeCheatsheet_DenperidgeCheatsheet",
+                "data_type": "integer",
+                "default_value": null,
+                "max_length": null,
+                "numeric_precision": 32,
+                "numeric_scale": 0,
+                "is_nullable": true,
+                "is_unique": false,
+                "is_primary_key": false,
+                "is_generated": false,
+                "generation_expression": null,
+                "has_auto_increment": false,
+                "foreign_key_table": "DenperidgeCheatsheet",
+                "foreign_key_column": "id"
+            }
+        }
+    ],
+    "relations": [
+        {
+            "collection": "DenperidgeCheatsheet_DenperidgeCheatsheet",
+            "field": "related_DenperidgeCheatsheet_id",
+            "related_collection": "DenperidgeCheatsheet",
+            "meta": {
+                "junction_field": "DenperidgeCheatsheet_id",
+                "many_collection": "DenperidgeCheatsheet_DenperidgeCheatsheet",
+                "many_field": "related_DenperidgeCheatsheet_id",
+                "one_allowed_collections": null,
+                "one_collection": "DenperidgeCheatsheet",
+                "one_collection_field": null,
+                "one_deselect_action": "nullify",
+                "one_field": null,
+                "sort_field": null
+            },
+            "schema": {
+                "table": "DenperidgeCheatsheet_DenperidgeCheatsheet",
+                "column": "related_DenperidgeCheatsheet_id",
+                "foreign_key_table": "DenperidgeCheatsheet",
+                "foreign_key_column": "id",
+                "constraint_name": "denperidgecheatsheet_denperidgecheatsheet___378aec7a_foreign",
+                "on_update": "NO ACTION",
+                "on_delete": "SET NULL"
+            }
+        },
+        {
+            "collection": "DenperidgeCheatsheet_DenperidgeCheatsheet",
+            "field": "DenperidgeCheatsheet_id",
+            "related_collection": "DenperidgeCheatsheet",
+            "meta": {
+                "junction_field": "related_DenperidgeCheatsheet_id",
+                "many_collection": "DenperidgeCheatsheet_DenperidgeCheatsheet",
+                "many_field": "DenperidgeCheatsheet_id",
+                "one_allowed_collections": null,
+                "one_collection": "DenperidgeCheatsheet",
+                "one_collection_field": null,
+                "one_deselect_action": "nullify",
+                "one_field": "related",
+                "sort_field": null
+            },
+            "schema": {
+                "table": "DenperidgeCheatsheet_DenperidgeCheatsheet",
+                "column": "DenperidgeCheatsheet_id",
+                "foreign_key_table": "DenperidgeCheatsheet",
+                "foreign_key_column": "id",
+                "constraint_name": "denperidgecheatsheet_denperidgecheatsheet___47c6ef9a_foreign",
+                "on_update": "NO ACTION",
+                "on_delete": "SET NULL"
+            }
+        }
+    ]
+}

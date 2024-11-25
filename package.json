@@ -1,0 +1,23 @@
+{
+  "name": "cms-cheatsheet",
+  "description": "Create an easily searchable cheatsheet for your code or anything",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn eleventy --serve",
+    "build": "yarn eleventy",
+    "data": "yarn data:pull && yarn data:pull:schema",
+    "data:pull": "yarn directus-to-data --collection-output src/_data/{{collectionName}}.json -c DenperidgeCheatsheet -c DenperidgeCheatsheet_DenperidgeCheatsheet",
+    "data:pull:schema": "yarn directus-to-data --backup-schema .directus.schema.json --collection-output NO_WRITE -c DenperidgeCheatsheet -c DenperidgeCheatsheet_DenperidgeCheatsheet"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-pug": "^1.0.0",
+    "directus-to-data": "^0.7.2",
+    "eleventy-auto-cache-buster": "^0.6.1",
+    "markdown-it": "^14.1.0"
+  },
+  "author": "Denperidge",
+  "repository": "https://github.com/Denperidge/cms-cheatsheet.git"
+}
