@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+    body
+
+        for entry in cheatsheet
+            - const tags = entry.tags.concat()
+            article(id=entry.id data-tags=JSON.stringify(tags))
+                h2.problem=entry.problem
+                div.solution!=entry.solution
+
+                ul.links
+                    unless entry.links.length > 1
+                        h3 Link:
+                    else
+                        h3 Links:
+                    for link in entry.links
+                        li
+                            a(href=link.url)=link.label
+

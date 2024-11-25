@@ -1,4 +1,4 @@
 node_modules/
 dist/
-src/_data/
+src/_data/*.json
 .directus.json
