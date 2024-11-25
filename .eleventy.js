@@ -10,4 +10,8 @@ export const config = {
 export default function (eleventyConfig) {
     eleventyConfig.addPlugin(pugPlugin);
     eleventyConfig.addPassthroughCopy("node_modules/@picocss/pico/css/pico.cyan.min.css")
+    /*
+    eleventyConfig.addPassthroughCopy("node_modules/highlight.js/styles/")
+    eleventyConfig.addPassthroughCopy("node_modules/highlight.js/styles/")
+    */
 }

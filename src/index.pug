@@ -1,55 +1,50 @@
-doctype html
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Document
-        link(rel="stylesheet", href="node_modules/@picocss/pico/css/pico.cyan.min.css")
-        style.
-            ul {
-                padding: 0;
-                margin: 0;
-            }
-            ul li {
-                list-style: none;
-            }
-            #sheet code {
-                padding-left: 0;
-                padding-right: 0;
-            }
-            #sheet > li {
-                flex: 1;
-            }
-            #sheet article {
-                max-width: 100%;
-                padding: 20px;
-            }
-            #sheet {
-                padding: 0;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-around;
-                gap: 25px;
-            }
+---
+layout: layout.pug
+title: Denperidge's Cheatsheet!
+---
+style.
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+    ul li {
+        list-style: none;
+    }
+    #sheet code {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    #sheet > li {
+        flex: 1;
+    }
+    #sheet article {
+        max-width: 100%;
+        padding: 20px;
+    }
+    #sheet {
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 25px;
+    }
 
+main
+    h1=title
+    ul#sheet
+        for entry in cheatsheet
+            li
+                - const tags = entry.tags.concat()
+                article(id=entry.id data-tags=JSON.stringify(tags))
+                    h2.problem=entry.problem
+                    section.solution!=entry.solution
 
-    body
-
-        ul#sheet
-            for entry in cheatsheet
-                li
-                    - const tags = entry.tags.concat()
-                    article(id=entry.id data-tags=JSON.stringify(tags))
-                        h2.problem=entry.problem
-                        section.solution!=entry.solution
-
-                        if entry.links
-                            ul.links
-                                unless entry.links.length > 1
-                                    h3 Link:
-                                else
-                                    h3 Links:
-                                for link in entry.links
-                                    li
-                                        a(href=link.url)=link.label
-
+                    if entry.links
+                        ul.links
+                            unless entry.links.length > 1
+                                h3 Link:
+                            else
+                                h3 Links:
+                            for link in entry.links
+                                li
+                                    a(href=link.url)=link.label
