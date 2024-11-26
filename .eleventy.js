@@ -1,6 +1,5 @@
 import pugPlugin from "@11ty/eleventy-plugin-pug";
 import eleventyAutoCacheBuster from "eleventy-auto-cache-buster";
-import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 
 const {default: cheatsheet} = await import("./src/_data/DenperidgeCheatsheet.json", {assert: {type: "json"}})
 

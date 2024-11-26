@@ -1,5 +1,4 @@
 import markdownit from "markdown-it";
-import hljs from "highlight.js";
 import Prism from "prismjs";
 import loadLanguages from "prismjs/components/index.js"
 
