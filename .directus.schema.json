@@ -417,6 +417,7 @@
                 "options": {
                     "alphabetize": true,
                     "iconLeft": "keyboard_previous_language",
+                    "placeholder": null,
                     "presets": [
                         "Accessibility",
                         "CSS",
@@ -468,14 +469,16 @@
             "meta": {
                 "collection": "DenperidgeCheatsheet",
                 "conditions": null,
-                "display": null,
+                "display": "related-values",
                 "display_options": null,
                 "field": "related",
                 "group": null,
                 "hidden": false,
                 "interface": "list-m2m",
                 "note": null,
-                "options": null,
+                "options": {
+                    "enableLink": true
+                },
                 "readonly": false,
                 "required": false,
                 "sort": 10,

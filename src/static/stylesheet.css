@@ -1,0 +1,25 @@
+ul {
+    padding: 0;
+    margin: 0;
+}
+ul li {
+    list-style: none;
+    background-color: red;
+}
+#sheet code {
+    padding-left: 0;
+    padding-right: 0;
+}
+#sheet > li {
+    flex: 1;
+}
+#sheet article {
+    max-width: 95vw;
+    padding: 20px;
+}
+#sheet {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
