@@ -415,12 +415,19 @@
                 "interface": "tags",
                 "note": null,
                 "options": {
+                    "alphabetize": true,
                     "iconLeft": "keyboard_previous_language",
                     "presets": [
+                        "Accessibility",
+                        "CSS",
+                        "Caddy",
+                        "Eleventy",
                         "JavaScript",
+                        "Markdown",
                         "Nix",
                         "NixOS",
                         "Python",
+                        "SCSS",
                         "TypeScript"
                     ],
                     "whitespace": "-"

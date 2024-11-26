@@ -3,30 +3,30 @@ import hljs from "highlight.js";
 
 const md = markdownit();
 
+function createOrAddToArrayInObj(obj, key, value) {
+    if (Object.keys(obj).includes(key)) {
+        obj[key].push(value);
+    } else {
+        obj[key] = [value];
+    }
+}
+
 export default {
+    relations: (data) => {
+        const rels = {};
+        data.DenperidgeCheatsheet_DenperidgeCheatsheet.forEach(relation => {
+           createOrAddToArrayInObj(rels, relation.DenperidgeCheatsheet_id, relation.related_DenperidgeCheatsheet_id);
+           createOrAddToArrayInObj(rels, relation.related_DenperidgeCheatsheet_id, relation.DenperidgeCheatsheet_id);
+        });
+        return rels;
+    },
+
     cheatsheet: (data) => {
-        //console.log(data)
         const entries = data.DenperidgeCheatsheet.map(entry => {
             entry.renderedSolution = md.render(entry.solution);
-            //console.log(hljs.highlightAuto(entry.solution).language)
-            //console.log(entry.solution)
 
             return entry;
         })
-        //console.log(entries)
         return entries
     }
-    /*,
-    allTags: (data) => {
-        const tagSet = new Set();
-        data.DenperidgeCheatsheet.forEach(entry => {
-            entry.tags.forEach(tag => {
-                //console.log(tag)
-                tagSet.add(tag);
-            })
-        });
-
-        return Array.from(tagSet);
-    }
-    */
-}
+}   

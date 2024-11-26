@@ -1,0 +1,12 @@
+---
+layout: layout.pug
+title: Denperidge's Cheatsheet!
+pagination:
+    data: allTags
+    alias: tag
+    size: 1
+eleventyComputed:
+    permalink: "| /entry/#{id}/index.html"
+---
+include _includes/_entry.pug
+
