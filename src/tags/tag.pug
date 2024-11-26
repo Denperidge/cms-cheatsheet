@@ -1,0 +1,11 @@
+---
+layout: sheet.pug
+pagination:
+    data: allTags
+    alias: tag
+    size: 1
+eleventyComputed:
+    title: "| #{tag}"
+    filter: "| #{tag}"
+    permalink: "| /tags/#{tag.toLowerCase()}/index.html"
+---

@@ -1,4 +1,5 @@
 import pugPlugin from "@11ty/eleventy-plugin-pug";
+const {default: cheatsheet} = await import("./src/_data/DenperidgeCheatsheet.json", {assert: {type: "json"}})
 
 export const config = {
     dir: {
@@ -11,20 +12,15 @@ export default function (eleventyConfig) {
     eleventyConfig.addPlugin(pugPlugin);
     eleventyConfig.addPassthroughCopy("node_modules/@picocss/pico/css/pico.cyan.min.css")
 
-    // CAn't use computed data for pagination. This is a patchwork solution, but could be better
-    eleventyConfig.addGlobalData("allTags", () => {
-        return function(cheatsheetDataObj) {
-            const tagSet = new Set();
-            cheatsheetDataObj.forEach(entry => {
-                console.log(entry)
-                entry.tags.forEach(tag => {
-                    tagSet.add(tag);
-                })
-            })
-            console.log(tagSet)
-            return Array.from(tagSet);
-        };
-    });
+    const tagSet = new Set();
+    console.log(cheatsheet)
+    cheatsheet.forEach(entry => {
+        entry.tags.forEach(tag => {
+            tagSet.add(tag);
+        })
+    })
+    const tagArray = Array.from(tagSet);
+    eleventyConfig.addGlobalData("allTags", tagArray);
     /*
     eleventyConfig.addPassthroughCopy("node_modules/highlight.js/styles/")
     eleventyConfig.addPassthroughCopy("node_modules/highlight.js/styles/")

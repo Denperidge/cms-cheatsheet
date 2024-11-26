@@ -1,0 +1,72 @@
+---
+layout: layout.pug
+---
+
+mixin renderEntry(entry)
+    // - const tags = entry.tags.concat()
+    // data-tags=JSON.stringify(tags)
+    article(id=entry.id)
+        header
+            h2.problem=entry.problem
+        div.solution!=entry.renderedSolution
+        footer
+            if entry.links
+                ul.links
+                    unless entry.links.length > 1
+                        h3 Link:
+                    else
+                        h3 Links:
+                    for link in entry.links
+                        li
+                            a(href=link.url)=link.label
+            if entry.tags
+                hr
+                ul.tags
+                    for tag in entry.tags
+                        li
+                            a(role="button" href="/tags/" + tag.toLowerCase())=tag
+
+style.
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+    ul li {
+        list-style: none;
+    }
+    #sheet code {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    #sheet > li {
+        flex: 1;
+    }
+    #sheet article {
+        max-width: 100%;
+        padding: 20px;
+    }
+    #sheet {
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 25px;
+    }
+
+main
+    nav
+        ul
+            li
+                a(href="/")
+                    h1=title
+            li
+                a(href="/tags/") Tags
+    ul#sheet
+        - let sheet = cheatsheet;
+        if filter
+            - sheet = sheet.filter(entry => entry.tags.includes(filter))
+
+        for entry in sheet
+            li
+                +renderEntry(entry)
+    
