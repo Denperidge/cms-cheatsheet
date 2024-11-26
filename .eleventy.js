@@ -13,7 +13,6 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("node_modules/@picocss/pico/css/pico.cyan.min.css")
 
     const tagSet = new Set();
-    console.log(cheatsheet)
     cheatsheet.forEach(entry => {
         entry.tags.forEach(tag => {
             tagSet.add(tag);

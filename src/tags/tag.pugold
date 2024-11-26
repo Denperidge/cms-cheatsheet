@@ -1,8 +1,0 @@
----javascript
-const layout = "layout.pug";
-const title = "tags";
-const data = {
-    permalink: "/meow.html"
-}
-
----

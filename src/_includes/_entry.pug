@@ -1,5 +1,5 @@
-
-mixin renderEntry(entry)
+//- Set sheet to a cheatsheet to pull relative values from 
+mixin renderEntry(entry, sheet=undefined)
     // - const tags = entry.tags.concat()
     // data-tags=JSON.stringify(tags)
     article(id=entry.id)
@@ -7,10 +7,16 @@ mixin renderEntry(entry)
             h2.problem=entry.problem
         div.solution!=entry.renderedSolution
 
-        if relations[entry.id]
-            for relation in relations[entry.id]
-                p meow
-
+        if sheet
+            if relations[entry.id]
+                section.related
+                    h2 Related:
+                    ul
+                        for relation in relations[entry.id]
+                            - const relEntry = sheet.find(sheetEntry => sheetEntry.id == relation)
+                            if relEntry
+                                li
+                                    a(href="/#" + relEntry.id)=relEntry.problem
         footer
             if entry.links
                 ul.links
