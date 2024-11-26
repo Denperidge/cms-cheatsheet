@@ -30,21 +30,35 @@ style.
     }
 
 main
-    h1=title
+    nav
+        ul
+            li
+                a(href="/")
+                    h1=title
+            li
+                a(href="/tags/") Tags
     ul#sheet
         for entry in cheatsheet
             li
                 - const tags = entry.tags.concat()
                 article(id=entry.id data-tags=JSON.stringify(tags))
-                    h2.problem=entry.problem
-                    section.solution!=entry.solution
+                    header
+                        h2.problem=entry.problem
+                    div.solution!=entry.renderedSolution
 
-                    if entry.links
-                        ul.links
-                            unless entry.links.length > 1
-                                h3 Link:
-                            else
-                                h3 Links:
-                            for link in entry.links
-                                li
-                                    a(href=link.url)=link.label
+                    footer
+                        if entry.links
+                            ul.links
+                                unless entry.links.length > 1
+                                    h3 Link:
+                                else
+                                    h3 Links:
+                                for link in entry.links
+                                    li
+                                        a(href=link.url)=link.label
+                        if entry.tags
+                            hr
+                            ul.tags
+                                for tag in entry.tags
+                                    li
+                                        a(role="button" href="/tags/" + tag.toLowerCase())=tag

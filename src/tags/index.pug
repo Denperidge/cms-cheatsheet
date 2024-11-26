@@ -1,0 +1,13 @@
+---
+layout: layout.pug
+title: Tags
+permalink: /tags/index.html
+---
+
+main
+    h1 Tags
+    nav
+        ul
+            for tag in allTags
+                li
+                    a(href="/tags/" + tag.toLowerCase())=tag
