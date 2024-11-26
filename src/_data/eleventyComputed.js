@@ -15,7 +15,8 @@ export default {
         })
         //console.log(entries)
         return entries
-    },
+    }
+    /*,
     allTags: (data) => {
         const tagSet = new Set();
         data.DenperidgeCheatsheet.forEach(entry => {
@@ -24,6 +25,8 @@ export default {
                 tagSet.add(tag);
             })
         });
+
         return Array.from(tagSet);
     }
+    */
 }

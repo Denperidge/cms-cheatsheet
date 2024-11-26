@@ -1,0 +1,9 @@
+---
+layout: layout.pug
+pagination:
+    data: allTags
+    alias: tag
+    size: 1
+eleventyComputed:
+    permalink: "| /tags/#{tag}/index.html"
+---
