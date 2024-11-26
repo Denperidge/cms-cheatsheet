@@ -17,8 +17,8 @@
     "@picocss/pico": "^2.0.6",
     "directus-to-data": "^0.7.2",
     "eleventy-auto-cache-buster": "^0.6.1",
-    "highlight.js": "^11.10.0",
-    "markdown-it": "^14.1.0"
+    "markdown-it": "^14.1.0",
+    "prismjs": "^1.29.0"
   },
   "author": "Denperidge",
   "repository": "https://github.com/Denperidge/cms-cheatsheet.git"
