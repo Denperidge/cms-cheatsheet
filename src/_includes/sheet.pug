@@ -20,7 +20,7 @@ main
             - sheet = sheet.filter(entry => entry.tags.includes(filter))
 
         for entry in sheet
-            li
+            li.entryLi
                 +renderEntry(entry, sheet)
     
     script(src="/node_modules/jquery/dist/jquery.min.js")
