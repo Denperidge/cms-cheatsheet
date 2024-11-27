@@ -46,6 +46,7 @@ function _getCodeblockFromButtonsEvent(e) {
 }
 function copy(e) {
     const codeblock = _getCodeblockFromButtonsEvent(e)
+    navigator.clipboard.writeText(codeblock.text())
 }
 function download(e) {
     const buttonA = $(e.target);
