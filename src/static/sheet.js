@@ -37,3 +37,20 @@ search.on("focus", async function() {
     }
     search.on("keyup", searchEntries);
 });
+
+function copy() {
+    console.log("meow")
+}
+function download() {
+
+}
+
+$(document).ready(function(){
+    $("pre code").each(function(i, codeElement){
+        codeElement = $(codeElement);
+        const buttons = $('<section class="buttons"><button class="copy">Copy</button><button class="download">Download</button></section>');
+        buttons.find(".copy").on("click", copy)
+        buttons.find(".download").on("click", copy)
+        buttons.insertAfter(codeElement.parent())
+    });
+})
