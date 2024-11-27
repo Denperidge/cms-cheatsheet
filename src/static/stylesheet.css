@@ -1,3 +1,40 @@
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip-link {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    float: left;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.skip-link:link, .skip-link:visited, .skip-link:hover, .skip-link:active {
+    color: white;  /* Normalise the color */
+}
+
+.skip-link:focus {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+}
+
+header {
+    width: 95vw;
+}
+#search {
+    width: 95vw;
+}
+
 ul {
     padding: 0;
     margin: 0;

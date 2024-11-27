@@ -8,4 +8,25 @@ html(lang="en")
         link(rel="stylesheet", href="/node_modules/prismjs/themes/prism-coy.min.css")
         link(rel="stylesheet", href="/static/stylesheet.css")
     body
+        header
+            nav(aria-label="breadcrumb")
+                h1
+                    ul
+                        li
+                            a(href="/") Denperidge's Cheatsheet
+
+                        unless page.url == "/"
+                            if page.url.startsWith("/tags/")
+                                li
+                                    a(href="/tags/") Tags
+                                if page.url != "/tags/"
+                                    li
+                                        a(href=page.url)=title
+            if page.url != "/tags/"
+                nav
+                    ul
+                        for tag in allTags 
+                            li
+                                a(href="/tags/" + tag.toLowerCase())=tag
+
         | !{content}

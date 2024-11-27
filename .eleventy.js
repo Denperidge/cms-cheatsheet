@@ -28,6 +28,6 @@ export default function (eleventyConfig) {
             tagSet.add(tag);
         })
     })
-    const tagArray = Array.from(tagSet);
+    const tagArray = Array.from(tagSet).sort();
     eleventyConfig.addGlobalData("allTags", tagArray);
 }
