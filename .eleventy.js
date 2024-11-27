@@ -15,7 +15,7 @@ export default function (eleventyConfig) {
     eleventyConfig.addPlugin(eleventyAutoCacheBuster);
     eleventyConfig.addPassthroughCopy("node_modules/@picocss/pico/css/pico.cyan.min.css")
     eleventyConfig.addPassthroughCopy("node_modules/prismjs/themes/prism-coy.min.css")
-    
+    eleventyConfig.addPassthroughCopy("node_modules/jquery/dist/jquery.min.js")
     eleventyConfig.addPassthroughCopy("src/static/")
 
     const tagSet = new Set();

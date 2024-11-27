@@ -12,6 +12,8 @@ main
                     h1=title
             li
                 a(href="/tags/") Tags
+    input(id="search" type="text" placeholder="Search...")
+
     ul#sheet
         - let sheet = cheatsheet;
         if filter
@@ -21,3 +23,5 @@ main
             li
                 +renderEntry(entry, sheet)
     
+    script(src="/node_modules/jquery/dist/jquery.min.js")
+    script(src="/static/sheet.js")
