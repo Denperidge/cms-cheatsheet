@@ -1,6 +1,11 @@
 import markdownit from "markdown-it";
 import Prism from "prismjs";
 import loadLanguages from "prismjs/components/index.js"
+import "prismjs/plugins/toolbar/prism-toolbar.js";
+import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.js";
+import "prismjs/plugins/download-button/prism-download-button.js";
+
+
 
 const md = markdownit({
     html: true
@@ -40,6 +45,7 @@ export default {
                         console.log(`WARNING: Problem parsing language for "${entry.problem}" (value: '${language}', id: ${entry.id})`);
                         return;
                     }
+                    
 
                     let highlightedCode;
                     try {
@@ -49,7 +55,8 @@ export default {
                         highlightedCode = Prism.highlight(code, Prism.languages[language], language);
                     }
 
-                    solution = solution.replace(fullValue, `<pre><code>${highlightedCode}</pre></code>`, language)
+                    // .replace("<code>", '<code data-prismj-copy="Meow">')
+                    solution = solution.replace(fullValue, `<pre><code data-prismjs-copy="meow">${highlightedCode}</pre></code>`, language)
                 })
 
             }
