@@ -1,0 +1,166 @@
+[
+    {
+        "id": 2,
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-11-25T20:41:07.089Z",
+        "date_updated": "2024-11-26T16:11:39.782Z",
+        "links": null,
+        "tags": [
+            "JavaScript",
+            "Markdown",
+            "Eleventy"
+        ],
+        "problem": "Pre-rendering Markdown data in Eleventy",
+        "solution": "```js\n// Example pre-rendering data\n// src/_data/eleventyComputed.js\nimport markdownit from \"markdown-it\";\nconst md = markdownit();\n\nexport default {\n    renderedPosts: (data) => {\n        const posts = data.posts.map(post => {\n            post.content = md.render(post.content);\n            return post;\n        })\n        return posts;\n    }\n}\n```\n\n```json\n// Example source data\n// src/_data/posts.json\n[\n  {\n    \"title\": \"Example\",\n    \"content\": \"## Example title\\nExample line\"\n  }\n]\n```\n\n```pug\n// Example template usage of pre-rendered data\n// src/example.pug\nfor post in renderedPosts\n    article\n        h2=post.title\n        div!=post.content\n```",
+        "related": []
+    },
+    {
+        "id": 5,
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-11-26T11:55:04.138Z",
+        "date_updated": "2024-11-26T12:05:32.347Z",
+        "links": null,
+        "tags": [
+            "Caddy",
+            "NixOS"
+        ],
+        "problem": "Adding environment files to NixOS services/passing api key to Caddy securely",
+        "solution": "```nix\nservices.caddy = {\n    enable = true;\n    globalConfig = ''    \n        acme_dns porkbun {\n            api_key {$API_KEY}\n            api_secret_key {$API_SECRET_KEY}\n        }\n    '';\n    virtualHosts = {\n        \"example.com\".extraConfig = ''\n        '';\n    };\n};\nsystemd.services.caddy.serviceConfig.EnvironmentFile = [\"/path/to/.env.caddy\"];\n```\n```ini\n# /path/to/.env.caddy\nAPI_KEY=YOUR_KEY\nAPI_SECRET_KEY=YOUR_OTHER_KEY\n```",
+        "related": []
+    },
+    {
+        "id": 6,
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-11-26T11:56:50.093Z",
+        "date_updated": "2024-11-26T12:09:09.412Z",
+        "links": null,
+        "tags": [
+            "Caddy"
+        ],
+        "problem": "Using Caddy plugins on NixOS",
+        "solution": "As is Nix, if you're using different plugins, run rebuild & replace hash values\n```nix\nservices.caddy = {\n    enable = true;\n    package = (pkgs.callPackage \"${builtins.fetchurl https://raw.githubusercontent.com/jpds/nixpkgs/a33b02fa9d664f31dadc8a874eb1a5dbaa9f4ecf/pkgs/servers/caddy/default.nix}\" {\n        externalPlugins = [\n            {name = \"caddy-dns/porkbun\"; repo = \"github.com/caddy-dns/porkbun\"; version = \"70de9b4c18f94dd2203927ab00ba104d62cb99a8\"; }\n        ];\n        vendorHash = \"sha256-mdz2kAuHtWAph8hOcUa/a1DaCOlY/JaUBRvqz3vvuhE=\";\n    });\n    globalConfig = ''    \n      acme_dns porkbun {\n        api_key {$API_KEY}\n        api_secret_key {$API_SECRET_KEY}\n      }\n    '';\n    virtualHosts = {\n      \"example.com\".extraConfig = '''';\n    };\n  };\n  systemd.services.caddy.serviceConfig.EnvironmentFile = [\"/home/cat/.caddy\"];\n```",
+        "related": [
+            1
+        ]
+    },
+    {
+        "id": 7,
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-11-26T13:43:14.242Z",
+        "date_updated": "2024-11-26T16:50:17.850Z",
+        "links": null,
+        "tags": [
+            "Eleventy",
+            "JavaScript"
+        ],
+        "problem": "Implementing eleventy-auto-cache-buster",
+        "solution": "```js\nconst eleventyAutoCacheBuster = require(\"eleventy-auto-cache-buster\");\n// Alternatively, you can use ESM\nimport eleventyAutoCacheBuster from \"eleventy-auto-cache-buster\";\n\nmodule.exports = function (eleventyConfig) {\n    eleventyConfig.addPlugin(eleventyAutoCacheBuster);\n}\n```",
+        "related": []
+    },
+    {
+        "id": 1,
+        "status": "published",
+        "sort": null,
+        "date_created": "2024-11-25T16:30:35.040Z",
+        "date_updated": "2024-11-26T11:48:50.564Z",
+        "links": [
+            {
+                "label": "cakee_ru (reddit.com)",
+                "url": "https://www.reddit.com/r/NixOS/comments/1be7rcb/comment/kurkzez/"
+            }
+        ],
+        "tags": [
+            "NixOS"
+        ],
+        "problem": "Disabling a NixOS service on startup",
+        "solution": "```nix\n  services.jellyfin = {\n    enable = true;\n  };\n  # Disable service on startup\n  systemd.services.jellyfin.wantedBy = lib.mkForce [ ];\n```\nYou can change `jellyfin` to the service name of whichever service you wish to disable on startup.",
+        "related": []
+    },
+    {
+        "id": 3,
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-11-26T11:51:15.517Z",
+        "date_updated": "2024-11-26T11:51:19.918Z",
+        "links": null,
+        "tags": [
+            "CSS",
+            "Accessibility"
+        ],
+        "problem": ".sr-only & .skip-link",
+        "solution": "```html\n<!--\n    - Put this as the first element within <body> or <header>\n    - Remember to set <main id=\"main\"> \n-->\n<a class=\"skip-link\" href=\"#main\">Skip to main content</a>\n```\n\n```css\n/*\n.sr-only {\n    position: absolute;\n    left: -10000px;\n    top: auto;\n    width: 1px;\n    height: 1px;\n    overflow: hidden;\n}\n\n.skip-link {\n    position: absolute;\n    left: -10000px;\n    top: auto;\n    float: left;\n    padding: 5px;\n    overflow: hidden;\n}\n\n.skip-link:link, .skip-link:visited, .skip-link:hover, .skip-link:active {\n    color: white;  /* Normalise the color */\n}\n\n.skip-link:focus {\n    position: absolute;\n    left: 0;\n    top: 0;\n    width: auto;\n    height: auto;\n}\n```",
+        "related": []
+    },
+    {
+        "id": 4,
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-11-26T11:52:53.132Z",
+        "date_updated": "2024-11-26T11:54:32.519Z",
+        "links": [
+            {
+                "label": "Solution from Stefan Judis (stefanjudis.com)",
+                "url": "https://www.stefanjudis.com/snippets/how-to-import-json-files-in-es-modules-node-js/"
+            }
+        ],
+        "tags": [
+            "JavaScript"
+        ],
+        "problem": "ESM import JSON",
+        "solution": "```js\nconst {default: variableName} = await import(\"./data/data.json\", {assert: {type: \"json\"}})\nconsole.log(variableName);\n```",
+        "related": []
+    },
+    {
+        "id": 8,
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-11-27T15:25:37.220Z",
+        "date_updated": "2024-11-27T15:25:54.956Z",
+        "links": null,
+        "tags": [
+            "DevOps",
+            "Eleventy",
+            "GitHub-Actions"
+        ],
+        "problem": "Deploy Eleventy using Github Actions",
+        "solution": "```yaml\n# Based on https://github.com/actions/starter-workflows/blob/main/pages/static.yml\nname: Build static & deploy to GitHub Pages\n\non:\n  # Runs on pushes targeting the default branch\n  push:\n    branches: [\"main\"]\n\n  # Allows you to run this workflow manually from the Actions tab\n  workflow_dispatch:\n\n  # Allows this workflow to be called from other workflows\n  workflow_call:\n\n# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages\npermissions:\n  contents: read\n  pages: write\n  id-token: write\n\n# Allow one concurrent deployment\nconcurrency:\n  group: \"pages\"\n  cancel-in-progress: true\n\njobs:\n  deploy:\n    environment:\n      name: github-pages\n      url: ${{ steps.deployment.outputs.page_url }}\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n        with:\n          # Select latest ref instead of event trigger, in case this is triggered by another event\n          ref: ${{ github.ref }}\n      - uses: actions/setup-node@v4\n          \n      - name: Setup Pages\n        uses: actions/configure-pages@v5\n        \n      - name: Install pre-requirements\n        run: yarn install\n\n      - name: Build\n        run: yarn build\n        \n      - name: Upload artifact\n        uses: actions/upload-pages-artifact@v3\n        with:\n          # Upload entire repository\n          path: 'dist/'\n\n      - name: Deploy to GitHub Pages\n        id: deployment\n        uses: actions/deploy-pages@v4\n```\n",
+        "related": []
+    },
+    {
+        "id": 9,
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-11-27T17:35:43.779Z",
+        "date_updated": null,
+        "links": null,
+        "tags": [
+            "DevOps"
+        ],
+        "problem": "Using directus-to-data in GitHub CI",
+        "solution": "```yml\n# .github/workflows/directus.yml\nname: Update data from Directus webhook\n\non:\n  workflow_dispatch:\n\nconcurrency:\n  group: directus\n  cancel-in-progress: true\n\njobs:\n  update-data:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n    \n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n      \n      - name: Install dependencies\n        run: yarn install --immutable \n\n      # to generate files in src/\n      - name: Fetch data\n        run: yarn directus-to-data --collection-output src/_data/{{collectionName}}.json -c CollectionNameOne -c CollectionNameTwo\n        env:\n          CMS_URL: ${{ secrets.CMS_URL }}\n          STATIC_TOKEN: ${{ secrets.STATIC_TOKEN }}\n      \n      - uses: EndBug/add-and-commit@v9\n        with:\n          add: 'src/*'\n          default_author: github_actions\n          message: 'CMS update (${{ github.event.repository.updated_at}})'\n\n  deploy:\n    uses: ./.github/workflows/deploy.yml\n    needs: update-data\n    permissions:\n      contents: read\n      pages: write\n      id-token: write\n    secrets: inherit\n```",
+        "related": [
+            2
+        ]
+    },
+    {
+        "id": 10,
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-11-27T17:42:38.667Z",
+        "date_updated": "2024-11-27T17:43:53.479Z",
+        "links": null,
+        "tags": [
+            "DevOps",
+            "GitHub-Actions"
+        ],
+        "problem": "Adding secrets to GitHub Actions",
+        "solution": "1. Navigate to https://github.com/OWNER/REPO/settings/secrets/actions\n2. Add a *Repository secret*\n3. That's it! It can now be used in GitHub Actions\n\n```yml\n# .github/workflows/using-secrets.yml\nname: Example on using secrets\non:\n  workflow_dispatch:\n\njobs:\n  example:\n    runs-on: ubuntu-latest\n    steps:\n      - run: yarn directus-to-data --collection-output src/_data/{{collectionName}}.json -c CollectionName\n        env:\n          CMS_URL: ${{ secrets.CMS_URL }}\n          STATIC_TOKEN: ${{ secrets.STATIC_TOKEN }}\n\n```",
+        "related": [
+            3
+        ]
+    }
+]
