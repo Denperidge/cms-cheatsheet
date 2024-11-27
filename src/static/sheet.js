@@ -38,19 +38,56 @@ search.on("focus", async function() {
     search.on("keyup", searchEntries);
 });
 
-function copy() {
-    console.log("meow")
-}
-function download() {
 
+function _getCodeblockFromButtonsEvent(e) {
+    return $("#" +  
+        $(e.target).parent().data("code")
+    ) ;
+}
+function copy(e) {
+    const codeblock = _getCodeblockFromButtonsEvent(e)
+}
+function download(e) {
+    const buttonA = $(e.target);
+    const codeblock = _getCodeblockFromButtonsEvent(e);
+    if (!buttonA.attr("download")) {
+        console.log("generating")
+        const lang = codeblock.data("lang");
+        let mimeType;
+        switch(lang) {
+            case "javascript":
+            case "js":
+                mimeType = "text/javascript"
+                break;
+            case "html":
+                mimeType = "text/html";
+                break;
+            case "css":
+                mimeType = "text/css";
+                break;
+            case "json":
+                mimeType = "application/json";
+                break;
+
+            default:
+                mimeType = "text/plain";
+                break;
+        }
+
+        const contents = new Blob([codeblock.text()], {type: mimeType});
+        buttonA.attr("href", URL.createObjectURL(contents))
+        buttonA.attr("download", "download." + lang)
+    }
+        
 }
 
 $(document).ready(function(){
-    $("pre code").each(function(i, codeElement){
+    $("pre code").each(async function(i, codeElement){
         codeElement = $(codeElement);
-        const buttons = $('<section class="buttons"><button class="copy">Copy</button><button class="download">Download</button></section>');
+        const buttons = $(`<section class="buttons" data-code="${codeElement.attr("id")}"><button class="copy">Copy</button><a role="button" class="download">Download</a></section>`);
         buttons.find(".copy").on("click", copy)
-        buttons.find(".download").on("click", copy)
+        buttons.find(".download").on("click", download)
+        
         buttons.insertAfter(codeElement.parent())
     });
 })

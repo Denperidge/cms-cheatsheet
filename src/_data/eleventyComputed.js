@@ -34,7 +34,7 @@ export default {
             
             const codeblocks = entry.solution.matchAll(REGEX_MD_CODEBLOCK)
             if (codeblocks) {
-                Array.from(codeblocks).forEach((codeblock) => {
+                Array.from(codeblocks).forEach((codeblock, i) => {
                     let {code, language, fullValue} = codeblock.groups;
                     if (language.length < 1) {
                         console.log(`WARNING: Problem parsing language for "${entry.problem}" (value: '${language}', id: ${entry.id})`);
@@ -49,7 +49,7 @@ export default {
                         highlightedCode = Prism.highlight(code, Prism.languages[language], language);
                     }
 
-                    solution = solution.replace(fullValue, `<pre><code>${highlightedCode}</pre></code>`, language)
+                    solution = solution.replace(fullValue, `<pre><code data-lang="${language}" id="${entry.id}-${i}">${highlightedCode}</pre></code>`, language)
                 })
 
             }
