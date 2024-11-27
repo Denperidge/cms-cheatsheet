@@ -13,11 +13,13 @@ export const config = {
 export default function (eleventyConfig) {
     eleventyConfig.addPlugin(pugPlugin);
     eleventyConfig.addPlugin(eleventyAutoCacheBuster);
+
+    // Packages used on client-side
     eleventyConfig.addPassthroughCopy("node_modules/@picocss/pico/css/pico.cyan.min.css")
-    eleventyConfig.addPassthroughCopy("node_modules/prismjs/themes/prism-coy.min.css")
     eleventyConfig.addPassthroughCopy("node_modules/jquery/dist/jquery.min.js")
-    eleventyConfig.addPassthroughCopy("node_modules/fastest-levenshtein/esm/mod.js")
+    eleventyConfig.addPassthroughCopy("node_modules/prismjs/themes/prism-coy.min.css")
     eleventyConfig.addPassthroughCopy("node_modules/string-comparison/dist/index.mjs")
+
     eleventyConfig.addPassthroughCopy("src/static/")
 
     const tagSet = new Set();
