@@ -17,14 +17,17 @@ html(lang="en")
 
                         unless page.url == "/"
                             if page.url.startsWith("/tags/")
+                                - const allTagsText = page.url == "/tags/" ? "All tags" : "Tags"
                                 li
-                                    a(href="/tags/") Tags
+                                    a(href="/tags/")=allTagsText
                                 if page.url != "/tags/"
                                     li
                                         a(href=page.url)=title
             if page.url != "/tags/"
                 nav
                     ul
+                        li
+                            a(href="/tags/") All tags
                         for tag in allTags 
                             li
                                 a(href="/tags/" + tag.toLowerCase())=tag
