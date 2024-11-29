@@ -28,10 +28,6 @@
     height: auto;
 }
 
-h1 {
-    text-align: center;
-}
-
 header {
     width: 95vw;
     margin: auto;
@@ -55,10 +51,13 @@ ul li {
 #sheet > li {
     flex: 1;
 }
+main {
+    max-width: 95vw;
+    margin: auto;
+}
 #sheet article {
     max-width: 95vw;
     padding: 20px;
-    margin: auto;
 }
 #sheet {
     padding: 0;
