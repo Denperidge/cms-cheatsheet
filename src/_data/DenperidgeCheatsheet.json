@@ -1,10 +1,25 @@
 [
     {
+        "id": "implementing-eleventy-auto-cache-buster",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-11-26T13:43:14.242Z",
+        "date_updated": "2024-11-29T18:08:17.085Z",
+        "links": null,
+        "tags": [
+            "Eleventy",
+            "JavaScript"
+        ],
+        "problem": "Implementing eleventy-auto-cache-buster",
+        "solution": "```js\nconst eleventyAutoCacheBuster = require(\"eleventy-auto-cache-buster\");\n// Alternatively, you can use ESM\nimport eleventyAutoCacheBuster from \"eleventy-auto-cache-buster\";\n\nmodule.exports = function (eleventyConfig) {\n    eleventyConfig.addPlugin(eleventyAutoCacheBuster);\n}\n```",
+        "related": []
+    },
+    {
         "id": "pre-rendering-markdown-in-eleventy",
         "status": "draft",
         "sort": null,
         "date_created": "2024-11-25T20:41:07.089Z",
-        "date_updated": "2024-11-26T16:11:39.782Z",
+        "date_updated": "2024-11-29T18:08:16.943Z",
         "links": null,
         "tags": [
             "JavaScript",
@@ -20,7 +35,7 @@
         "status": "draft",
         "sort": null,
         "date_created": "2024-11-26T11:55:04.138Z",
-        "date_updated": "2024-11-26T12:05:32.347Z",
+        "date_updated": "2024-11-29T18:08:16.985Z",
         "links": null,
         "tags": [
             "Caddy",
@@ -35,36 +50,23 @@
         "status": "draft",
         "sort": null,
         "date_created": "2024-11-26T11:56:50.093Z",
-        "date_updated": "2024-11-26T12:09:09.412Z",
+        "date_updated": "2024-11-29T18:08:17.045Z",
         "links": null,
         "tags": [
             "Caddy"
         ],
         "problem": "Using Caddy plugins on NixOS",
         "solution": "As is Nix, if you're using different plugins, run rebuild & replace hash values\n```nix\nservices.caddy = {\n    enable = true;\n    package = (pkgs.callPackage \"${builtins.fetchurl https://raw.githubusercontent.com/jpds/nixpkgs/a33b02fa9d664f31dadc8a874eb1a5dbaa9f4ecf/pkgs/servers/caddy/default.nix}\" {\n        externalPlugins = [\n            {name = \"caddy-dns/porkbun\"; repo = \"github.com/caddy-dns/porkbun\"; version = \"70de9b4c18f94dd2203927ab00ba104d62cb99a8\"; }\n        ];\n        vendorHash = \"sha256-mdz2kAuHtWAph8hOcUa/a1DaCOlY/JaUBRvqz3vvuhE=\";\n    });\n    globalConfig = ''    \n      acme_dns porkbun {\n        api_key {$API_KEY}\n        api_secret_key {$API_SECRET_KEY}\n      }\n    '';\n    virtualHosts = {\n      \"example.com\".extraConfig = '''';\n    };\n  };\n  systemd.services.caddy.serviceConfig.EnvironmentFile = [\"/home/cat/.caddy\"];\n```",
-        "related": []
-    },
-    {
-        "id": "implementing-eleventy-auto-cache-buster",
-        "status": "draft",
-        "sort": null,
-        "date_created": "2024-11-26T13:43:14.242Z",
-        "date_updated": "2024-11-26T16:50:17.850Z",
-        "links": null,
-        "tags": [
-            "Eleventy",
-            "JavaScript"
-        ],
-        "problem": "Implementing eleventy-auto-cache-buster",
-        "solution": "```js\nconst eleventyAutoCacheBuster = require(\"eleventy-auto-cache-buster\");\n// Alternatively, you can use ESM\nimport eleventyAutoCacheBuster from \"eleventy-auto-cache-buster\";\n\nmodule.exports = function (eleventyConfig) {\n    eleventyConfig.addPlugin(eleventyAutoCacheBuster);\n}\n```",
-        "related": []
+        "related": [
+            1
+        ]
     },
     {
         "id": "disabling-a-nixos-service-on-startup",
         "status": "published",
         "sort": null,
         "date_created": "2024-11-25T16:30:35.040Z",
-        "date_updated": "2024-11-26T11:48:50.564Z",
+        "date_updated": "2024-11-29T18:08:17.110Z",
         "links": [
             {
                 "label": "cakee_ru (reddit.com)",
@@ -83,7 +85,7 @@
         "status": "draft",
         "sort": null,
         "date_created": "2024-11-26T11:51:15.517Z",
-        "date_updated": "2024-11-26T11:51:19.918Z",
+        "date_updated": "2024-11-29T18:08:17.138Z",
         "links": null,
         "tags": [
             "CSS",
@@ -98,7 +100,7 @@
         "status": "draft",
         "sort": null,
         "date_created": "2024-11-26T11:52:53.132Z",
-        "date_updated": "2024-11-26T11:54:32.519Z",
+        "date_updated": "2024-11-29T18:08:17.155Z",
         "links": [
             {
                 "label": "Solution from Stefan Judis (stefanjudis.com)",
@@ -117,7 +119,7 @@
         "status": "draft",
         "sort": null,
         "date_created": "2024-11-27T15:25:37.220Z",
-        "date_updated": "2024-11-27T15:25:54.956Z",
+        "date_updated": "2024-11-29T18:08:17.170Z",
         "links": null,
         "tags": [
             "DevOps",
@@ -129,26 +131,11 @@
         "related": []
     },
     {
-        "id": "using-directus-to-data-in-github-actions",
-        "status": "draft",
-        "sort": null,
-        "date_created": "2024-11-27T17:35:43.779Z",
-        "date_updated": null,
-        "links": null,
-        "tags": [
-            "DevOps",
-            "GitHub-Actions"
-        ],
-        "problem": "Using directus-to-data in GitHub Actions",
-        "solution": "```yml\n# .github/workflows/directus.yml\nname: Update data from Directus webhook\n\non:\n  workflow_dispatch:\n\nconcurrency:\n  group: directus\n  cancel-in-progress: true\n\njobs:\n  update-data:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n    \n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n      \n      - name: Install dependencies\n        run: yarn install --immutable \n\n      # to generate files in src/\n      - name: Fetch data\n        run: yarn directus-to-data --collection-output src/_data/{{collectionName}}.json -c CollectionNameOne -c CollectionNameTwo\n        env:\n          CMS_URL: ${{ secrets.CMS_URL }}\n          STATIC_TOKEN: ${{ secrets.STATIC_TOKEN }}\n      \n      - uses: EndBug/add-and-commit@v9\n        with:\n          add: 'src/*'\n          default_author: github_actions\n          message: 'CMS update (${{ github.event.repository.updated_at}})'\n\n  deploy:\n    uses: ./.github/workflows/deploy.yml\n    needs: update-data\n    permissions:\n      contents: read\n      pages: write\n      id-token: write\n    secrets: inherit\n```",
-        "related": []
-    },
-    {
         "id": "adding-secrets-to-github-actions",
         "status": "draft",
         "sort": null,
         "date_created": "2024-11-27T17:42:38.667Z",
-        "date_updated": "2024-11-27T17:43:53.479Z",
+        "date_updated": "2024-11-29T18:08:17.201Z",
         "links": null,
         "tags": [
             "DevOps",
@@ -156,13 +143,32 @@
         ],
         "problem": "Adding secrets to GitHub Actions",
         "solution": "1. Navigate to https://github.com/OWNER/REPO/settings/secrets/actions\n2. Add a *Repository secret*\n3. That's it! It can now be used in GitHub Actions\n\n```yml\n# .github/workflows/using-secrets.yml\nname: Example on using secrets\non:\n  workflow_dispatch:\n\njobs:\n  example:\n    runs-on: ubuntu-latest\n    steps:\n      - run: yarn directus-to-data --collection-output src/_data/{{collectionName}}.json -c CollectionName\n        env:\n          CMS_URL: ${{ secrets.CMS_URL }}\n          STATIC_TOKEN: ${{ secrets.STATIC_TOKEN }}\n\n```",
-        "related": []
+        "related": [
+            3
+        ]
+    },
+    {
+        "id": "using-directus-to-data-in-github-actions",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-11-27T17:35:43.779Z",
+        "date_updated": "2024-11-29T18:08:17.186Z",
+        "links": null,
+        "tags": [
+            "DevOps",
+            "GitHub-Actions"
+        ],
+        "problem": "Using directus-to-data in GitHub Actions",
+        "solution": "```yml\n# .github/workflows/directus.yml\nname: Update data from Directus webhook\n\non:\n  workflow_dispatch:\n\nconcurrency:\n  group: directus\n  cancel-in-progress: true\n\njobs:\n  update-data:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n    \n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n      \n      - name: Install dependencies\n        run: yarn install --immutable \n\n      # to generate files in src/\n      - name: Fetch data\n        run: yarn directus-to-data --collection-output src/_data/{{collectionName}}.json -c CollectionNameOne -c CollectionNameTwo\n        env:\n          CMS_URL: ${{ secrets.CMS_URL }}\n          STATIC_TOKEN: ${{ secrets.STATIC_TOKEN }}\n      \n      - uses: EndBug/add-and-commit@v9\n        with:\n          add: 'src/*'\n          default_author: github_actions\n          message: 'CMS update (${{ github.event.repository.updated_at}})'\n\n  deploy:\n    uses: ./.github/workflows/deploy.yml\n    needs: update-data\n    permissions:\n      contents: read\n      pages: write\n      id-token: write\n    secrets: inherit\n```",
+        "related": [
+            2
+        ]
     },
     {
         "id": "allow-users-to-save-text-as-file-in-javascript",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-11-27T18:01:38.402Z",
+        "date_created": "2024-11-29T18:08:17.223Z",
         "date_updated": "2024-11-27T18:04:24.119Z",
         "links": [
             {
