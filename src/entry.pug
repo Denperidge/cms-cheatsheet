@@ -1,0 +1,14 @@
+---
+layout: layout.pug
+title: Denperidge's Cheatsheet!
+pagination:
+    data: cheatsheet
+    alias: entry
+    size: 1
+eleventyComputed:
+    title: "| !{entry.problem}"
+    permalink: "| /entry/#{entry.id}/index.html"
+---
+include _includes/_entry.pug
+main 
+    +renderEntry(entry, cheatsheet)

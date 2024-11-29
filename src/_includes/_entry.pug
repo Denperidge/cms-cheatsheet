@@ -4,7 +4,8 @@ mixin renderEntry(entry, sheet=undefined)
     // data-tags=JSON.stringify(tags)
     article(id=entry.id).entry
         header
-            h2.problem=entry.problem
+            a(href="/entry/" + entry.id)
+                h2.problem=entry.problem
         div.solution!=entry.renderedSolution
 
         if sheet

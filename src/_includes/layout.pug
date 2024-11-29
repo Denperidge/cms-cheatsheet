@@ -23,6 +23,9 @@ html(lang="en")
                                 if page.url != "/tags/"
                                     li
                                         a(href=page.url)=title
+                            else if page.url.startsWith("/entry/")
+                                li
+                                    a(href=page.url)=title
             if page.url != "/tags/"
                 nav#tag-nav
                     ul.overflow-auto
