@@ -1,17 +1,17 @@
 [
     {
         "id": 1,
-        "DenperidgeCheatsheet_id": 6,
-        "related_DenperidgeCheatsheet_id": 5
+        "DenperidgeCheatsheet_id": "using-caddy-plugins-on-nixos",
+        "related_DenperidgeCheatsheet_id": "adding-env-files-to-nixos-services"
     },
     {
         "id": 2,
-        "DenperidgeCheatsheet_id": 9,
-        "related_DenperidgeCheatsheet_id": 8
+        "DenperidgeCheatsheet_id": "using-directus-to-data-in-github-actions",
+        "related_DenperidgeCheatsheet_id": "deploy-eleventy-using-github-actions"
     },
     {
         "id": 3,
-        "DenperidgeCheatsheet_id": 10,
-        "related_DenperidgeCheatsheet_id": 9
+        "DenperidgeCheatsheet_id": "adding-secrets-to-github-actions",
+        "related_DenperidgeCheatsheet_id": "using-directus-to-data-in-github-actions"
     }
 ]

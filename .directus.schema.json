@@ -64,7 +64,7 @@
         {
             "collection": "DenperidgeCheatsheet",
             "field": "id",
-            "type": "integer",
+            "type": "string",
             "meta": {
                 "collection": "DenperidgeCheatsheet",
                 "conditions": null,
@@ -72,11 +72,11 @@
                 "display_options": null,
                 "field": "id",
                 "group": null,
-                "hidden": true,
+                "hidden": false,
                 "interface": "input",
                 "note": null,
                 "options": null,
-                "readonly": true,
+                "readonly": false,
                 "required": false,
                 "sort": 1,
                 "special": null,
@@ -88,17 +88,17 @@
             "schema": {
                 "name": "id",
                 "table": "DenperidgeCheatsheet",
-                "data_type": "integer",
-                "default_value": "nextval('\"DenperidgeCheatsheet_id_seq\"'::regclass)",
+                "data_type": "character varying",
+                "default_value": null,
                 "max_length": null,
-                "numeric_precision": 32,
-                "numeric_scale": 0,
+                "numeric_precision": null,
+                "numeric_scale": null,
                 "is_nullable": false,
                 "is_unique": true,
                 "is_primary_key": true,
                 "is_generated": false,
                 "generation_expression": null,
-                "has_auto_increment": true,
+                "has_auto_increment": false,
                 "foreign_key_table": null,
                 "foreign_key_column": null
             }
@@ -609,7 +609,7 @@
             "schema": {
                 "name": "id",
                 "table": "DenperidgeCheatsheet_DenperidgeCheatsheet",
-                "data_type": "integer",
+                "data_type": "string",
                 "default_value": "nextval('\"DenperidgeCheatsheet_DenperidgeCheatsheet_id_seq\"'::regclass)",
                 "max_length": null,
                 "numeric_precision": 32,
@@ -627,7 +627,7 @@
         {
             "collection": "DenperidgeCheatsheet_DenperidgeCheatsheet",
             "field": "DenperidgeCheatsheet_id",
-            "type": "integer",
+            "type": "string",
             "meta": {
                 "collection": "DenperidgeCheatsheet_DenperidgeCheatsheet",
                 "conditions": null,
@@ -651,11 +651,11 @@
             "schema": {
                 "name": "DenperidgeCheatsheet_id",
                 "table": "DenperidgeCheatsheet_DenperidgeCheatsheet",
-                "data_type": "integer",
+                "data_type": "character varying",
                 "default_value": null,
                 "max_length": null,
-                "numeric_precision": 32,
-                "numeric_scale": 0,
+                "numeric_precision": null,
+                "numeric_scale": null,
                 "is_nullable": true,
                 "is_unique": false,
                 "is_primary_key": false,
@@ -669,7 +669,7 @@
         {
             "collection": "DenperidgeCheatsheet_DenperidgeCheatsheet",
             "field": "related_DenperidgeCheatsheet_id",
-            "type": "integer",
+            "type": "string",
             "meta": {
                 "collection": "DenperidgeCheatsheet_DenperidgeCheatsheet",
                 "conditions": null,
@@ -693,11 +693,11 @@
             "schema": {
                 "name": "related_DenperidgeCheatsheet_id",
                 "table": "DenperidgeCheatsheet_DenperidgeCheatsheet",
-                "data_type": "integer",
+                "data_type": "character varying",
                 "default_value": null,
                 "max_length": null,
-                "numeric_precision": 32,
-                "numeric_scale": 0,
+                "numeric_precision": null,
+                "numeric_scale": null,
                 "is_nullable": true,
                 "is_unique": false,
                 "is_primary_key": false,
