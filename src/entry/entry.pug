@@ -9,6 +9,6 @@ eleventyComputed:
     title: "| !{entry.problem}"
     permalink: "| /entry/#{entry.id}/index.html"
 ---
-include _includes/_entry.pug
+include ../_includes/_entry.pug
 main 
     +renderEntry(entry, cheatsheet)

@@ -1,0 +1,12 @@
+---
+layout: layout.pug
+permalink: /entry/
+redirectTo: /
+---
+
+main#main
+    p Redirecting to #[a(href=redirectTo) mhomeain page]!
+    p Attempting to redirect in 2 seconds...
+
+script.
+    setTimeout(()=> { window.location.href = "#{redirectTo}"; }, 2000)
