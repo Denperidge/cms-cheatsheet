@@ -48,6 +48,11 @@ ul li {
     padding-left: 0;
     padding-right: 0;
 }
+[aria-label="breadcrumb"] ul {
+    flex-wrap: wrap;
+    max-width: 95vw;
+    line-height: 80%;
+}
 #sheet > li {
     flex: 1;
 }
@@ -82,11 +87,6 @@ main {
     align-items: center;
 }
 
-@media (prefers-color-scheme: dark) {
-    .actions img {
-        filter: invert(1);
-    }
-}
 .buttons img {
     width: 50%;
     height: 50%;
