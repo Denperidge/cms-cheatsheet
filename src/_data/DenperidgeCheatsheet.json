@@ -162,5 +162,28 @@
         "related": [
             3
         ]
+    },
+    {
+        "id": 11,
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-11-27T18:01:38.402Z",
+        "date_updated": "2024-11-27T18:04:24.119Z",
+        "links": [
+            {
+                "label": "Based on Kanchu's code (stackoverflow.com)",
+                "url": "https://stackoverflow.com/a/30832210"
+            },
+            {
+                "label": "Example usage (github.com/Denperidge/cms-cheatsheet)",
+                "url": "https://github.com/Denperidge/cms-cheatsheet/blob/47aab934f66d5472a7426dafeffcb6bff54f8b5e/src/static/sheet.js#L51"
+            }
+        ],
+        "tags": [
+            "JavaScript"
+        ],
+        "problem": "Allow users to save text as file in JavaScript",
+        "solution": "```js\nconst text = document.querySelector(\"#text\");\nfunction onDownoadClick(e) {\n    const aElem = e.target;\n    if (!aElem.download) {\n        const lang = text.dataset.language;\n        let mimeType;\n        switch(lang) {\n            case \"javascript\":\n            case \"js\":\n                mimeType = \"text/javascript\"\n                break;\n            case \"html\":\n                mimeType = \"text/html\";\n                break;\n            case \"css\":\n                mimeType = \"text/css\";\n                break;\n            case \"json\":\n                mimeType = \"application/json\";\n                break;\n            default:\n                mimeType = \"text/plain\";\n                break;\n        }\n\n        const contents = new Blob([], {type: mimeType});\n        aElem.href = URL.createObjectURL(contents);\n        aElem.download = \"filename.\" + lang;\n    }\n}\n```\nThe code above will generate a file on click *and* allow the user to download it in one go. Furthermore, the generated data is saved for future presses of the button.",
+        "related": []
     }
 ]
