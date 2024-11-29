@@ -7,8 +7,8 @@
   "scripts": {
     "start": "yarn eleventy --serve",
     "build": "yarn eleventy",
-    "data": "yarn data:pull && yarn data:pull:schema",
-    "data:pull": "yarn directus-to-data --collection-output src/_data/{{collectionName}}.json -c DenperidgeCheatsheet -c DenperidgeCheatsheet_DenperidgeCheatsheet",
+    "data": "yarn directus-to-data --collection-output src/_data/{{collectionName}}.json -c DenperidgeCheatsheet -c DenperidgeCheatsheet_DenperidgeCheatsheet",
+    "data:pull": "yarn data && yarn data:pull:schema",
     "data:pull:schema": "yarn directus-to-data --backup-schema .directus.schema.json --collection-output NO_WRITE -c DenperidgeCheatsheet -c DenperidgeCheatsheet_DenperidgeCheatsheet"
   },
   "dependencies": {
