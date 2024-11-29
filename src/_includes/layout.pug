@@ -32,4 +32,9 @@ html(lang="en")
                             li
                                 a(href="/tags/" + tag.toLowerCase())=tag
 
+            //- TODO: find a way to get layout used in eleventy
+            if page.url == "/" || (page.url != "/tags/" && page.url.startsWith("/tags/"))
+                input(id="search" type="text" placeholder="Search...")
+
+
         | !{content}
