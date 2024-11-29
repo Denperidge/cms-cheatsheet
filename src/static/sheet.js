@@ -85,7 +85,22 @@ function download(e) {
 $(document).ready(function(){
     $("pre code").each(async function(i, codeElement){
         codeElement = $(codeElement);
-        const buttons = $(`<section class="buttons" data-code="${codeElement.attr("id")}"><button class="copy">Copy</button><a role="button" class="download">Download</a></section>`);
+        const buttons = $(`
+        <section 
+            class="buttons actions"
+            data-code="${codeElement.attr("id")}"
+        >
+            <button aria-label="Copy code" title="Copy code" class="copy">
+                <img aria-hidden="true" 
+                     src="/static/copy.svg"
+                     alt="Copy"></button>
+            <a aria-label="Download code as file" title="Download code as file"
+               role="button" class="download">
+               <img aria-hidden="true"
+                    src="/static/download.svg"
+                    alt="Download" />
+            </a>
+        </section>`);
         buttons.find(".copy").on("click", copy)
         buttons.find(".download").on("click", download)
         

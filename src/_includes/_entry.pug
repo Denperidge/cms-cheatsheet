@@ -29,7 +29,7 @@ mixin renderEntry(entry, sheet=undefined)
                             a(href=link.url)=link.label
             if entry.tags
                 hr
-                ul.tags
+                ul.tags.buttons
                     for tag in entry.tags
                         li
                             a(role="button" href="/tags/" + tag.toLowerCase())=tag

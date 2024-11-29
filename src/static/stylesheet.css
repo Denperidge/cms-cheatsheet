@@ -66,3 +66,29 @@ main {
     justify-content: space-around;
     gap: 25px;
 }
+
+.buttons {
+
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+.buttons.actions > * {
+    width: 3em;
+    height: 3em;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (prefers-color-scheme: dark) {
+    .actions img {
+        filter: invert(1);
+    }
+}
+.buttons img {
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+}
