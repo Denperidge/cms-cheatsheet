@@ -28,8 +28,13 @@
     height: auto;
 }
 
+h1 {
+    text-align: center;
+}
+
 header {
     width: 95vw;
+    margin: auto;
 }
 #search {
     width: 95vw;
@@ -52,6 +57,7 @@ ul li {
 #sheet article {
     max-width: 95vw;
     padding: 20px;
+    margin: auto;
 }
 #sheet {
     padding: 0;
