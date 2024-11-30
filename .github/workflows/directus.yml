@@ -23,7 +23,7 @@ jobs:
 
       # to generate files in src/
       - name: Fetch data
-        run: yarn directus-to-data --collection-output src/_data/{{collectionName}}.json -c CollectionNameOne -c CollectionNameTwo
+        run: yarn directus-to-data --collection-output src/_data/{{collectionName}}.json -c DenperidgeCheatsheet -c DenperidgeCheatsheet_DenperidgeCheatsheet
         env:
           CMS_URL: ${{ secrets.CMS_URL }}
           STATIC_TOKEN: ${{ secrets.STATIC_TOKEN }}
