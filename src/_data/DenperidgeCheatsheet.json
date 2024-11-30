@@ -62,25 +62,6 @@
         ]
     },
     {
-        "id": "disabling-a-nixos-service-on-startup",
-        "status": "published",
-        "sort": null,
-        "date_created": "2024-11-25T16:30:35.040Z",
-        "date_updated": "2024-11-29T18:08:17.110Z",
-        "links": [
-            {
-                "label": "cakee_ru (reddit.com)",
-                "url": "https://www.reddit.com/r/NixOS/comments/1be7rcb/comment/kurkzez/"
-            }
-        ],
-        "tags": [
-            "NixOS"
-        ],
-        "problem": "Disabling a NixOS service on startup",
-        "solution": "```nix\n  services.jellyfin = {\n    enable = true;\n  };\n  # Disable service on startup\n  systemd.services.jellyfin.wantedBy = lib.mkForce [ ];\n```\nYou can change `jellyfin` to the service name of whichever service you wish to disable on startup.",
-        "related": []
-    },
-    {
         "id": "css-accessibility-classes",
         "status": "draft",
         "sort": null,
@@ -146,6 +127,25 @@
         "related": [
             3
         ]
+    },
+    {
+        "id": "disabling-a-nixos-service-on-startup",
+        "status": "published",
+        "sort": null,
+        "date_created": "2024-11-25T16:30:35.040Z",
+        "date_updated": "2024-11-30T00:22:45.616Z",
+        "links": [
+            {
+                "label": "Solution by cakee_ru (reddit.com/r/NixOS)",
+                "url": "https://www.reddit.com/r/NixOS/comments/1be7rcb/comment/kurkzez/"
+            }
+        ],
+        "tags": [
+            "NixOS"
+        ],
+        "problem": "Disabling a NixOS service on startup",
+        "solution": "```nix\n  services.jellyfin = {\n    enable = true;\n  };\n  # Disable service on startup\n  systemd.services.jellyfin.wantedBy = lib.mkForce [ ];\n```\nYou can change `jellyfin` to the service name of whichever service you wish to disable on startup.",
+        "related": []
     },
     {
         "id": "using-directus-to-data-in-github-actions",
