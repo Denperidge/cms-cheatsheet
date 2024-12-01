@@ -5,21 +5,36 @@ const cache = [];
 async function cacheEntries() {
     $(".entry").each((i, entry) => {
         entry = $(entry);
-        cache.push(`${entry.children("header").text()}//${entry.attr("id")}`)
+        cache.push({
+            header: entry.children("header").text(),
+            id: entry.attr("id")
+        });
     })
 }
 const search = $("#search")
 
 async function searchEntries() {
-    let matches = cosine
-        .sortMatch(search.val(), cache)
-        .sort(match => match.rating)
-        .map(match => match.member.substring(
-            match.member.lastIndexOf("//") + 2));
+    const headers = cache.map(obj => obj.header)
 
-    let sortedChildren = $("#sheet").children(".entryLi").sort(function(a,b) {
-        const aIndex = matches.indexOf(a.querySelector("article").id);
-        const bIndex = matches.indexOf(b.querySelector("article").id);
+    let matches = cosine
+        .sortMatch(search.val(), headers)
+        .sort(match => match.rating)
+    
+    console.log(matches)
+    
+    matches.forEach(match => {
+        console.log()
+        $("#sheet").append($("#" + cache[match.index].id))
+    })
+    return
+
+
+    let sortedChildren = $("#sheet").children(".entryLi").sort(function(entryLiElemA,entryLiElemB) {
+        const aIndex = matches.find(match => match.id == entryLiElemA.querySelector("article").id);
+        const bIndex = matches.indexOf(entryLiElemB.querySelector("article").id);
+        console.log(aIndex, entryLiElemA.querySelector("article").id)
+        console.log(bIndex, entryLiElemA.querySelector("article").id)
+
         if (aIndex < bIndex) {
             return -1;
         } else if (aIndex > bIndex) {
