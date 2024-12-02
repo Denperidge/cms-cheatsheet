@@ -22,39 +22,15 @@ async function cacheEntries() {
         });
     })
     fuse = new Fuse(cache, {
-        keys: ["header"]
+        keys: ["header"],
+        includeScore: true
     })
 }
 
 async function searchEntries() {
-    console.log(cache)
-
-    console.log(fuse.search(search.val()))
-    return;
-    const headers = cache.map(obj => obj.header);
-
-    let matches = {};
-
-    [cosine, stringComparison.levenshtein].forEach((algo) => {
-        algo.sortMatch(search.val(), headers).forEach((match) => {
-            const entryId = cache[match.index].id;
-            createOrAddToNumberInObj(matches, entryId, match.rating)
-        })
-        
-    })
-    
-        
-        
-        //.sort(match => match.rating)
-    
-    console.log(matches)
-
-    
-    const idSortedByRating = Object.keys(matches).sort(function (matchIdA, matchIdB) {
-        const valueA = matches[matchIdA];
-        const valueB = matches[matchIdB]
-        console.log(matchIdA, valueA)
-
+    const matchesLowToHigh = fuse.search(search.val()).sort(function(matchA, matchB) {
+        const valueA = matchA.score;
+        const valueB = matchB.score;
         if (valueA < valueB) {
             return -1;
         } else if (valueA > valueB) {
@@ -63,29 +39,12 @@ async function searchEntries() {
             return 0;
         }
     })
-    console.log(idSortedByRating)
-    console.log("---")
-    idSortedByRating.forEach(entryId => {
-        $("#sheet").append($("#" + entryId))
-    })
-    return
 
+    console.log(matchesLowToHigh)
 
-    let sortedChildren = $("#sheet").children(".entryLi").sort(function(entryLiElemA,entryLiElemB) {
-        const aIndex = matches.find(match => match.id == entryLiElemA.querySelector("article").id);
-        const bIndex = matches.indexOf(entryLiElemB.querySelector("article").id);
-        console.log(aIndex, entryLiElemA.querySelector("article").id)
-        console.log(bIndex, entryLiElemA.querySelector("article").id)
-
-        if (aIndex < bIndex) {
-            return -1;
-        } else if (aIndex > bIndex) {
-            return 1;
-        } else {
-            return 0;
-        }
-    })
-    $("#sheet").append(sortedChildren)
+    matchesLowToHigh.forEach(match => {
+        $("#sheet").prepend($("#" + match.item.id))
+    });
 }
 
 search.on("focus", async function() {
