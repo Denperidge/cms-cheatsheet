@@ -1,6 +1,14 @@
 import stringComparison from "/node_modules/string-comparison/dist/index.mjs";
 const cosine = stringComparison.cosine
 
+function createOrAddToNumberInObj(obj, key, value) {
+    if (Object.keys(obj).includes(key)) {
+        obj[key] += value;
+    } else {
+        obj[key] = value;
+    }
+}
+
 const cache = [];
 async function cacheEntries() {
     $(".entry").each((i, entry) => {
@@ -14,17 +22,42 @@ async function cacheEntries() {
 const search = $("#search")
 
 async function searchEntries() {
-    const headers = cache.map(obj => obj.header)
+    const headers = cache.map(obj => obj.header);
 
-    let matches = cosine
-        .sortMatch(search.val(), headers)
-        .sort(match => match.rating)
+    let matches = {};
+
+    [cosine, stringComparison.levenshtein].forEach((algo) => {
+        algo.sortMatch(search.val(), headers).forEach((match) => {
+            const entryId = cache[match.index].id;
+            createOrAddToNumberInObj(matches, entryId, match.rating)
+        })
+        
+    })
+    
+        
+        
+        //.sort(match => match.rating)
     
     console.log(matches)
+
     
-    matches.forEach(match => {
-        console.log()
-        $("#sheet").append($("#" + cache[match.index].id))
+    const idSortedByRating = Object.keys(matches).sort(function (matchIdA, matchIdB) {
+        const valueA = matches[matchIdA];
+        const valueB = matches[matchIdB]
+        console.log(matchIdA, valueA)
+
+        if (valueA < valueB) {
+            return -1;
+        } else if (valueA > valueB) {
+            return 1;
+        } else {
+            return 0;
+        }
+    })
+    console.log(idSortedByRating)
+    console.log("---")
+    idSortedByRating.forEach(entryId => {
+        $("#sheet").append($("#" + entryId))
     })
     return
 
