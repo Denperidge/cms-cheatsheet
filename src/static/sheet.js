@@ -21,12 +21,15 @@ async function cacheEntries() {
             id: entry.attr("id")
         });
     })
-    fuse = new Fuse(cache, {})
+    fuse = new Fuse(cache, {
+        keys: ["header"]
+    })
 }
 
 async function searchEntries() {
+    console.log(cache)
 
-    console.log(fuse.search(cache))
+    console.log(fuse.search(search.val()))
     return;
     const headers = cache.map(obj => obj.header);
 
