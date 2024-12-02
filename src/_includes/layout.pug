@@ -8,10 +8,12 @@ html(lang="en")
         meta(name="og:title", content=title)
         meta(name="description", content=description)
         meta(name="og:description", content=description)
-        meta(name="og:type", content="website")
+        block ogtype
+            meta(name="og:type", content="website")
         meta(name="og:url", content=baseUrl + page.url)
         meta(name="og:site_name", content="Denperidge's Cheatsheet")
         
+        meta(name="generator", content=eleventy.generator)
 
         link(rel="stylesheet", href="/node_modules/@picocss/pico/css/pico.cyan.min.css")
         link(rel="stylesheet", href="/node_modules/prismjs/themes/prism-coy.min.css")

@@ -11,6 +11,14 @@ eleventyComputed:
 ---
 extends /layout.pug
 
+block ogtype
+    meta(name="og:type", content="article")
+    meta(name="article:published_time", content=entry.date_created)
+    meta(name="article:modified_time", content=entry.date_updated)
+    meta(name="article:section", content="Programming")
+    for tag in entry.tags
+        meta(name="article:tag", content=tag)
+
 block content
     include ../_includes/_entry.pug
     main 
