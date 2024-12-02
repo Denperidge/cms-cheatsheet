@@ -1,12 +1,13 @@
 ---
 layout: layout.pug
-title: Denperidge's Cheatsheet!
+title: Redirect
 pagination:
     data: cheatsheet
     alias: entry
     size: 1
 eleventyComputed:
     title: "| !{entry.problem}"
+    description: "| !{entry.solution}"
     permalink: "| /entry/#{entry.id}/index.html"
 ---
 include ../_includes/_entry.pug

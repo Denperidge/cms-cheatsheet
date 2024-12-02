@@ -6,6 +6,7 @@ pagination:
     size: 1
 eleventyComputed:
     title: "| #{tag}"
+    description: "| All entries tagged with #{tag}"
     filter: "| #{tag}"
     permalink: "| /tags/#{tag.toLowerCase()}/index.html"
 ---
