@@ -62,21 +62,6 @@
         ]
     },
     {
-        "id": "css-accessibility-classes",
-        "status": "draft",
-        "sort": null,
-        "date_created": "2024-11-26T11:51:15.517Z",
-        "date_updated": "2024-11-29T18:08:17.138Z",
-        "links": null,
-        "tags": [
-            "CSS",
-            "Accessibility"
-        ],
-        "problem": "CSS accessibility classes: .sr-only & .skip-link",
-        "solution": "```html\n<!--\n    - Put this as the first element within <body> or <header>\n    - Remember to set <main id=\"main\"> \n-->\n<a class=\"skip-link\" href=\"#main\">Skip to main content</a>\n```\n\n```css\n/*\n.sr-only {\n    position: absolute;\n    left: -10000px;\n    top: auto;\n    width: 1px;\n    height: 1px;\n    overflow: hidden;\n}\n\n.skip-link {\n    position: absolute;\n    left: -10000px;\n    top: auto;\n    float: left;\n    padding: 5px;\n    overflow: hidden;\n}\n\n.skip-link:link, .skip-link:visited, .skip-link:hover, .skip-link:active {\n    color: white;  /* Normalise the color */\n}\n\n.skip-link:focus {\n    position: absolute;\n    left: 0;\n    top: 0;\n    width: auto;\n    height: auto;\n}\n```",
-        "related": []
-    },
-    {
         "id": "esm-import-json",
         "status": "draft",
         "sort": null,
@@ -145,6 +130,21 @@
         ],
         "problem": "Disabling a NixOS service on startup",
         "solution": "```nix\n  services.jellyfin = {\n    enable = true;\n  };\n  # Disable service on startup\n  systemd.services.jellyfin.wantedBy = lib.mkForce [ ];\n```\nYou can change `jellyfin` to the service name of whichever service you wish to disable on startup.",
+        "related": []
+    },
+    {
+        "id": "css-accessibility-classes",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-11-26T11:51:15.517Z",
+        "date_updated": "2024-12-02T19:42:00.967Z",
+        "links": null,
+        "tags": [
+            "CSS",
+            "Accessibility"
+        ],
+        "problem": "CSS accessibility classes: .sr-only & .skip-link",
+        "solution": "```css\n.sr-only {\n    position: absolute;\n    left: -10000px;\n    top: auto;\n    width: 1px;\n    height: 1px;\n    overflow: hidden;\n}\n\n.skip-link {\n    position: absolute;\n    left: -10000px;\n    top: auto;\n    float: left;\n    padding: 5px;\n    overflow: hidden;\n}\n\n.skip-link:link, .skip-link:visited, .skip-link:hover, .skip-link:active {\n    color: white;  /* Normalise the color */\n}\n\n.skip-link:focus {\n    position: absolute;\n    left: 0;\n    top: 0;\n    width: auto;\n    height: auto;\n}\n```\n\n```html\n<!--\n    - Put this as the first element within <body> or <header>\n    - Remember to set <main id=\"main\"> \n-->\n<a class=\"skip-link\" href=\"#main\">Skip to main content</a>\n```",
         "related": []
     },
     {
