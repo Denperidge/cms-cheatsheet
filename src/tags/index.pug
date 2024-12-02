@@ -1,19 +1,21 @@
 ---
-layout: layout.pug
 title: Tags
 description: All tags used on the website
 permalink: /tags/index.html
 ---
+extends /layout.pug
 
-style.
-    main nav ul {
-        flex-wrap: wrap;
-    }
+block content
 
-main
-    h2 All tags:
-    nav
-        ul
-            for tag in allTags
-                li
-                    a(href="/tags/" + tag.toLowerCase())=tag
+    style.
+        main nav ul {
+            flex-wrap: wrap;
+        }
+
+    main
+        h2 All tags:
+        nav
+            ul
+                for tag in allTags
+                    li
+                        a(href="/tags/" + tag.toLowerCase())=tag

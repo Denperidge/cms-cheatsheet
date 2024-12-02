@@ -1,5 +1,4 @@
 ---
-layout: sheet.pug
 pagination:
     data: allTags
     alias: tag
@@ -10,3 +9,4 @@ eleventyComputed:
     filter: "| #{tag}"
     permalink: "| /tags/#{tag.toLowerCase()}/index.html"
 ---
+extends /sheet.pug

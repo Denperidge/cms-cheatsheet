@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Redirect
 pagination:
     data: cheatsheet
@@ -10,6 +9,9 @@ eleventyComputed:
     description: "| !{entry.solution}"
     permalink: "| /entry/#{entry.id}/index.html"
 ---
-include ../_includes/_entry.pug
-main 
-    +renderEntry(entry, cheatsheet)
+extends /layout.pug
+
+block content
+    include ../_includes/_entry.pug
+    main 
+        +renderEntry(entry, cheatsheet)

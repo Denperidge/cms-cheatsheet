@@ -1,19 +1,18 @@
----
-layout: layout.pug
----
+extends /layout.pug
 
-include _entry.pug
+block content
+    include _entry.pug
 
-main
-    ul#sheet
-        - let sheet = cheatsheet;
-        if filter
-            - sheet = sheet.filter(entry => entry.tags.includes(filter))
+    main
+        ul#sheet
+            - let sheet = cheatsheet;
+            if filter
+                - sheet = sheet.filter(entry => entry.tags.includes(filter))
 
-        for entry in sheet
-            li.entryLi
-                +renderEntry(entry, sheet)
-    
-    script(src="/node_modules/jquery/dist/jquery.min.js")
-    
-    script(type="module" src="/static/sheet.js")
+            for entry in sheet
+                li.entryLi
+                    +renderEntry(entry, sheet)
+        
+        script(src="/node_modules/jquery/dist/jquery.min.js")
+        
+        script(type="module" src="/static/sheet.js")
