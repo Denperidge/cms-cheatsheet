@@ -19,14 +19,20 @@ function renderCheatsheet(data) {
         //console.log(hljs.highlightAuto(entry.solution).value)
         let solution = entry.solution;
 
+        let description = undefined;
         
         const codeblocks = entry.solution.matchAll(REGEX_MD_CODEBLOCK)
         if (codeblocks) {
             Array.from(codeblocks).forEach((codeblock, i) => {
                 let {code, language, fullValue} = codeblock.groups;
+
                 if (language.length < 1) {
                     console.log(`WARNING: Problem parsing language for "${entry.problem}" (value: '${language}', id: ${entry.id})`);
                     return;
+                }
+
+                if (description === undefined) {
+                    description = code;
                 }
 
                 let highlightedCode;
@@ -42,7 +48,7 @@ function renderCheatsheet(data) {
 
         }
         
-        
+        entry.description = description;
         entry.renderedSolution = md.render(solution);
         return entry;
     })
