@@ -1,5 +1,7 @@
-import stringComparison from "/node_modules/string-comparison/dist/index.mjs";
-const cosine = stringComparison.cosine
+import Fuse from "/node_modules/fuse.js/dist/fuse.min.mjs";
+
+let fuse;
+const search = $("#search");
 
 function createOrAddToNumberInObj(obj, key, value) {
     if (Object.keys(obj).includes(key)) {
@@ -11,6 +13,7 @@ function createOrAddToNumberInObj(obj, key, value) {
 
 const cache = [];
 async function cacheEntries() {
+
     $(".entry").each((i, entry) => {
         entry = $(entry);
         cache.push({
@@ -18,10 +21,13 @@ async function cacheEntries() {
             id: entry.attr("id")
         });
     })
+    fuse = new Fuse(cache, {})
 }
-const search = $("#search")
 
 async function searchEntries() {
+
+    console.log(fuse.search(cache))
+    return;
     const headers = cache.map(obj => obj.header);
 
     let matches = {};

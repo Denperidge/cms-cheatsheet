@@ -65,6 +65,7 @@ export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("node_modules/jquery/dist/jquery.min.js")
     eleventyConfig.addPassthroughCopy("node_modules/prismjs/themes/prism-coy.min.css")
     eleventyConfig.addPassthroughCopy("node_modules/string-comparison/dist/index.mjs")
+    eleventyConfig.addPassthroughCopy("node_modules/fuse.js/dist/fuse.min.mjs")
 
     eleventyConfig.addPassthroughCopy("src/static/")
 

@@ -578,10 +578,10 @@ ee-first@1.1.1:
   resolved "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz"
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
-eleventy-auto-cache-buster@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.npmjs.org/eleventy-auto-cache-buster/-/eleventy-auto-cache-buster-0.6.1.tgz"
-  integrity sha512-4pFanOJYIMMSN6Z9dODfl2Cb92vXwqUSqi6r7MthRV4wGS0dDxJ8TrDPLuu8uSlQyjoEmfwWTNnJhNSWB0neAg==
+eleventy-auto-cache-buster@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/eleventy-auto-cache-buster/-/eleventy-auto-cache-buster-0.7.0.tgz#031cea503570d5d658b58293a02b6b9debff57f2"
+  integrity sha512-OcICXm0XwbPJxhrCZyKU2cC3w9ciRUEUl1SBOKgImeroF5OwnaJ2xho/c0V+NRJ+NILXnCq9YR0Yr1dZ+yGP1w==
   dependencies:
     glob "^10.3.10"
 
@@ -750,6 +750,11 @@ function-bind@^1.1.2:
   version "1.1.2"
   resolved "https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz"
   integrity sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==
+
+fuse.js@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-7.0.0.tgz#6573c9fcd4c8268e403b4fc7d7131ffcf99a9eb2"
+  integrity sha512-14F4hBIxqKvD4Zz/XjDc3y94mNZN6pRv3U13Udo0lNLCWRBUsrMv2xwcF/y/Z5sV6+FQW+/ow68cHpm4sunt8Q==
 
 get-intrinsic@^1.1.3, get-intrinsic@^1.2.4:
   version "1.2.4"
