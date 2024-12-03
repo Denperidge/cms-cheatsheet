@@ -1,5 +1,8 @@
 import pugPlugin from "@11ty/eleventy-plugin-pug";
 import eleventyAutoCacheBuster from "eleventy-auto-cache-buster";
+//import eleventySass from "eleventy-sass";
+import eleventySass from "@grimlink/eleventy-plugin-sass";
+import sass from "sass";
 import markdownit from "markdown-it";
 import Prism from "prismjs";
 import loadLanguages from "prismjs/components/index.js"
@@ -66,9 +69,15 @@ export default function (eleventyConfig) {
     eleventyConfig.addPlugin(pugPlugin);
     eleventyConfig.addPlugin(eleventyAutoCacheBuster);
 
+    eleventyConfig.addPlugin(eleventySass, {
+        sass: sass,
+        outputPath: "",  // optional subdirectory
+        //outputStyle: "compressed"
+    });
+
     // Packages used on client-side
-    eleventyConfig.addPassthroughCopy("node_modules/@picocss/pico/css/pico.cyan.min.css")
-    eleventyConfig.addPassthroughCopy("node_modules/jquery/dist/jquery.min.js")
+    //eleventyConfig.addPassthroughCopy("node_modules/@picocss/pico/css/pico.cyan.min.css")
+    eleventyConfig.addPassthroughCopy("node_modules/jquery/dist/jquery.min.js", "vendor")
     eleventyConfig.addPassthroughCopy("node_modules/prismjs/themes/prism-coy.min.css")
     eleventyConfig.addPassthroughCopy("node_modules/string-comparison/dist/index.mjs")
     eleventyConfig.addPassthroughCopy("node_modules/fuse.js/dist/fuse.min.mjs")
