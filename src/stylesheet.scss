@@ -1,24 +1,19 @@
-@use "@picocss/pico/scss/colors/utilities" with (
-    $palette: (
-        "color-families": (
-            pink
-        )
-    )
-);
-
-@use "@picocss/pico/scss/pico";
-
-/*
 @use "@picocss/pico/scss/pico" with (
-    $theme-color: $pink-500
+    $theme-color: "violet"
 );
-*/
 
-[data-theme=light],
-:root:not([data-theme=dark])  {
-    --primary: #ff0000;
-    --pico-primary: #ff0000;
-  }
+[data-theme="light"], :root:not([data-theme="dark"]) {
+    @import "catppuccin-prismjs/themes/latte";
+}
+[data-theme="dark"] {
+    @import "catppuccin-prismjs/themes/macchiato";
+    
+}
+@media only screen and (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        @import "catppuccin-prismjs/themes/macchiato";
+    }
+}
 
 .sr-only {
     position: absolute;

@@ -72,14 +72,13 @@ export default function (eleventyConfig) {
     eleventyConfig.addPlugin(eleventySass, {
         sass: sass,
         outputPath: "",  // optional subdirectory
-        //outputStyle: "compressed"
+        outputStyle: "compressed"
     });
 
     // Packages used on client-side
     //eleventyConfig.addPassthroughCopy("node_modules/@picocss/pico/css/pico.cyan.min.css")
-    eleventyConfig.addPassthroughCopy("node_modules/jquery/dist/jquery.min.js", "vendor")
-    eleventyConfig.addPassthroughCopy("node_modules/prismjs/themes/prism-coy.min.css")
-    eleventyConfig.addPassthroughCopy("node_modules/string-comparison/dist/index.mjs")
+    eleventyConfig.addPassthroughCopy("node_modules/jquery/dist/jquery.min.js")
+    eleventyConfig.addPassthroughCopy("node_modules/catppuccin-prismjs/themes/macchiato.css")
     eleventyConfig.addPassthroughCopy("node_modules/fuse.js/dist/fuse.min.mjs")
 
     eleventyConfig.addPassthroughCopy("src/static/")
