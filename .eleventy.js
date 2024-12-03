@@ -76,9 +76,7 @@ export default function (eleventyConfig) {
     });
 
     // Packages used on client-side
-    //eleventyConfig.addPassthroughCopy("node_modules/@picocss/pico/css/pico.cyan.min.css")
     eleventyConfig.addPassthroughCopy("node_modules/jquery/dist/jquery.min.js")
-    eleventyConfig.addPassthroughCopy("node_modules/catppuccin-prismjs/themes/macchiato.css")
     eleventyConfig.addPassthroughCopy("node_modules/fuse.js/dist/fuse.min.mjs")
 
     eleventyConfig.addPassthroughCopy("src/static/")
