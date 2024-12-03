@@ -186,5 +186,108 @@
         "problem": "Allow users to save text as file in JavaScript",
         "solution": "```js\nconst text = document.querySelector(\"#text\");\nfunction onDownoadClick(e) {\n    const aElem = e.target;\n    if (!aElem.download) {\n        const lang = text.dataset.language;\n        let mimeType;\n        switch(lang) {\n            case \"javascript\":\n            case \"js\":\n                mimeType = \"text/javascript\"\n                break;\n            case \"html\":\n                mimeType = \"text/html\";\n                break;\n            case \"css\":\n                mimeType = \"text/css\";\n                break;\n            case \"json\":\n                mimeType = \"application/json\";\n                break;\n            default:\n                mimeType = \"text/plain\";\n                break;\n        }\n\n        const contents = new Blob([], {type: mimeType});\n        aElem.href = URL.createObjectURL(contents);\n        aElem.download = \"filename.\" + lang;\n    }\n}\n```\nThe code above will generate a file on click *and* allow the user to download it in one go. Furthermore, the generated data is saved for future presses of the button.",
         "related": []
+    },
+    {
+        "id": "running-nixos-rebuild-with-specified-config",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-12-02T22:13:15.477Z",
+        "date_updated": null,
+        "links": [
+            {
+                "label": "Adapted from jeremiah.emmer's example (discourse.nixos.org)",
+                "url": "https://discourse.nixos.org/t/nixos-rebuild-how-to-specify-configuration-nix-when-attempting-to-build-deploy-remotely/30979/2"
+            }
+        ],
+        "tags": [
+            "NixOS"
+        ],
+        "problem": "Running nixos-rebuild with specified config",
+        "solution": "```bash\nnixos-rebuild switch -I nixos-config=$(pwd)/configuration.nix\n```",
+        "related": []
+    },
+    {
+        "id": "referring-to-a-users-uid-in-nixos",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-12-02T22:29:17.886Z",
+        "date_updated": "2024-12-02T22:30:12.854Z",
+        "links": [
+            {
+                "label": "Adapted from l0b0's solution (unix.stackexchange.com)",
+                "url": "https://unix.stackexchange.com/a/554329"
+            }
+        ],
+        "tags": [
+            "NixOS"
+        ],
+        "problem": "Referring to a user's UID in NixOS",
+        "solution": "Please note:\n- If referring to a user's UID this way, the UID needs to be explicitly defined (see example below)\n- This example also shows how to convert the UID to a string for services that need it\n```nix\n{ config, pkgs, lib, ... }:\n\n{\n  users.users = {\n    exampleuser = {\n      uid = 1005;\n    };\n  };\n\n  virtualisation.oci-containers.containers = {\n    exampleservice = {\n      environment = { \n        PUID = builtins.toString config.users.users.exampleuser.uid;\n      };\n    };\n  };\n}\n```",
+        "related": []
+    },
+    {
+        "id": "implementing-eleventy-sass",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-12-03T13:47:20.287Z",
+        "date_updated": null,
+        "links": [
+            {
+                "label": "Example usage (github.com)",
+                "url": "https://github.com/Denperidge/denperidge.github.io/blob/6e32666881455992f7612f2569bfc8926128d605/.eleventy.js#L8"
+            }
+        ],
+        "tags": [
+            "Eleventy",
+            "JavaScript",
+            "SCSS"
+        ],
+        "problem": "Implementing eleventy-sass",
+        "solution": "```js\nconst eleventySass = require(\"eleventy-sass\");\n\nmodule.exports = function (eleventyConfig) {\n    eleventyConfig.addPlugin(eleventySass, {\n        sass: {\n            loadPaths: [\"node_modules\"]\n        }\n    });\n}\n```",
+        "related": [
+            4
+        ]
+    },
+    {
+        "id": "linux-recursively-delete-empty-directories",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-12-03T16:10:19.235Z",
+        "date_updated": null,
+        "links": [
+            {
+                "label": "Solution by Baldrick (stackoverflow.com)",
+                "url": "https://unix.stackexchange.com/a/46326"
+            }
+        ],
+        "tags": [
+            "Linux"
+        ],
+        "problem": "Linux: recursively delete empty directories ",
+        "solution": "```bash\n# Print empty directories:\nfind . -type d -empty -print\n# Delete empty directories:\nfind . -type d -empty -print\n```",
+        "related": []
+    },
+    {
+        "id": "python-sort-by-semantic-version",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-12-02T22:36:31.991Z",
+        "date_updated": "2024-12-03T16:11:42.187Z",
+        "links": [
+            {
+                "label": "Solution by Eli Bendersky (stackoverflow.com)",
+                "url": "https://stackoverflow.com/a/2574090"
+            },
+            {
+                "label": "Example usage (github.com)",
+                "url": "https://github.com/Denperidge/firefox-default-prefs-fetcher/blob/5179691b9b4bf626eae947dff03beb24f12b1074/src/firefox_default_prefs_fetcher/get_versions.py#L77"
+            }
+        ],
+        "tags": [
+            "Python"
+        ],
+        "problem": "Python: sort by semantic version",
+        "solution": "```python\n[\"1.0.0\", \"2.1.2\", \"1.0.1\"].sort(reverse=True, key=lambda v: [int(n) for n in v.replace(\"esr\", \"\").split(\".\")])\n```",
+        "related": []
     }
 ]

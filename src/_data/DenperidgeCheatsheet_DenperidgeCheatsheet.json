@@ -13,5 +13,10 @@
         "id": 3,
         "DenperidgeCheatsheet_id": "adding-secrets-to-github-actions",
         "related_DenperidgeCheatsheet_id": "using-directus-to-data-in-github-actions"
+    },
+    {
+        "id": 4,
+        "DenperidgeCheatsheet_id": "implementing-eleventy-sass",
+        "related_DenperidgeCheatsheet_id": "implementing-eleventy-auto-cache-buster"
     }
 ]
