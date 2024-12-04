@@ -73,7 +73,7 @@ export default function (eleventyConfig) {
         sass: sass,
         outputPath: "",  // optional subdirectory
         outputStyle: "compressed"
-    });
+    });    
 
     // Packages used on client-side
     eleventyConfig.addPassthroughCopy("node_modules/jquery/dist/jquery.min.js")

@@ -1,0 +1,25 @@
+---
+layout: layout.pug
+title: Redirecting...
+pagination:
+    data: redirects
+    alias: redirect
+    size: 1
+eleventyComputed:
+    permalink: /{{redirect.from}}/index.html
+redirects:
+    - from: /entry/
+      to: /
+      label: home page
+    - from: /entry/running-nixos-rebuild-with-specified-config/
+      to: /entry/nixos-rebuild-specify-config
+      label: this entry's new url   
+---
+<main id="main">
+    <h2>Redirecting...</h2>
+    <p>If it doesn't redirect you in about 2 seconds, <a href="{{redirect.to}})">click here to go to {{redirect.label}}</a> </p>
+    <script>
+        setTimeout(()=> { window.location.href = "{{redirect.to}}"; }, 5000)
+    </script>
+</main>
+    

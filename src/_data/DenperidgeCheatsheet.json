@@ -4,7 +4,7 @@
         "status": "draft",
         "sort": null,
         "date_created": "2024-11-26T13:43:14.242Z",
-        "date_updated": "2024-11-29T18:08:17.085Z",
+        "date_updated": "2024-12-04T13:25:59.851Z",
         "links": null,
         "tags": [
             "Eleventy",
@@ -19,7 +19,7 @@
         "status": "draft",
         "sort": null,
         "date_created": "2024-11-25T20:41:07.089Z",
-        "date_updated": "2024-11-29T18:08:16.943Z",
+        "date_updated": "2024-12-04T13:25:59.873Z",
         "links": null,
         "tags": [
             "JavaScript",
@@ -35,7 +35,7 @@
         "status": "draft",
         "sort": null,
         "date_created": "2024-11-26T11:55:04.138Z",
-        "date_updated": "2024-11-29T18:08:16.985Z",
+        "date_updated": "2024-12-04T13:25:59.888Z",
         "links": null,
         "tags": [
             "Caddy",
@@ -46,27 +46,11 @@
         "related": []
     },
     {
-        "id": "using-caddy-plugins-on-nixos",
-        "status": "draft",
-        "sort": null,
-        "date_created": "2024-11-26T11:56:50.093Z",
-        "date_updated": "2024-11-29T18:08:17.045Z",
-        "links": null,
-        "tags": [
-            "Caddy"
-        ],
-        "problem": "Using Caddy plugins on NixOS",
-        "solution": "As is Nix, if you're using different plugins, run rebuild & replace hash values\n```nix\nservices.caddy = {\n    enable = true;\n    package = (pkgs.callPackage \"${builtins.fetchurl https://raw.githubusercontent.com/jpds/nixpkgs/a33b02fa9d664f31dadc8a874eb1a5dbaa9f4ecf/pkgs/servers/caddy/default.nix}\" {\n        externalPlugins = [\n            {name = \"caddy-dns/porkbun\"; repo = \"github.com/caddy-dns/porkbun\"; version = \"70de9b4c18f94dd2203927ab00ba104d62cb99a8\"; }\n        ];\n        vendorHash = \"sha256-mdz2kAuHtWAph8hOcUa/a1DaCOlY/JaUBRvqz3vvuhE=\";\n    });\n    globalConfig = ''    \n      acme_dns porkbun {\n        api_key {$API_KEY}\n        api_secret_key {$API_SECRET_KEY}\n      }\n    '';\n    virtualHosts = {\n      \"example.com\".extraConfig = '''';\n    };\n  };\n  systemd.services.caddy.serviceConfig.EnvironmentFile = [\"/home/cat/.caddy\"];\n```",
-        "related": [
-            1
-        ]
-    },
-    {
         "id": "esm-import-json",
         "status": "draft",
         "sort": null,
         "date_created": "2024-11-26T11:52:53.132Z",
-        "date_updated": "2024-11-29T18:08:17.155Z",
+        "date_updated": "2024-12-04T13:25:59.918Z",
         "links": [
             {
                 "label": "Solution from Stefan Judis (stefanjudis.com)",
@@ -81,27 +65,11 @@
         "related": []
     },
     {
-        "id": "deploy-eleventy-using-github-actions",
-        "status": "draft",
-        "sort": null,
-        "date_created": "2024-11-27T15:25:37.220Z",
-        "date_updated": "2024-11-29T18:08:17.170Z",
-        "links": null,
-        "tags": [
-            "DevOps",
-            "Eleventy",
-            "GitHub-Actions"
-        ],
-        "problem": "Deploy Eleventy using Github Actions",
-        "solution": "```yaml\n# Based on https://github.com/actions/starter-workflows/blob/main/pages/static.yml\nname: Build static & deploy to GitHub Pages\n\non:\n  # Runs on pushes targeting the default branch\n  push:\n    branches: [\"main\"]\n\n  # Allows you to run this workflow manually from the Actions tab\n  workflow_dispatch:\n\n  # Allows this workflow to be called from other workflows\n  workflow_call:\n\n# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages\npermissions:\n  contents: read\n  pages: write\n  id-token: write\n\n# Allow one concurrent deployment\nconcurrency:\n  group: \"pages\"\n  cancel-in-progress: true\n\njobs:\n  deploy:\n    environment:\n      name: github-pages\n      url: ${{ steps.deployment.outputs.page_url }}\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n        with:\n          # Select latest ref instead of event trigger, in case this is triggered by another event\n          ref: ${{ github.ref }}\n      - uses: actions/setup-node@v4\n          \n      - name: Setup Pages\n        uses: actions/configure-pages@v5\n        \n      - name: Install pre-requirements\n        run: yarn install\n\n      - name: Build\n        run: yarn build\n        \n      - name: Upload artifact\n        uses: actions/upload-pages-artifact@v3\n        with:\n          # Upload entire repository\n          path: 'dist/'\n\n      - name: Deploy to GitHub Pages\n        id: deployment\n        uses: actions/deploy-pages@v4\n```\n",
-        "related": []
-    },
-    {
         "id": "adding-secrets-to-github-actions",
         "status": "draft",
         "sort": null,
         "date_created": "2024-11-27T17:42:38.667Z",
-        "date_updated": "2024-11-29T18:08:17.201Z",
+        "date_updated": "2024-12-04T13:25:59.943Z",
         "links": null,
         "tags": [
             "DevOps",
@@ -118,7 +86,7 @@
         "status": "published",
         "sort": null,
         "date_created": "2024-11-25T16:30:35.040Z",
-        "date_updated": "2024-11-30T00:22:45.616Z",
+        "date_updated": "2024-12-04T13:25:59.966Z",
         "links": [
             {
                 "label": "Solution by cakee_ru (reddit.com/r/NixOS)",
@@ -133,11 +101,62 @@
         "related": []
     },
     {
+        "id": "linux-recursively-delete-empty-directories",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-12-03T16:10:19.235Z",
+        "date_updated": "2024-12-04T13:35:35.071Z",
+        "links": [
+            {
+                "label": "Solution by Baldrick (unix.stackexchange.com)",
+                "url": "https://unix.stackexchange.com/a/46326"
+            }
+        ],
+        "tags": [
+            "Linux"
+        ],
+        "problem": "Linux: recursively delete empty directories ",
+        "solution": "```bash\n# Print empty directories:\nfind . -type d -empty -print\n# Delete empty directories:\nfind . -type d -empty -delete\n```",
+        "related": []
+    },
+    {
+        "id": "deploy-eleventy-using-github-actions",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-11-27T15:25:37.220Z",
+        "date_updated": "2024-12-04T13:25:59.929Z",
+        "links": null,
+        "tags": [
+            "DevOps",
+            "Eleventy",
+            "GitHub-Actions"
+        ],
+        "problem": "Deploy Eleventy using Github Actions",
+        "solution": "```yaml\n# Based on https://github.com/actions/starter-workflows/blob/main/pages/static.yml\nname: Build static & deploy to GitHub Pages\n\non:\n  # Runs on pushes targeting the default branch\n  push:\n    branches: [\"main\"]\n\n  # Allows you to run this workflow manually from the Actions tab\n  workflow_dispatch:\n\n  # Allows this workflow to be called from other workflows\n  workflow_call:\n\n# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages\npermissions:\n  contents: read\n  pages: write\n  id-token: write\n\n# Allow one concurrent deployment\nconcurrency:\n  group: \"pages\"\n  cancel-in-progress: true\n\njobs:\n  deploy:\n    environment:\n      name: github-pages\n      url: ${{ steps.deployment.outputs.page_url }}\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n        with:\n          # Select latest ref instead of event trigger, in case this is triggered by another event\n          ref: ${{ github.ref }}\n      - uses: actions/setup-node@v4\n          \n      - name: Setup Pages\n        uses: actions/configure-pages@v5\n        \n      - name: Install pre-requirements\n        run: yarn install\n\n      - name: Build\n        run: yarn build\n        \n      - name: Upload artifact\n        uses: actions/upload-pages-artifact@v3\n        with:\n          # Upload entire repository\n          path: 'dist/'\n\n      - name: Deploy to GitHub Pages\n        id: deployment\n        uses: actions/deploy-pages@v4\n```\n",
+        "related": []
+    },
+    {
+        "id": "using-caddy-plugins-on-nixos",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-11-26T11:56:50.093Z",
+        "date_updated": "2024-12-04T13:25:59.903Z",
+        "links": null,
+        "tags": [
+            "Caddy"
+        ],
+        "problem": "Using Caddy plugins on NixOS",
+        "solution": "As is Nix, if you're using different plugins, run rebuild & replace hash values\n```nix\nservices.caddy = {\n    enable = true;\n    package = (pkgs.callPackage \"${builtins.fetchurl https://raw.githubusercontent.com/jpds/nixpkgs/a33b02fa9d664f31dadc8a874eb1a5dbaa9f4ecf/pkgs/servers/caddy/default.nix}\" {\n        externalPlugins = [\n            {name = \"caddy-dns/porkbun\"; repo = \"github.com/caddy-dns/porkbun\"; version = \"70de9b4c18f94dd2203927ab00ba104d62cb99a8\"; }\n        ];\n        vendorHash = \"sha256-mdz2kAuHtWAph8hOcUa/a1DaCOlY/JaUBRvqz3vvuhE=\";\n    });\n    globalConfig = ''    \n      acme_dns porkbun {\n        api_key {$API_KEY}\n        api_secret_key {$API_SECRET_KEY}\n      }\n    '';\n    virtualHosts = {\n      \"example.com\".extraConfig = '''';\n    };\n  };\n  systemd.services.caddy.serviceConfig.EnvironmentFile = [\"/home/cat/.caddy\"];\n```",
+        "related": [
+            1
+        ]
+    },
+    {
         "id": "css-accessibility-classes",
         "status": "draft",
         "sort": null,
         "date_created": "2024-11-26T11:51:15.517Z",
-        "date_updated": "2024-12-02T19:42:00.967Z",
+        "date_updated": "2024-12-04T13:25:59.978Z",
         "links": null,
         "tags": [
             "CSS",
@@ -152,7 +171,7 @@
         "status": "draft",
         "sort": null,
         "date_created": "2024-11-27T17:35:43.779Z",
-        "date_updated": "2024-11-29T18:08:17.186Z",
+        "date_updated": "2024-12-04T13:25:59.993Z",
         "links": null,
         "tags": [
             "DevOps",
@@ -169,7 +188,7 @@
         "status": "draft",
         "sort": null,
         "date_created": "2024-11-29T18:08:17.223Z",
-        "date_updated": "2024-11-27T18:04:24.119Z",
+        "date_updated": "2024-12-04T13:26:00.006Z",
         "links": [
             {
                 "label": "Based on Kanchu's code (stackoverflow.com)",
@@ -188,30 +207,11 @@
         "related": []
     },
     {
-        "id": "running-nixos-rebuild-with-specified-config",
-        "status": "draft",
-        "sort": null,
-        "date_created": "2024-12-02T22:13:15.477Z",
-        "date_updated": null,
-        "links": [
-            {
-                "label": "Adapted from jeremiah.emmer's example (discourse.nixos.org)",
-                "url": "https://discourse.nixos.org/t/nixos-rebuild-how-to-specify-configuration-nix-when-attempting-to-build-deploy-remotely/30979/2"
-            }
-        ],
-        "tags": [
-            "NixOS"
-        ],
-        "problem": "Running nixos-rebuild with specified config",
-        "solution": "```bash\nnixos-rebuild switch -I nixos-config=$(pwd)/configuration.nix\n```",
-        "related": []
-    },
-    {
         "id": "referring-to-a-users-uid-in-nixos",
         "status": "draft",
         "sort": null,
         "date_created": "2024-12-02T22:29:17.886Z",
-        "date_updated": "2024-12-02T22:30:12.854Z",
+        "date_updated": "2024-12-04T13:26:00.038Z",
         "links": [
             {
                 "label": "Adapted from l0b0's solution (unix.stackexchange.com)",
@@ -230,7 +230,7 @@
         "status": "draft",
         "sort": null,
         "date_created": "2024-12-03T13:47:20.287Z",
-        "date_updated": null,
+        "date_updated": "2024-12-04T13:26:00.055Z",
         "links": [
             {
                 "label": "Example usage (github.com)",
@@ -249,30 +249,11 @@
         ]
     },
     {
-        "id": "linux-recursively-delete-empty-directories",
-        "status": "draft",
-        "sort": null,
-        "date_created": "2024-12-03T16:10:19.235Z",
-        "date_updated": null,
-        "links": [
-            {
-                "label": "Solution by Baldrick (stackoverflow.com)",
-                "url": "https://unix.stackexchange.com/a/46326"
-            }
-        ],
-        "tags": [
-            "Linux"
-        ],
-        "problem": "Linux: recursively delete empty directories ",
-        "solution": "```bash\n# Print empty directories:\nfind . -type d -empty -print\n# Delete empty directories:\nfind . -type d -empty -print\n```",
-        "related": []
-    },
-    {
         "id": "python-sort-by-semantic-version",
         "status": "draft",
         "sort": null,
         "date_created": "2024-12-02T22:36:31.991Z",
-        "date_updated": "2024-12-03T16:11:42.187Z",
+        "date_updated": "2024-12-04T13:26:00.087Z",
         "links": [
             {
                 "label": "Solution by Eli Bendersky (stackoverflow.com)",
@@ -288,6 +269,25 @@
         ],
         "problem": "Python: sort by semantic version",
         "solution": "```python\n[\"1.0.0\", \"2.1.2\", \"1.0.1\"].sort(reverse=True, key=lambda v: [int(n) for n in v.replace(\"esr\", \"\").split(\".\")])\n```",
+        "related": []
+    },
+    {
+        "id": "nixos-rebuild-specify-config",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-12-04T13:26:00.025Z",
+        "date_updated": "2024-12-04T13:35:03.397Z",
+        "links": [
+            {
+                "label": "Adapted from jeremiah.emmer's example (discourse.nixos.org)",
+                "url": "https://discourse.nixos.org/t/nixos-rebuild-how-to-specify-configuration-nix-when-attempting-to-build-deploy-remotely/30979/2"
+            }
+        ],
+        "tags": [
+            "NixOS"
+        ],
+        "problem": "nixos-rebuild: specify config",
+        "solution": "```bash\nnixos-rebuild switch -I nixos-config=$(pwd)/configuration.nix\n```",
         "related": []
     }
 ]
