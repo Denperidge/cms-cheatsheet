@@ -1,11 +1,11 @@
 import pugPlugin from "@11ty/eleventy-plugin-pug";
 import eleventyAutoCacheBuster from "eleventy-auto-cache-buster";
-//import eleventySass from "eleventy-sass";
 import eleventySass from "@grimlink/eleventy-plugin-sass";
 import sass from "sass";
 import markdownit from "markdown-it";
 import Prism from "prismjs";
 import loadLanguages from "prismjs/components/index.js"
+import eleventyFavicons from "eleventy-favicons";
 
 const {default: cheatsheet} = await import("./src/_data/DenperidgeCheatsheet.json", {assert: {type: "json"}})
 
@@ -66,14 +66,24 @@ export const config = {
 };
 
 export default function (eleventyConfig) {
-    eleventyConfig.addPlugin(pugPlugin);
+    eleventyConfig.addPlugin(pugPlugin, {
+        globals: ["filters"]
+    });
     eleventyConfig.addPlugin(eleventyAutoCacheBuster);
 
     eleventyConfig.addPlugin(eleventySass, {
         sass: sass,
         outputPath: "",  // optional subdirectory
         outputStyle: "compressed"
-    });    
+    });
+    
+    eleventyConfig.addPlugin(eleventyFavicons, {
+        image: "src/static/logo.svg",
+        favicons: {
+            background: "#8352c5",
+            theme_color: "#8352c5",
+        }
+    });
 
     // Packages used on client-side
     eleventyConfig.addPassthroughCopy("node_modules/jquery/dist/jquery.min.js")

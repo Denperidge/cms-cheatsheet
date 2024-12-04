@@ -12,7 +12,9 @@ html(lang="en")
             meta(name="og:type", content="website")
         meta(name="og:url", content=baseUrl + page.url)
         meta(name="og:site_name", content="Denperidge's Cheatsheet")
-        
+        meta(name="og:image", content=baseUrl + "/icon-512.png")
+        .
+            !{favicons}
         meta(name="generator", content=eleventy.generator)
 
         link(rel="stylesheet", href="/stylesheet.css")
