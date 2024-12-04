@@ -19,7 +19,7 @@
     "catppuccin-prismjs": "https://github.com/catppuccin/prismjs.git",
     "directus-to-data": "^0.7.2",
     "eleventy-auto-cache-buster": "^0.7.0",
-    "eleventy-favicons": "^1.0.0",
+    "eleventy-favicons": "^1.0.2",
     "fuse.js": "^7.0.0",
     "jquery": "^3.7.1",
     "markdown-it": "^14.1.0",

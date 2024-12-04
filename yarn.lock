@@ -836,10 +836,10 @@ eleventy-auto-cache-buster@^0.7.0:
   dependencies:
     glob "^10.3.10"
 
-eleventy-favicons@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/eleventy-favicons/-/eleventy-favicons-1.0.0.tgz#e7d4c0f65da08971dde8ef06a1004399279c19fb"
-  integrity sha512-zcsLCS4SBCsctOMhLWOvLR3Ko8Xh+ghRXM0YhB0Z23LipjDjY5LxBy+IoVONKrKmkYYE0tKRD+ZSYUjbvOrWuw==
+eleventy-favicons@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/eleventy-favicons/-/eleventy-favicons-1.0.2.tgz#ead3ddf84571cafcf3d720e14dff3b46a6e8156a"
+  integrity sha512-V2C317OP8GZP0Q/H3d/pCPhdVk18cPVSfT2SpsrUVphufL8LeSiUJGsXPZc1U/31Z+sy4IqyfpwhYwcxyYlZCg==
   dependencies:
     favicons "^7.2.0"
 
