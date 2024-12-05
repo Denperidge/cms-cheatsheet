@@ -1,7 +1,8 @@
 # cms-cheathseet
-Boilerplate & commonly-used code is inevitable, but often enough hard to find. This project aims to be an appendage to developers' bug database; any amount of quick solutions, easily found & copied. Statically generated & minimal JavaScript to ensure it is quick in usage.
+Boilerplate & commonly-used code is inevitable, but remembering all of them out of the back of your head isn't usually an option. Trying to look up solutions online can lead to dead links, removed comments, and important solutions being hidden in a randomly named gist. This project aims to be an appendage to developers' bug databases; any amount of quick solutions, easily found & copied. Statically generated with minimal JavaScript usage to ensure it is quick in usage.
 
 This project works using [Directus](https://directus.io/) by default, but can take any JSON input.
+
 
 ## How-to
 ### Cloning & running locally
