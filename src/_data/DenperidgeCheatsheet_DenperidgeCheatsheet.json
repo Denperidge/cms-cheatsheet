@@ -18,5 +18,10 @@
         "id": 4,
         "DenperidgeCheatsheet_id": "implementing-eleventy-sass",
         "related_DenperidgeCheatsheet_id": "implementing-eleventy-auto-cache-buster"
+    },
+    {
+        "id": 5,
+        "DenperidgeCheatsheet_id": "github-actions-yarn-publish-to-npm-and-gh-releases",
+        "related_DenperidgeCheatsheet_id": "github-actions-yarn-test"
     }
 ]
