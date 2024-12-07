@@ -351,5 +351,28 @@
             5,
             6
         ]
+    },
+    {
+        "id": "node-js-built-in-https-request",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-12-07T13:43:22.429Z",
+        "date_updated": "2024-12-07T13:44:02.037Z",
+        "links": [
+            {
+                "label": "Code based on Geshan Manandhar's solution (logrocket.com)",
+                "url": "https://blog.logrocket.com/5-ways-make-http-requests-node-js/"
+            },
+            {
+                "label": "Example usage (github.com)",
+                "url": "https://github.com/Denperidge/eleventy-test/blob/298c838c5c16fe42a4e2ef91c3a356fe7c113969/src/index.ts#L22"
+            }
+        ],
+        "tags": [
+            "JavaScript"
+        ],
+        "problem": "Node.js: using the built-in https request functionality",
+        "solution": "```js\nimport { get } from \"https\";\nget({\n    hostname: \"api.github.com\",\n    path: \"/repos/11ty/eleventy/tags\",\n    headers: {\n        \"User-Agent\": \"Mozilla/5.0\"\n    }\n}, (res)=> {\n    let data: Buffer[] = [];\n    res.on(\"data\", chunk => {\n        data.push(chunk);\n    }).on(\"end\", () => {\n        resolve(\n            JSON.parse(\n                Buffer.concat(data).toString(\"utf-\n            )\n        )\n    }).on(\"error\", (err) => {\n        throw err;\n    })\n});\n",
+        "related": []
     }
 ]
