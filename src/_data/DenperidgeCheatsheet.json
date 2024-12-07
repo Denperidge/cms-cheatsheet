@@ -357,7 +357,7 @@
         "status": "draft",
         "sort": null,
         "date_created": "2024-12-07T13:43:22.429Z",
-        "date_updated": "2024-12-07T13:44:02.037Z",
+        "date_updated": "2024-12-07T14:00:28.593Z",
         "links": [
             {
                 "label": "Code based on Geshan Manandhar's solution (logrocket.com)",
@@ -372,7 +372,7 @@
             "JavaScript"
         ],
         "problem": "Node.js: using the built-in https request functionality",
-        "solution": "```js\nimport { get } from \"https\";\nget({\n    hostname: \"api.github.com\",\n    path: \"/repos/11ty/eleventy/tags\",\n    headers: {\n        \"User-Agent\": \"Mozilla/5.0\"\n    }\n}, (res)=> {\n    let data: Buffer[] = [];\n    res.on(\"data\", chunk => {\n        data.push(chunk);\n    }).on(\"end\", () => {\n        resolve(\n            JSON.parse(\n                Buffer.concat(data).toString(\"utf-\n            )\n        )\n    }).on(\"error\", (err) => {\n        throw err;\n    })\n});\n",
+        "solution": "```js\nimport { get } from \"https\";\nget({\n    hostname: \"api.github.com\",\n    path: \"/repos/11ty/eleventy/tags\",\n    headers: {\n        \"User-Agent\": \"Mozilla/5.0\"\n    }\n}, (res)=> {\n    let data: Buffer[] = [];\n    res.on(\"data\", chunk => {\n        data.push(chunk);\n    }).on(\"end\", () => {\n        resolve(\n            JSON.parse(\n                Buffer.concat(data).toString(\"utf-\n            )\n        )\n    }).on(\"error\", (err) => {\n        throw err;\n    })\n});\n```",
         "related": []
     }
 ]
