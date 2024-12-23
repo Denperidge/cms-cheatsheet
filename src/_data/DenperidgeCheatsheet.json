@@ -380,14 +380,14 @@
         "status": "draft",
         "sort": null,
         "date_created": "2024-12-23T18:27:38.225Z",
-        "date_updated": "2024-12-23T18:51:09.506Z",
+        "date_updated": "2024-12-23T18:54:03.925Z",
         "links": null,
         "tags": [
             "Eleventy",
             "JavaScript"
         ],
         "problem": "directus-to-data: basic usage",
-        "solution": "The following example. You can replace the `yarn` command with `npm run`\n```\n{\n  \"scripts\": {\n      \"data\": \"directus-to-data -c CollectionOne -c CollectionTwo --collection-output src/_data/{{collectionName}}.json\",\n      \"_schema\": \"directus-to-data -c CollectionOne -c CollectionTwo --collection-output NO_WRITE --assets-output NO_WRITE\",\n    \"schema:backup\": \"yarn _schema --backup-schema .directus.schema.json \",\n    \"schema:restore\": \"yarn _schema --restore-schema .directus.schema.json \",\n    \"schema:apply\": \"yarn schema:restore --apply-schema\"\n  }\n}\n```\n\nTo install, use the following command:\n```bash\n# NPM\nnpm install --save-dev directus-to-data\n# Yarn\nyarn add -D directus-to-data\n```",
+        "solution": "The following example. You can replace the `yarn` command with `npm run`\n```\n# package.json\n{\n  \"scripts\": {\n    \"data\": \"directus-to-data -c CollectionOne -c CollectionTwo --collection-output src/_data/{{collectionName}}.json\",\n    \"_schema\": \"directus-to-data -c CollectionOne -c CollectionTwo --collection-output NO_WRITE --assets-output NO_WRITE\",\n    \"schema:backup\": \"yarn _schema --backup-schema .directus.schema.json\",\n    \"schema:restore\": \"yarn _schema --restore-schema .directus.schema.json\",\n    \"schema:apply\": \"yarn schema:restore --apply-schema\"\n  }\n}\n\n# .directus.json\n{\n    \"cmsUrl\": \"https://cms.example.com\",\n    \"staticToken\": \"DAE_DOJ?1-edOJQHDS\"\n}\n```\n\nTo install, use the following command:\n```bash\n# npm\nnpm install --save-dev directus-to-data\n# Yarn\nyarn add -D directus-to-data\n```",
         "related": []
     }
 ]
