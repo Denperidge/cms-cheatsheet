@@ -226,29 +226,6 @@
         "related": []
     },
     {
-        "id": "implementing-eleventy-sass",
-        "status": "draft",
-        "sort": null,
-        "date_created": "2024-12-03T13:47:20.287Z",
-        "date_updated": "2024-12-04T13:26:00.055Z",
-        "links": [
-            {
-                "label": "Example usage (github.com)",
-                "url": "https://github.com/Denperidge/denperidge.github.io/blob/6e32666881455992f7612f2569bfc8926128d605/.eleventy.js#L8"
-            }
-        ],
-        "tags": [
-            "Eleventy",
-            "JavaScript",
-            "SCSS"
-        ],
-        "problem": "Implementing eleventy-sass",
-        "solution": "```js\nconst eleventySass = require(\"eleventy-sass\");\n\nmodule.exports = function (eleventyConfig) {\n    eleventyConfig.addPlugin(eleventySass, {\n        sass: {\n            loadPaths: [\"node_modules\"]\n        }\n    });\n}\n```",
-        "related": [
-            4
-        ]
-    },
-    {
         "id": "python-sort-by-semantic-version",
         "status": "draft",
         "sort": null,
@@ -374,5 +351,28 @@
         "problem": "Node.js: using the built-in https request functionality",
         "solution": "```js\nimport { get } from \"https\";\nget({\n    hostname: \"api.github.com\",\n    path: \"/repos/11ty/eleventy/tags\",\n    headers: {\n        \"User-Agent\": \"Mozilla/5.0\"\n    }\n}, (res)=> {\n    let data: Buffer[] = [];\n    res.on(\"data\", chunk => {\n        data.push(chunk);\n    }).on(\"end\", () => {\n        resolve(\n            JSON.parse(\n                Buffer.concat(data).toString(\"utf-\n            )\n        )\n    }).on(\"error\", (err) => {\n        throw err;\n    })\n});\n```",
         "related": []
+    },
+    {
+        "id": "implementing-eleventy-sass",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-12-03T13:47:20.287Z",
+        "date_updated": "2024-12-23T18:14:18.989Z",
+        "links": [
+            {
+                "label": "Example usage (github.com)",
+                "url": "https://github.com/Denperidge/denperidge.github.io/blob/6e32666881455992f7612f2569bfc8926128d605/.eleventy.js#L8"
+            }
+        ],
+        "tags": [
+            "Eleventy",
+            "JavaScript",
+            "SCSS"
+        ],
+        "problem": "Implementing eleventy-sass",
+        "solution": "```js\nimport eleventySass from \"@grimlink/eleventy-plugin-sass\";\n\nmodule.exports = function (eleventyConfig) {\n    eleventyConfig.addPlugin(eleventySass, {\n        sass,\n        outputPath: \"\",\n        includePaths: [\"node_modules\"]\n    });\n}\n```\n\nTo install, run\n```bash\n# NPM\nnpm install --save-dev sass @grimlink/eleventy-plugin-sass\n# Yarn\nyarn add -D sass @grimlink/eleventy-plugin-sass\n```",
+        "related": [
+            4
+        ]
     }
 ]
