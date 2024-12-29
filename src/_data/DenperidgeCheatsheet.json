@@ -152,21 +152,6 @@
         ]
     },
     {
-        "id": "css-accessibility-classes",
-        "status": "draft",
-        "sort": null,
-        "date_created": "2024-11-26T11:51:15.517Z",
-        "date_updated": "2024-12-04T13:25:59.978Z",
-        "links": null,
-        "tags": [
-            "CSS",
-            "Accessibility"
-        ],
-        "problem": "CSS accessibility classes: .sr-only & .skip-link",
-        "solution": "```css\n.sr-only {\n    position: absolute;\n    left: -10000px;\n    top: auto;\n    width: 1px;\n    height: 1px;\n    overflow: hidden;\n}\n\n.skip-link {\n    position: absolute;\n    left: -10000px;\n    top: auto;\n    float: left;\n    padding: 5px;\n    overflow: hidden;\n}\n\n.skip-link:link, .skip-link:visited, .skip-link:hover, .skip-link:active {\n    color: white;  /* Normalise the color */\n}\n\n.skip-link:focus {\n    position: absolute;\n    left: 0;\n    top: 0;\n    width: auto;\n    height: auto;\n}\n```\n\n```html\n<!--\n    - Put this as the first element within <body> or <header>\n    - Remember to set <main id=\"main\"> \n-->\n<a class=\"skip-link\" href=\"#main\">Skip to main content</a>\n```",
-        "related": []
-    },
-    {
         "id": "using-directus-to-data-in-github-actions",
         "status": "draft",
         "sort": null,
@@ -308,6 +293,21 @@
         ],
         "problem": "GitHub Actions: yarn test",
         "solution": "```yml\n# .github/workflows/test.yml\nname: Run tests\n\non: [push, pull_request, workflow_call]\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n      - run: yarn install --immutable \n      - run: yarn test\n```\n\nUsing it in other workflows:\n```yml\n# .github/workflows/publish.yml\nname: Publish npm package\n\non:\n  push:\n    tags:\n      - \"*\"\n\njobs:\n  test:\n    uses: ./.github/workflows/test.yml\n\n  github-release:\n    runs-on: ubuntu-latest\n    needs: [test]\n    steps:\n      # ...\n```\n\n",
+        "related": []
+    },
+    {
+        "id": "css-accessibility-classes",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-11-26T11:51:15.517Z",
+        "date_updated": "2024-12-29T13:54:52.261Z",
+        "links": null,
+        "tags": [
+            "CSS",
+            "Accessibility"
+        ],
+        "problem": "CSS accessibility classes: .sr-only & .skip-link",
+        "solution": "```css\n/* Based on https://webaim.org/techniques/css/invisiblecontent/ & https://www.w3schools.com/accessibility/accessibility_skip_links.php */\n.sr-only {\n    position: absolute;\n    left: -10000px;\n    top: auto;\n    width: 1px;\n    height: 1px;\n    overflow: hidden;\n}\n\n.skip-link:focus {\n    left: 0;\n    top: 0;\n    width: auto;\n    height: auto;\n}\n\n.skip-link:link, .skip-link:visited, .skip-link:hover, .skip-link:active {\n    color: white;  /* Normalise the color */\n}\n```\n\n```html\n<!--\n    - Put this as the first element within <body> or <header>\n    - Remember to set <main id=\"main\"> \n-->\n<a class=\"sr-only skip-link\" href=\"#main\">Skip to main content</a>\n```",
         "related": []
     },
     {
