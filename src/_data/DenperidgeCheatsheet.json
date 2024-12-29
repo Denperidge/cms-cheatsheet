@@ -330,6 +330,18 @@
         ]
     },
     {
+        "id": "linux-toggle-display",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-12-29T19:39:16.576Z",
+        "date_updated": "2024-12-29T19:41:30.427Z",
+        "links": null,
+        "tags": null,
+        "problem": "Linux: toggle display on or off",
+        "solution": "Replace `DP-4`, `1920x1080` & `144.0` with your displays information\n```bash\nxrandr --listactivemonitors | grep DP-4; if [ $? -ne 0 ]; then xrandr --output DP-4 --mode 1920x1080 --rate 144.0; else xrandr --output DP-4 --off; fi\n```\n\nFor scale, the font sizing of Gnome Tweaks seems to do a better trick than `xrandr --scale`.",
+        "related": []
+    },
+    {
         "id": "node-js-built-in-https-request",
         "status": "draft",
         "sort": null,
