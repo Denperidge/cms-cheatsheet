@@ -403,5 +403,19 @@
         "problem": "directus-to-data: basic usage",
         "solution": "The following example. You can replace the `yarn` command with `npm run`\n```\n# package.json\n{\n  \"scripts\": {\n    \"data\": \"directus-to-data -c CollectionOne -c CollectionTwo --collection-output src/_data/{{collectionName}}.json\",\n    \"_schema\": \"directus-to-data -c CollectionOne -c CollectionTwo --collection-output NO_WRITE --assets-output NO_WRITE\",\n    \"schema:backup\": \"yarn _schema --backup-schema .directus.schema.json\",\n    \"schema:restore\": \"yarn _schema --restore-schema .directus.schema.json\",\n    \"schema:apply\": \"yarn schema:restore --apply-schema\"\n  }\n}\n\n# .directus.json\n{\n    \"cmsUrl\": \"https://cms.example.com\",\n    \"staticToken\": \"DAE_DOJ?1-edOJQHDS\"\n}\n```\n\nTo install, use the following command:\n```bash\n# npm\nnpm install --save-dev directus-to-data\n# Yarn\nyarn add -D directus-to-data\n```",
         "related": []
+    },
+    {
+        "id": "git-basics",
+        "status": "published",
+        "sort": null,
+        "date_created": "2025-01-03T14:46:21.996Z",
+        "date_updated": null,
+        "links": null,
+        "tags": [
+            "Git"
+        ],
+        "problem": "Git basics",
+        "solution": "```bash\n# Add all changes to commit\ngit add .\n\n# Check changes that will be committed\ngit status\n\n# Commit with message\ngit commit -m \"Changed index.js\"\n\n# Push changes to repository\ngit push\n\n# Reset your repository to the latest commit. WARNING: deletes files\ngit reset --hard HEAD\n```\n\n## Installation instructions:\n1. Download Git from [git-scm.com/downloads](https://git-scm.com/downloads)\n2. Run `git config --global user.name \"Your name\"` and `git config --global user.email youremail@example.com` (the e-mail should ideally match the one you use on Git(Hub/Lab/Tea)\n",
+        "related": []
     }
 ]
