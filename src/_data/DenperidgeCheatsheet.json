@@ -353,29 +353,6 @@
         "related": []
     },
     {
-        "id": "implementing-eleventy-sass",
-        "status": "draft",
-        "sort": null,
-        "date_created": "2024-12-03T13:47:20.287Z",
-        "date_updated": "2024-12-23T18:14:18.989Z",
-        "links": [
-            {
-                "label": "Example usage (github.com)",
-                "url": "https://github.com/Denperidge/denperidge.github.io/blob/6e32666881455992f7612f2569bfc8926128d605/.eleventy.js#L8"
-            }
-        ],
-        "tags": [
-            "Eleventy",
-            "JavaScript",
-            "SCSS"
-        ],
-        "problem": "Implementing eleventy-sass",
-        "solution": "```js\nimport eleventySass from \"@grimlink/eleventy-plugin-sass\";\n\nmodule.exports = function (eleventyConfig) {\n    eleventyConfig.addPlugin(eleventySass, {\n        sass,\n        outputPath: \"\",\n        includePaths: [\"node_modules\"]\n    });\n}\n```\n\nTo install, run\n```bash\n# NPM\nnpm install --save-dev sass @grimlink/eleventy-plugin-sass\n# Yarn\nyarn add -D sass @grimlink/eleventy-plugin-sass\n```",
-        "related": [
-            4
-        ]
-    },
-    {
         "id": "linux-toggle-display",
         "status": "draft",
         "sort": null,
@@ -409,13 +386,36 @@
         "status": "published",
         "sort": null,
         "date_created": "2025-01-03T14:46:21.996Z",
-        "date_updated": null,
+        "date_updated": "2025-01-03T14:54:55.646Z",
         "links": null,
         "tags": [
             "Git"
         ],
         "problem": "Git basics",
-        "solution": "```bash\n# Add all changes to commit\ngit add .\n\n# Check changes that will be committed\ngit status\n\n# Commit with message\ngit commit -m \"Changed index.js\"\n\n# Push changes to repository\ngit push\n\n# Reset your repository to the latest commit. WARNING: deletes files\ngit reset --hard HEAD\n```\n\n## Installation instructions:\n1. Download Git from [git-scm.com/downloads](https://git-scm.com/downloads)\n2. Run `git config --global user.name \"Your name\"` and `git config --global user.email youremail@example.com` (the e-mail should ideally match the one you use on Git(Hub/Lab/Tea)\n",
+        "solution": "```bash\n# Add all changes to commit\ngit add .\n\n# Check changes that will be committed\ngit status\n\n# Commit with message\ngit commit -m \"Changed index.js\"\n\n# Push/pull changes to/from repository\ngit push\ngit pull\n\n# Store changes since last commit\ngit stash\n\n# Restore stashed changes\ngit stash pop\n\n# Reset your repository to the latest commit. WARNING: deletes files\ngit reset --hard HEAD\n```\n\n## Installation instructions:\n1. Download Git from [git-scm.com/downloads](https://git-scm.com/downloads)\n2. Run `git config --global user.name \"Your name\"` and `git config --global user.email youremail@example.com` (the e-mail should ideally match the one you use on Git(Hub/Lab/Tea)\n",
         "related": []
+    },
+    {
+        "id": "implementing-eleventy-sass",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-12-03T13:47:20.287Z",
+        "date_updated": "2025-01-05T16:33:00.544Z",
+        "links": [
+            {
+                "label": "Example usage (github.com)",
+                "url": "https://github.com/Denperidge/denperidge.github.io/blob/6e32666881455992f7612f2569bfc8926128d605/.eleventy.js#L8"
+            }
+        ],
+        "tags": [
+            "Eleventy",
+            "JavaScript",
+            "SCSS"
+        ],
+        "problem": "Implementing eleventy-sass",
+        "solution": "```js\nimport * as sass from \"sass\";\nimport eleventySass from \"@grimlink/eleventy-plugin-sass\";\n\nmodule.exports = function (eleventyConfig) {\n    eleventyConfig.addPlugin(eleventySass, {\n        sass,\n        outputPath: \"\",   // Optional subdirectory\n        includePaths: [\"node_modules\"]\n    });\n}\n```\n\nTo install, run\n```bash\n# NPM\nnpm install --save-dev sass @grimlink/eleventy-plugin-sass\n# Yarn\nyarn add -D sass @grimlink/eleventy-plugin-sass\n```",
+        "related": [
+            4
+        ]
     }
 ]
