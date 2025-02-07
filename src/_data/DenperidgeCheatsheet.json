@@ -124,7 +124,7 @@
         "status": "draft",
         "sort": null,
         "date_created": "2024-11-27T15:25:37.220Z",
-        "date_updated": "2024-12-04T13:25:59.929Z",
+        "date_updated": "2025-02-07T10:27:54.314Z",
         "links": null,
         "tags": [
             "DevOps",
@@ -132,7 +132,7 @@
             "GitHub-Actions"
         ],
         "problem": "Deploy Eleventy using Github Actions",
-        "solution": "```yaml\n# Based on https://github.com/actions/starter-workflows/blob/main/pages/static.yml\nname: Build static & deploy to GitHub Pages\n\non:\n  # Runs on pushes targeting the default branch\n  push:\n    branches: [\"main\"]\n\n  # Allows you to run this workflow manually from the Actions tab\n  workflow_dispatch:\n\n  # Allows this workflow to be called from other workflows\n  workflow_call:\n\n# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages\npermissions:\n  contents: read\n  pages: write\n  id-token: write\n\n# Allow one concurrent deployment\nconcurrency:\n  group: \"pages\"\n  cancel-in-progress: true\n\njobs:\n  deploy:\n    environment:\n      name: github-pages\n      url: ${{ steps.deployment.outputs.page_url }}\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n        with:\n          # Select latest ref instead of event trigger, in case this is triggered by another event\n          ref: ${{ github.ref }}\n      - uses: actions/setup-node@v4\n          \n      - name: Setup Pages\n        uses: actions/configure-pages@v5\n        \n      - name: Install pre-requirements\n        run: yarn install\n\n      - name: Build\n        run: yarn build\n        \n      - name: Upload artifact\n        uses: actions/upload-pages-artifact@v3\n        with:\n          # Upload entire repository\n          path: 'dist/'\n\n      - name: Deploy to GitHub Pages\n        id: deployment\n        uses: actions/deploy-pages@v4\n```\n",
+        "solution": "Note: the first example uses yarn. For NPM, see below\n```yaml\n# Based on https://github.com/actions/starter-workflows/blob/main/pages/static.yml\nname: Build static & deploy to GitHub Pages\n\non:\n  # Runs on pushes targeting the default branch\n  push:\n    branches: [\"main\"]\n\n  # Allows you to run this workflow manually from the Actions tab\n  workflow_dispatch:\n\n  # Allows this workflow to be called from other workflows\n  workflow_call:\n\n# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages\npermissions:\n  contents: read\n  pages: write\n  id-token: write\n\n# Allow one concurrent deployment\nconcurrency:\n  group: \"pages\"\n  cancel-in-progress: true\n\njobs:\n  deploy:\n    environment:\n      name: github-pages\n      url: ${{ steps.deployment.outputs.page_url }}\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n        with:\n          # Select latest ref instead of event trigger, in case this is triggered by another event\n          ref: ${{ github.ref }}\n      - uses: actions/setup-node@v4\n          \n      - name: Setup Pages\n        uses: actions/configure-pages@v5\n        \n      - name: Install pre-requirements\n        run: yarn install\n\n      - name: Build\n        run: yarn build\n        \n      - name: Upload artifact\n        uses: actions/upload-pages-artifact@v3\n        with:\n          # Upload entire repository\n          path: 'dist/'\n\n      - name: Deploy to GitHub Pages\n        id: deployment\n        uses: actions/deploy-pages@v4\n```\n\nNPM version:\n```yaml\n# Based on https://github.com/actions/starter-workflows/blob/main/pages/static.yml\nname: Build static & deploy to GitHub Pages\n\non:\n  # Runs on pushes targeting the default branch\n  push:\n    branches: [\"main\"]\n\n  # Allows you to run this workflow manually from the Actions tab\n  workflow_dispatch:\n\n  # Allows this workflow to be called from other workflows\n  workflow_call:\n\n# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages\npermissions:\n  contents: read\n  pages: write\n  id-token: write\n\n# Allow one concurrent deployment\nconcurrency:\n  group: \"pages\"\n  cancel-in-progress: true\n\njobs:\n  deploy:\n    environment:\n      name: github-pages\n      url: ${{ steps.deployment.outputs.page_url }}\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n        with:\n          # Select latest ref instead of event trigger, in case this is triggered by another event\n          ref: ${{ github.ref }}\n      - uses: actions/setup-node@v4\n          \n      - name: Setup Pages\n        uses: actions/configure-pages@v5\n        \n      - name: Install pre-requirements\n        run: npm ci\n\n      - name: Build\n        run: npm run build\n        \n      - name: Upload artifact\n        uses: actions/upload-pages-artifact@v3\n        with:\n          # Upload entire repository\n          path: 'dist/'\n\n      - name: Deploy to GitHub Pages\n        id: deployment\n        uses: actions/deploy-pages@v4\n```\n",
         "related": []
     },
     {
@@ -330,6 +330,20 @@
         ]
     },
     {
+        "id": "git-basics",
+        "status": "published",
+        "sort": null,
+        "date_created": "2025-01-03T14:46:21.996Z",
+        "date_updated": "2025-01-07T10:58:52.445Z",
+        "links": null,
+        "tags": [
+            "Git"
+        ],
+        "problem": "Git basics",
+        "solution": "```bash\n# Add all changes to commit\ngit add .\n\n# Check changes that will be committed\ngit status\n\n# Commit with message\ngit commit -m \"Changed index.js\"\n\n# Push/pull changes to/from repository\ngit push\ngit pull\n\n# Store changes since last commit\ngit stash\n\n# Restore stashed changes\ngit stash pop\n\n# Reset your repository to the latest commit. WARNING: deletes files\ngit reset --hard HEAD\n```\n\n## Installation instructions:\n1. Download Git from [git-scm.com/downloads](https://git-scm.com/downloads)\n2. Run `git config --global user.name \"Your name\"` and `git config --global user.email youremail@example.com` (the e-mail should ideally match the one you use on Git(Hub/Lab/Tea)\n\n## Creating a new repository\n```sh\n# In the root directory of your code\ngit init\n\n# That's it! Now create a new repository on Git(Hub/Lab/Tea), and get the clone/git url\ngit remote add origin https://github.com/Denperidge/cms-cheatsheet.git\n\n```\n\n## Using an existing repository",
+        "related": []
+    },
+    {
         "id": "node-js-built-in-https-request",
         "status": "draft",
         "sort": null,
@@ -379,20 +393,6 @@
         ],
         "problem": "directus-to-data: basic usage",
         "solution": "The following example. You can replace the `yarn` command with `npm run`\n```\n# package.json\n{\n  \"scripts\": {\n    \"data\": \"directus-to-data -c CollectionOne -c CollectionTwo --collection-output src/_data/{{collectionName}}.json\",\n    \"_schema\": \"directus-to-data -c CollectionOne -c CollectionTwo --collection-output NO_WRITE --assets-output NO_WRITE\",\n    \"schema:backup\": \"yarn _schema --backup-schema .directus.schema.json\",\n    \"schema:restore\": \"yarn _schema --restore-schema .directus.schema.json\",\n    \"schema:apply\": \"yarn schema:restore --apply-schema\"\n  }\n}\n\n# .directus.json\n{\n    \"cmsUrl\": \"https://cms.example.com\",\n    \"staticToken\": \"DAE_DOJ?1-edOJQHDS\"\n}\n```\n\nTo install, use the following command:\n```bash\n# npm\nnpm install --save-dev directus-to-data\n# Yarn\nyarn add -D directus-to-data\n```",
-        "related": []
-    },
-    {
-        "id": "git-basics",
-        "status": "published",
-        "sort": null,
-        "date_created": "2025-01-03T14:46:21.996Z",
-        "date_updated": "2025-01-03T14:54:55.646Z",
-        "links": null,
-        "tags": [
-            "Git"
-        ],
-        "problem": "Git basics",
-        "solution": "```bash\n# Add all changes to commit\ngit add .\n\n# Check changes that will be committed\ngit status\n\n# Commit with message\ngit commit -m \"Changed index.js\"\n\n# Push/pull changes to/from repository\ngit push\ngit pull\n\n# Store changes since last commit\ngit stash\n\n# Restore stashed changes\ngit stash pop\n\n# Reset your repository to the latest commit. WARNING: deletes files\ngit reset --hard HEAD\n```\n\n## Installation instructions:\n1. Download Git from [git-scm.com/downloads](https://git-scm.com/downloads)\n2. Run `git config --global user.name \"Your name\"` and `git config --global user.email youremail@example.com` (the e-mail should ideally match the one you use on Git(Hub/Lab/Tea)\n",
         "related": []
     },
     {
