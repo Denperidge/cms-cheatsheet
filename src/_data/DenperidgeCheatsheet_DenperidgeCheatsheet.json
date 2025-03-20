@@ -21,12 +21,12 @@
     },
     {
         "id": 5,
-        "DenperidgeCheatsheet_id": "github-actions-yarn-publish-to-npm-and-gh-releases",
-        "related_DenperidgeCheatsheet_id": "github-actions-yarn-test"
+        "DenperidgeCheatsheet_id": null,
+        "related_DenperidgeCheatsheet_id": null
     },
     {
         "id": 6,
-        "DenperidgeCheatsheet_id": "github-actions-yarn-publish-to-npm-and-gh-releases",
+        "DenperidgeCheatsheet_id": null,
         "related_DenperidgeCheatsheet_id": "adding-secrets-to-github-actions"
     }
 ]

@@ -280,22 +280,6 @@
         "related": []
     },
     {
-        "id": "github-actions-yarn-test",
-        "status": "draft",
-        "sort": null,
-        "date_created": "2024-12-06T18:14:11.777Z",
-        "date_updated": null,
-        "links": null,
-        "tags": [
-            "DevOps",
-            "GitHub-Actions",
-            "JavaScript"
-        ],
-        "problem": "GitHub Actions: yarn test",
-        "solution": "```yml\n# .github/workflows/test.yml\nname: Run tests\n\non: [push, pull_request, workflow_call]\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n      - run: yarn install --immutable \n      - run: yarn test\n```\n\nUsing it in other workflows:\n```yml\n# .github/workflows/publish.yml\nname: Publish npm package\n\non:\n  push:\n    tags:\n      - \"*\"\n\njobs:\n  test:\n    uses: ./.github/workflows/test.yml\n\n  github-release:\n    runs-on: ubuntu-latest\n    needs: [test]\n    steps:\n      # ...\n```\n\n",
-        "related": []
-    },
-    {
         "id": "css-accessibility-classes",
         "status": "draft",
         "sort": null,
@@ -400,22 +384,35 @@
         ]
     },
     {
-        "id": "github-actions-yarn-publish-to-npm-and-gh-releases",
+        "id": "github-actions-js-test",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-12-06T18:17:35.627Z",
-        "date_updated": "2025-03-20T12:37:27.442Z",
+        "date_created": "2025-03-20T16:08:22.224Z",
+        "date_updated": "2025-03-20T16:11:23.924Z",
         "links": null,
         "tags": [
             "DevOps",
             "GitHub-Actions",
             "JavaScript"
         ],
-        "problem": "Github Actions & yarn: publish to NPM & GitHub releases",
-        "solution": "```yml\nname: Publish package on npm & GitHub\n\non:\n  push:\n    tags:\n      - \"*.*.*\"\n\njobs:\n  github-release:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n      - uses: ncipollo/release-action@v1.14.0\n        with:\n          artifacts: filename.js\n\n  npm-publish:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          registry-url: https://registry.npmjs.org/\n      - run: yarn install --immutable \n      - run: yarn build\n      - run: yarn publish\n        env:\n          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n\n```",
-        "related": [
-            5,
-            6
-        ]
+        "problem": "GitHub Actions: run JavaScript tests",
+        "solution": "Note: the first example uses npm. For Yarn, see below\n\nNPM:\n```yml\n# .github/workflows/test.yml\nname: Run tests\n\non: [ push, pull_request, workflow_call ]\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n      - run: npm ci\n      - run: npm test\n```\n\n\nUsing it in other workflows:\n```yml\n# .github/workflows/publish.yml\nname: Publish npm package\n\non:\n  push:\n    tags:\n      - \"*\"\n\njobs:\n  test:\n    uses: ./.github/workflows/test.yml\n\n  github-release:\n    runs-on: ubuntu-latest\n    needs: [test]\n    steps:\n      # ...\n```\n\n\n\nYarn:\n```yml\n# .github/workflows/test.yml\nname: Run tests\n\non: [ push, pull_request, workflow_call ]\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n      - run: yarn install --immutable \n      - run: yarn test\n```\n\nYarn:\n```yml\n# .github/workflows/test.yml\nname: Run tests\n\non: [push, pull_request, workflow_call]\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n      - run: yarn install --immutable \n      - run: yarn test\n```",
+        "related": []
+    },
+    {
+        "id": "github-actions-js-publish-to-npm-and-gh-releases",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2025-03-20T16:13:22.896Z",
+        "date_updated": "2025-03-20T16:20:32.201Z",
+        "links": null,
+        "tags": [
+            "DevOps",
+            "GitHub-Actions",
+            "JavaScript"
+        ],
+        "problem": "GitHub Actions: publish a JavaScript package to NPM & GitHub Releases",
+        "solution": "Set `NPM_TOKEN` in **Repository Secrets** (see `https://github.com/org/repo/settings/secrets/actions`)\n\nNpm:\n```yml\n# .github/workflows/publish.yml\nname: Publish package on npm & GitHub\n\non:\n  push:\n    tags:\n      - \"*.*.*\"\n\njobs:\n  github-release:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n      - uses: ncipollo/release-action@v1.14.0\n        with:\n          artifacts: filename.js\n\n  npm-publish:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          registry-url: https://registry.npmjs.org/\n      - run: yarn install --immutable \n      - run: yarn build\n      - run: yarn publish\n        env:\n          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n```\n\nYarn:\n```yml\n# .github/workflows/publish.yml\nname: Publish package on npm & GitHub\n\non:\n  push:\n    tags:\n      - \"*.*.*\"\n\njobs:\n  github-release:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n      - uses: ncipollo/release-action@v1.14.0\n        with:\n          artifacts: filename.js\n\n  npm-publish:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          registry-url: https://registry.npmjs.org/\n      - run: yarn install --immutable \n      - run: yarn build\n      - run: yarn publish\n        env:\n          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n```",
+        "related": []
     }
 ]
