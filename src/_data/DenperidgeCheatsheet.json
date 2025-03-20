@@ -311,25 +311,6 @@
         "related": []
     },
     {
-        "id": "github-actions-yarn-publish-to-npm-and-gh-releases",
-        "status": "draft",
-        "sort": null,
-        "date_created": "2024-12-06T18:17:35.627Z",
-        "date_updated": "2024-12-06T18:20:00.022Z",
-        "links": null,
-        "tags": [
-            "DevOps",
-            "GitHub-Actions",
-            "JavaScript"
-        ],
-        "problem": "Github Actions & yarn: publish to NPM & GitHub releases",
-        "solution": "## ```yml\nname: Publish package on npm & GitHub\n\non:\n  push:\n    tags:\n      - \"*.*.*\"\n\njobs:\n  github-release:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n      - uses: ncipollo/release-action@v1.14.0\n        with:\n          artifacts: filename.js\n\n  npm-publish:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          registry-url: https://registry.npmjs.org/\n      - run: yarn install --immutable \n      - run: yarn build\n      - run: yarn publish\n        env:\n          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n\n```",
-        "related": [
-            5,
-            6
-        ]
-    },
-    {
         "id": "git-basics",
         "status": "published",
         "sort": null,
@@ -416,6 +397,25 @@
         "solution": "```js\nimport * as sass from \"sass\";\nimport eleventySass from \"@grimlink/eleventy-plugin-sass\";\n\nmodule.exports = function (eleventyConfig) {\n    eleventyConfig.addPlugin(eleventySass, {\n        sass,\n        outputPath: \"\",   // Optional subdirectory\n        includePaths: [\"node_modules\"]\n    });\n}\n```\n\nTo install, run\n```bash\n# NPM\nnpm install --save-dev sass @grimlink/eleventy-plugin-sass\n# Yarn\nyarn add -D sass @grimlink/eleventy-plugin-sass\n```",
         "related": [
             4
+        ]
+    },
+    {
+        "id": "github-actions-yarn-publish-to-npm-and-gh-releases",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2024-12-06T18:17:35.627Z",
+        "date_updated": "2025-03-20T12:37:27.442Z",
+        "links": null,
+        "tags": [
+            "DevOps",
+            "GitHub-Actions",
+            "JavaScript"
+        ],
+        "problem": "Github Actions & yarn: publish to NPM & GitHub releases",
+        "solution": "```yml\nname: Publish package on npm & GitHub\n\non:\n  push:\n    tags:\n      - \"*.*.*\"\n\njobs:\n  github-release:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n      - uses: ncipollo/release-action@v1.14.0\n        with:\n          artifacts: filename.js\n\n  npm-publish:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          registry-url: https://registry.npmjs.org/\n      - run: yarn install --immutable \n      - run: yarn build\n      - run: yarn publish\n        env:\n          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n\n```",
+        "related": [
+            5,
+            6
         ]
     }
 ]
