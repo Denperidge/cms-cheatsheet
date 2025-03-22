@@ -414,5 +414,20 @@
         "problem": "GitHub Actions: publish a JavaScript package to NPM & GitHub Releases",
         "solution": "Set `NPM_TOKEN` in **Repository Secrets** (see `https://github.com/org/repo/settings/secrets/actions`)\n\nNpm:\n```yml\n# .github/workflows/publish.yml\nname: Publish package on npm & GitHub\n\non:\n  push:\n    tags:\n      - \"*.*.*\"\n\njobs:\n  github-release:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n      - uses: ncipollo/release-action@v1.14.0\n        with:\n          artifacts: filename.js\n\n  npm-publish:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          registry-url: https://registry.npmjs.org/\n      - run: npm ci\n      - run: npm publish\n        env:\n          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n```\n\nYarn:\n```yml\n# .github/workflows/publish.yml\nname: Publish package on npm & GitHub\n\non:\n  push:\n    tags:\n      - \"*.*.*\"\n\njobs:\n  github-release:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n      - uses: ncipollo/release-action@v1.14.0\n        with:\n          artifacts: filename.js\n\n  npm-publish:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          registry-url: https://registry.npmjs.org/\n      - run: yarn install --immutable \n      - run: yarn build\n      - run: yarn publish\n        env:\n          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n```",
         "related": []
+    },
+    {
+        "id": "js-enter-on-button-label",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2025-03-22T12:16:59.446Z",
+        "date_updated": "2025-03-22T12:17:10.927Z",
+        "links": null,
+        "tags": [
+            "Accessibility",
+            "JavaScript"
+        ],
+        "problem": "JavaSript: allow Enter to be used on button labels",
+        "solution": "```js\nfunction enableEnterOnButtonLabels () {\n    const buttonLabels = document.querySelectorAll(\"label[role='button']\")\n    for (let i = 0; i < buttonLabels.length; i++) {\n        buttonLabels[i].addEventListener(\"keyup\", (e) => {\n            if (e.code == \"Enter\") {\n                e.target.click();\n            }\n        });\n    }\n}\n```",
+        "related": []
     }
 ]
