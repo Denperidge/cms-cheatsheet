@@ -24,13 +24,13 @@ html(lang="en")
                 h1
                     ul
                         li
-                            a(href="/") Denperidge's Cheatsheet
+                            a(href="/") Denperidge's Cheatsheet&nbsp;
 
                         unless page.url == "/"
                             if page.url.startsWith("/tags/")
                                 - const allTagsText = page.url == "/tags/" ? "All tags" : "Tags"
                                 li
-                                    a(href="/tags/")=allTagsText
+                                    a(href="/tags/")!=allTagsText+"&nbsp"
                                 if page.url != "/tags/"
                                     li
                                         a(href=page.url)=title

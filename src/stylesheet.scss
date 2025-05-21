@@ -61,6 +61,30 @@ ul {
 ul li {
     list-style: none;
 }
+h2 {
+    font-size: 2rem;
+}
+h3 {
+    font-size: 1.75rem;
+    color: #e0e3e7;
+}
+#toc-nav {
+    display: block;
+    margin: auto;
+
+    max-height: 60vh;
+    width: 90%;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    ol {
+        display: block;
+        list-style-type: disc;
+    }
+    li {
+        display: list-item;
+    }
+}
 #sheet code {
     padding-left: 0;
     padding-right: 0;

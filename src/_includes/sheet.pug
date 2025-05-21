@@ -3,12 +3,20 @@ extends /layout.pug
 block content
     include _entry.pug
 
-    main
-        ul#sheet
-            - let sheet = cheatsheet;
-            if filter
-                - sheet = sheet.filter(entry => entry.tags.includes(filter))
+    - let sheet = cheatsheet;
+    if filter
+        - sheet = sheet.filter(entry => entry.tags.includes(filter))
 
+        nav#toc-nav(aria-label="Table of contents")
+            h2 Table of contents
+            ol#table-of-contents
+                for entry in sheet
+                    li
+                        a(href="#"+entry.id)=entry.problem
+
+    main
+        h2.sr-only Entries
+        ul#sheet
             for entry in sheet
                 li.entryLi
                     +renderEntry(entry, sheet)

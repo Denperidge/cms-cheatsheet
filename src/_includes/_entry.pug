@@ -5,13 +5,14 @@ mixin renderEntry(entry, sheet=undefined)
     article(id=entry.id).entry
         header
             a(href="/entry/" + entry.id)
-                h2.problem=entry.problem
-        div.solution!=entry.renderedSolution
+                h3.problem=entry.problem
+        h4.sr-only Solution
+        section.solution!=entry.renderedSolution
 
         if sheet
             if relations[entry.id]
                 section.related
-                    h2 Related:
+                    h4 Related:
                     ul
                         for relation in relations[entry.id]
                             - const relEntry = sheet.find(sheetEntry => sheetEntry.id == relation)
@@ -22,14 +23,18 @@ mixin renderEntry(entry, sheet=undefined)
             if entry.links
                 ul.links
                     unless entry.links.length > 1
-                        h3 Link:
+                        h4 Link:
                     else
-                        h3 Links:
+                        h4 Links:
                     for link in entry.links
                         li
                             a(href=link.url)=link.label
             if entry.tags
                 hr
+                unless entry.tags.length > 1
+                    h4.sr-only Tag
+                else
+                    h4.sr-only Tags
                 ul.tags.buttons
                     for tag in entry.tags
                         li
