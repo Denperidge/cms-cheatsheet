@@ -3,8 +3,8 @@
         "id": "implementing-eleventy-auto-cache-buster",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-11-26T13:43:14.242Z",
-        "date_updated": "2024-12-04T13:25:59.851Z",
+        "date_created": "2024-11-26T13:43:14",
+        "date_updated": "2025-06-21T15:27:11",
         "links": null,
         "tags": [
             "Eleventy",
@@ -18,8 +18,8 @@
         "id": "pre-rendering-markdown-in-eleventy",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-11-25T20:41:07.089Z",
-        "date_updated": "2024-12-04T13:25:59.873Z",
+        "date_created": "2024-11-25T20:41:07",
+        "date_updated": "2025-06-21T15:27:11",
         "links": null,
         "tags": [
             "JavaScript",
@@ -34,8 +34,8 @@
         "id": "adding-env-files-to-nixos-services",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-11-26T11:55:04.138Z",
-        "date_updated": "2024-12-04T13:25:59.888Z",
+        "date_created": "2024-11-26T11:55:04",
+        "date_updated": "2025-06-21T15:27:11",
         "links": null,
         "tags": [
             "Caddy",
@@ -49,8 +49,8 @@
         "id": "esm-import-json",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-11-26T11:52:53.132Z",
-        "date_updated": "2024-12-04T13:25:59.918Z",
+        "date_created": "2024-11-26T11:52:53",
+        "date_updated": "2025-06-21T15:27:11",
         "links": [
             {
                 "label": "Solution from Stefan Judis (stefanjudis.com)",
@@ -68,8 +68,8 @@
         "id": "adding-secrets-to-github-actions",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-11-27T17:42:38.667Z",
-        "date_updated": "2024-12-04T13:25:59.943Z",
+        "date_created": "2024-11-27T17:42:38",
+        "date_updated": "2025-06-21T15:27:11",
         "links": null,
         "tags": [
             "DevOps",
@@ -85,8 +85,8 @@
         "id": "disabling-a-nixos-service-on-startup",
         "status": "published",
         "sort": null,
-        "date_created": "2024-11-25T16:30:35.040Z",
-        "date_updated": "2024-12-04T13:25:59.966Z",
+        "date_created": "2024-11-25T16:30:35",
+        "date_updated": "2025-06-21T15:27:11",
         "links": [
             {
                 "label": "Solution by cakee_ru (reddit.com/r/NixOS)",
@@ -104,8 +104,8 @@
         "id": "linux-recursively-delete-empty-directories",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-12-03T16:10:19.235Z",
-        "date_updated": "2024-12-04T13:35:35.071Z",
+        "date_created": "2024-12-03T16:10:19",
+        "date_updated": "2025-06-21T15:27:11",
         "links": [
             {
                 "label": "Solution by Baldrick (unix.stackexchange.com)",
@@ -123,8 +123,8 @@
         "id": "deploy-eleventy-using-github-actions",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-11-27T15:25:37.220Z",
-        "date_updated": "2025-02-07T10:27:54.314Z",
+        "date_created": "2024-11-27T15:25:37",
+        "date_updated": "2025-06-21T15:27:12",
         "links": null,
         "tags": [
             "DevOps",
@@ -139,8 +139,8 @@
         "id": "using-caddy-plugins-on-nixos",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-11-26T11:56:50.093Z",
-        "date_updated": "2024-12-04T13:25:59.903Z",
+        "date_created": "2024-11-26T11:56:50",
+        "date_updated": "2025-06-21T15:27:12",
         "links": null,
         "tags": [
             "Caddy"
@@ -155,8 +155,8 @@
         "id": "using-directus-to-data-in-github-actions",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-11-27T17:35:43.779Z",
-        "date_updated": "2024-12-04T13:25:59.993Z",
+        "date_created": "2024-11-27T17:35:43",
+        "date_updated": "2025-06-21T15:27:12",
         "links": null,
         "tags": [
             "DevOps",
@@ -172,8 +172,8 @@
         "id": "allow-users-to-save-text-as-file-in-javascript",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-11-29T18:08:17.223Z",
-        "date_updated": "2024-12-04T13:26:00.006Z",
+        "date_created": "2024-11-29T18:08:17",
+        "date_updated": "2025-06-21T15:27:12",
         "links": [
             {
                 "label": "Based on Kanchu's code (stackoverflow.com)",
@@ -195,8 +195,8 @@
         "id": "referring-to-a-users-uid-in-nixos",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-12-02T22:29:17.886Z",
-        "date_updated": "2024-12-04T13:26:00.038Z",
+        "date_created": "2024-12-02T22:29:17",
+        "date_updated": "2025-06-21T15:27:12",
         "links": [
             {
                 "label": "Adapted from l0b0's solution (unix.stackexchange.com)",
@@ -214,8 +214,8 @@
         "id": "python-sort-by-semantic-version",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-12-02T22:36:31.991Z",
-        "date_updated": "2024-12-04T13:26:00.087Z",
+        "date_created": "2024-12-02T22:36:31",
+        "date_updated": "2025-06-21T15:27:12",
         "links": [
             {
                 "label": "Solution by Eli Bendersky (stackoverflow.com)",
@@ -237,8 +237,8 @@
         "id": "nixos-rebuild-specify-config",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-12-04T13:26:00.025Z",
-        "date_updated": "2024-12-04T13:35:03.397Z",
+        "date_created": "2024-12-04T13:26:00",
+        "date_updated": "2025-06-21T15:27:12",
         "links": [
             {
                 "label": "Adapted from jeremiah.emmer's example (discourse.nixos.org)",
@@ -256,8 +256,8 @@
         "id": "esbuild-implementing-typescript",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-12-06T15:04:41.176Z",
-        "date_updated": null,
+        "date_created": "2024-12-06T15:04:41",
+        "date_updated": "2025-06-21T15:27:12",
         "links": [
             {
                 "label": "npm-run-all solution from Diogo Cardoso (stackoverflow.com)",
@@ -283,8 +283,8 @@
         "id": "css-accessibility-classes",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-11-26T11:51:15.517Z",
-        "date_updated": "2024-12-29T13:54:52.261Z",
+        "date_created": "2024-11-26T11:51:15",
+        "date_updated": "2025-06-21T15:27:12",
         "links": null,
         "tags": [
             "CSS",
@@ -298,8 +298,8 @@
         "id": "git-basics",
         "status": "published",
         "sort": null,
-        "date_created": "2025-01-03T14:46:21.996Z",
-        "date_updated": "2025-01-07T10:58:52.445Z",
+        "date_created": "2025-01-03T14:46:21",
+        "date_updated": "2025-06-21T15:27:12",
         "links": null,
         "tags": [
             "Git"
@@ -312,8 +312,8 @@
         "id": "node-js-built-in-https-request",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-12-07T13:43:22.429Z",
-        "date_updated": "2024-12-07T14:00:28.593Z",
+        "date_created": "2024-12-07T13:43:22",
+        "date_updated": "2025-06-21T15:27:12",
         "links": [
             {
                 "label": "Code based on Geshan Manandhar's solution (logrocket.com)",
@@ -335,8 +335,8 @@
         "id": "linux-toggle-display",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-12-29T19:39:16.576Z",
-        "date_updated": "2024-12-29T20:39:14.487Z",
+        "date_created": "2024-12-29T19:39:16",
+        "date_updated": "2025-06-21T15:27:12",
         "links": null,
         "tags": [
             "Linux"
@@ -349,8 +349,8 @@
         "id": "directus-to-data-basic-usage",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-12-23T18:27:38.225Z",
-        "date_updated": "2024-12-23T18:54:03.925Z",
+        "date_created": "2024-12-23T18:27:38",
+        "date_updated": "2025-06-21T15:27:12",
         "links": null,
         "tags": [
             "Eleventy",
@@ -364,8 +364,8 @@
         "id": "implementing-eleventy-sass",
         "status": "draft",
         "sort": null,
-        "date_created": "2024-12-03T13:47:20.287Z",
-        "date_updated": "2025-01-05T16:33:00.544Z",
+        "date_created": "2024-12-03T13:47:20",
+        "date_updated": "2025-06-21T15:27:12",
         "links": [
             {
                 "label": "Example usage (github.com)",
@@ -387,8 +387,8 @@
         "id": "github-actions-js-test",
         "status": "draft",
         "sort": null,
-        "date_created": "2025-03-20T16:08:22.224Z",
-        "date_updated": "2025-03-20T16:11:23.924Z",
+        "date_created": "2025-03-20T16:08:22",
+        "date_updated": "2025-06-21T15:27:12",
         "links": null,
         "tags": [
             "DevOps",
@@ -403,8 +403,8 @@
         "id": "github-actions-js-publish-to-npm-and-gh-releases",
         "status": "draft",
         "sort": null,
-        "date_created": "2025-03-20T16:13:22.896Z",
-        "date_updated": "2025-03-20T16:30:01.468Z",
+        "date_created": "2025-03-20T16:13:22",
+        "date_updated": "2025-06-21T15:27:12",
         "links": null,
         "tags": [
             "DevOps",
@@ -419,8 +419,8 @@
         "id": "js-enter-on-button-label",
         "status": "draft",
         "sort": null,
-        "date_created": "2025-03-22T12:16:59.446Z",
-        "date_updated": "2025-03-22T12:17:10.927Z",
+        "date_created": "2025-03-22T12:16:59",
+        "date_updated": "2025-06-21T15:27:12",
         "links": null,
         "tags": [
             "Accessibility",
@@ -428,6 +428,20 @@
         ],
         "problem": "JavaSript: allow Enter to be used on button labels",
         "solution": "```js\nfunction enableEnterOnButtonLabels () {\n    const buttonLabels = document.querySelectorAll(\"label[role='button']\")\n    for (let i = 0; i < buttonLabels.length; i++) {\n        buttonLabels[i].addEventListener(\"keyup\", (e) => {\n            if (e.code == \"Enter\") {\n                e.target.click();\n            }\n        });\n    }\n}\n```",
+        "related": []
+    },
+    {
+        "id": "nixos-mounting-multiple-hetzner-storageboxes",
+        "status": "published",
+        "sort": null,
+        "date_created": "2025-06-21T15:47:25",
+        "date_updated": "2025-06-21T15:48:42",
+        "links": null,
+        "tags": [
+            "NixOS"
+        ],
+        "problem": "NixOS: mounting multiple Hetzner storageboxes",
+        "solution": "```nix\n{\n  # ...\n  fileSystems = builtins.mapAttrs (name: value: {\n    device = \"//${value.storageUser}.your-storagebox.de/${value.storageUser}\";\n    fsType = \"cifs\";\n      mountPoint = name;\n      options = [\n        # https://wiki.nixos.org/wiki/Samba#CIFS_mount_configuration\n        \"x-systemd.automount\"\n        \"noauto\"\n        \"x-systemd.idle-timeout=60\"\n        \"x-systemd.device-timeout=5s\"\n        \"x-systemd.mount-timeout=5s\"\n        \"credentials=${value.credentials}\"\n        # https://docs.hetzner.com/robot/storage-box/access/access-samba-cifs#encrypt-samba-connection\n        \"iocharset=utf8\"\n        \"rw\"\n        \"nofail\"\n        \"seal\"\n        # Custom\n        \"mfsymlinks\"\n        \"uid=${value.uid}\"\n        \"gid=${value.gid}\"\n        \"file_mode=0740\"\n        \"dir_mode=0740\"\n      ];\n  }) {\n    \"/mnt/storage-1\" = {\n      storageUser = \"uxxxxxx-sub1\";\n      credentials = \"/home/user/sb-1.conf\";\n      uid = builtins.toString config.users.users.foo.uid;\n      gid = builtins.toString config.users.groups.users.gid;\n    };\n    \"/mnt/storage-2\" = {\n      storageUser = \"uxxxxxx-sub2\";\n      credentials = \"/home/user/sb-2.conf\";\n      uid = builtins.toString config.users.users.bar.uid;\n      gid = builtins.toString config.users.groups.users.gid;\n    };\n    \"/mnt/storage-2\" = {\n      storageUser = \"uxxxxxx-sub4\";\n      credentials = \"/home/user/sb-3.conf\";\n      uid = builtins.toString config.users.users.example.uid;\n      gid = builtins.toString config.users.groups.users.gid;\n    };\n  };\n  # ...\n}\n```",
         "related": []
     }
 ]

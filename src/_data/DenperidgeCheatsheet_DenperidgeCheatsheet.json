@@ -18,15 +18,5 @@
         "id": 4,
         "DenperidgeCheatsheet_id": "implementing-eleventy-sass",
         "related_DenperidgeCheatsheet_id": "implementing-eleventy-auto-cache-buster"
-    },
-    {
-        "id": 5,
-        "DenperidgeCheatsheet_id": null,
-        "related_DenperidgeCheatsheet_id": null
-    },
-    {
-        "id": 6,
-        "DenperidgeCheatsheet_id": null,
-        "related_DenperidgeCheatsheet_id": "adding-secrets-to-github-actions"
     }
 ]
