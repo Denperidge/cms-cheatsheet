@@ -7,7 +7,7 @@ import Prism from "prismjs";
 import loadLanguages from "prismjs/components/index.js"
 import eleventyFavicons from "eleventy-favicons";
 
-const {default: cheatsheet} = await import("./src/_data/DenperidgeCheatsheet.json", {assert: {type: "json"}})
+const {default: cheatsheet} = await import("./src/_data/DenperidgeCheatsheet.json", {with: {type: "json"}})
 
 const REGEX_MD_CODEBLOCK = /(?<fullValue>```(?<language>.*?)\n(?<code>(.|\n)*?)(|\n)```)/g
 const md = markdownit({

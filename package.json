@@ -17,7 +17,7 @@
     "@grimlink/eleventy-plugin-sass": "^1.0.3",
     "@picocss/pico": "^2.1.1",
     "catppuccin-prismjs": "https://github.com/catppuccin/prismjs.git",
-    "directus-to-data": "^0.7.2",
+    "directus-to-data": "^0.8.0",
     "eleventy-auto-cache-buster": "^0.7.0",
     "eleventy-favicons": "^1.0.3",
     "fuse.js": "^7.0.0",
