@@ -35,6 +35,8 @@ jobs:
           # Select latest ref instead of event trigger, in case this is triggered by another event
           ref: ${{ github.ref }}
       - uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
           
       - name: Setup Pages
         uses: actions/configure-pages@v5
