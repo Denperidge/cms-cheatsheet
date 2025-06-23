@@ -18,5 +18,15 @@
         "id": 4,
         "DenperidgeCheatsheet_id": "implementing-eleventy-sass",
         "related_DenperidgeCheatsheet_id": "implementing-eleventy-auto-cache-buster"
+    },
+    {
+        "id": 7,
+        "DenperidgeCheatsheet_id": "nixos-basic-commands",
+        "related_DenperidgeCheatsheet_id": "nixos-rebuild-specify-config"
+    },
+    {
+        "id": 8,
+        "DenperidgeCheatsheet_id": "nixos-basic-commands",
+        "related_DenperidgeCheatsheet_id": "nixos-remote-rebuild"
     }
 ]

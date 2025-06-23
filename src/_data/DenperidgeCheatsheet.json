@@ -440,5 +440,49 @@
         "problem": "NixOS: securely passing environment variables w/ Caddy quickstart",
         "solution": "Nix will - sadly - **expose** any direct **text** passed in your **nix files**. To circumvent this for sensitive data, secret managing schemes can be used.\n\n```nix\nservices.caddy = {\n    enable = true;\n    package = pkgs.caddy.withPlugins {\n      plugins = [ \"github.com/caddy-dns/porkbun@v0.3.1\" ];\n      hash = \"sha256-YZ4Bq0hfOJpa0C2lKipEY4fqwzJbEFM7ci5ys9S3uAo=\";\n    };\n    globalConfig = ''\n        acme_dns porkbun {\n            api_key {$CADDY_API_KEY}\n            api_secret_key {$CADDY_API_SECRET_KEY}\n        }\n    '';\n    virtualHosts = {\n        \"example.com\".extraConfig = ''\n          reverse_proxy 127.0.0.1:5000\n        '';\n    };\n};\nsystemd.services.caddy.serviceConfig.EnvironmentFile = [\"/path/to/.env.caddy\"];\n```\n\n```ini\n# /path/to/.env.caddy\nCADDY_API_KEY=YOUR_KEY\nCADDY_API_SECRET_KEY=YOUR_OTHER_KEY\n```",
         "related": []
+    },
+    {
+        "id": "nixos-import-nix-files",
+        "status": "published",
+        "sort": null,
+        "date_created": "2025-06-23T13:55:41",
+        "date_updated": null,
+        "links": null,
+        "tags": [
+            "NixOS"
+        ],
+        "problem": "NixOS: Import nix files",
+        "solution": "```nix\n# configuration.nix\n# _module.args import\n{ config, lib, pkgs, ssh_keys, ... }:\n\n{\n  # File import itself\n  imports = [\n    ./base-config.nix\n  ];\n  \n  users.users.yourname = {\n    uid = 1001;\n    isNormalUser = true;\n    extraGroups = [ \"wheel\" ];\n    openssh.authorizedKeys.keys = ssh_keys;\n    packages = with pkgs; [\n      htop\n    ] ++ extraPackages;\n  };\n}\n```\n```nix\n# base-config.nix\n{ config, pkgs, ... }:\n\n{\n  _module.args = {\n    # If this file is imported, the following imports become available\n    ssh_keys = [ \"ssh-ed25519 +5MWqxhi... user@device\"  \"ssh-ed25519 AAAA... user2@device2\"];\n    \n    extraPackages = (with pkgs; [\n      ffmpeg-full\n    ]);\n  };\n\n  # If this file is imported, the settings below will be applied to your configuration automatically\n  services.xserver.xkb = {\n    layout = \"be\";\n    variant = \"nodeadkeys\";\n  };\n\n  time.timeZone = \"Europe/Brussels\";\n  i18n.defaultLocale = \"en_GB.UTF-8\";\n  console.keyMap = \"be-latin1\";  # Configure console keymap\n}\n```",
+        "related": []
+    },
+    {
+        "id": "nixos-basic-commands",
+        "status": "published",
+        "sort": null,
+        "date_created": "2025-06-23T13:59:34",
+        "date_updated": "2025-06-23T14:02:12",
+        "links": [
+            {
+                "label": "Find packages & NixOS options on search.nixos.org",
+                "url": "https://search.nixos.org/packages"
+            },
+            {
+                "label": "Find a bunch of examples on wiki.nixos.org",
+                "url": "https://wiki.nixos.org/wiki/NixOS_Wiki"
+            },
+            {
+                "label": "Find the NixOS manual on nixos.org/manual/nixos/stable/",
+                "url": "https://nixos.org/manual/nixos/stable/"
+            }
+        ],
+        "tags": [
+            "NixOS"
+        ],
+        "problem": "NixOS: basic commands",
+        "solution": "```sh\n# Apply /etc/configuration.nix immediately\nsudo nixos-rebuild switch\n# Apply /etc/configuration.nix on next boot\nsudo nixos-rebuild boot\n\n# Create a temporary shell environment with the specified packages \nnix-shell -p wget nodejs_22 yarn\n```",
+        "related": [
+            7,
+            8
+        ]
     }
 ]
