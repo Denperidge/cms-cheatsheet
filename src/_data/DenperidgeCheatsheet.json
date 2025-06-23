@@ -31,21 +31,6 @@
         "related": []
     },
     {
-        "id": "adding-env-files-to-nixos-services",
-        "status": "draft",
-        "sort": null,
-        "date_created": "2024-11-26T11:55:04",
-        "date_updated": "2025-06-21T15:27:11",
-        "links": null,
-        "tags": [
-            "Caddy",
-            "NixOS"
-        ],
-        "problem": "Adding environment files to NixOS services/passing api key to Caddy securely",
-        "solution": "```nix\nservices.caddy = {\n    enable = true;\n    globalConfig = ''    \n        acme_dns porkbun {\n            api_key {$API_KEY}\n            api_secret_key {$API_SECRET_KEY}\n        }\n    '';\n    virtualHosts = {\n        \"example.com\".extraConfig = ''\n        '';\n    };\n};\nsystemd.services.caddy.serviceConfig.EnvironmentFile = [\"/path/to/.env.caddy\"];\n```\n```ini\n# /path/to/.env.caddy\nAPI_KEY=YOUR_KEY\nAPI_SECRET_KEY=YOUR_OTHER_KEY\n```",
-        "related": []
-    },
-    {
         "id": "esm-import-json",
         "status": "draft",
         "sort": null,
@@ -134,22 +119,6 @@
         "problem": "Deploy Eleventy using Github Actions",
         "solution": "Note: the first example uses yarn. For NPM, see below\n```yaml\n# Based on https://github.com/actions/starter-workflows/blob/main/pages/static.yml\nname: Build static & deploy to GitHub Pages\n\non:\n  # Runs on pushes targeting the default branch\n  push:\n    branches: [\"main\"]\n\n  # Allows you to run this workflow manually from the Actions tab\n  workflow_dispatch:\n\n  # Allows this workflow to be called from other workflows\n  workflow_call:\n\n# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages\npermissions:\n  contents: read\n  pages: write\n  id-token: write\n\n# Allow one concurrent deployment\nconcurrency:\n  group: \"pages\"\n  cancel-in-progress: true\n\njobs:\n  deploy:\n    environment:\n      name: github-pages\n      url: ${{ steps.deployment.outputs.page_url }}\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n        with:\n          # Select latest ref instead of event trigger, in case this is triggered by another event\n          ref: ${{ github.ref }}\n      - uses: actions/setup-node@v4\n          \n      - name: Setup Pages\n        uses: actions/configure-pages@v5\n        \n      - name: Install pre-requirements\n        run: yarn install\n\n      - name: Build\n        run: yarn build\n        \n      - name: Upload artifact\n        uses: actions/upload-pages-artifact@v3\n        with:\n          # Upload entire repository\n          path: 'dist/'\n\n      - name: Deploy to GitHub Pages\n        id: deployment\n        uses: actions/deploy-pages@v4\n```\n\nNPM version:\n```yaml\n# Based on https://github.com/actions/starter-workflows/blob/main/pages/static.yml\nname: Build static & deploy to GitHub Pages\n\non:\n  # Runs on pushes targeting the default branch\n  push:\n    branches: [\"main\"]\n\n  # Allows you to run this workflow manually from the Actions tab\n  workflow_dispatch:\n\n  # Allows this workflow to be called from other workflows\n  workflow_call:\n\n# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages\npermissions:\n  contents: read\n  pages: write\n  id-token: write\n\n# Allow one concurrent deployment\nconcurrency:\n  group: \"pages\"\n  cancel-in-progress: true\n\njobs:\n  deploy:\n    environment:\n      name: github-pages\n      url: ${{ steps.deployment.outputs.page_url }}\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n        with:\n          # Select latest ref instead of event trigger, in case this is triggered by another event\n          ref: ${{ github.ref }}\n      - uses: actions/setup-node@v4\n          \n      - name: Setup Pages\n        uses: actions/configure-pages@v5\n        \n      - name: Install pre-requirements\n        run: npm ci\n\n      - name: Build\n        run: npm run build\n        \n      - name: Upload artifact\n        uses: actions/upload-pages-artifact@v3\n        with:\n          # Upload entire repository\n          path: 'dist/'\n\n      - name: Deploy to GitHub Pages\n        id: deployment\n        uses: actions/deploy-pages@v4\n```\n",
         "related": []
-    },
-    {
-        "id": "using-caddy-plugins-on-nixos",
-        "status": "draft",
-        "sort": null,
-        "date_created": "2024-11-26T11:56:50",
-        "date_updated": "2025-06-21T15:27:12",
-        "links": null,
-        "tags": [
-            "Caddy"
-        ],
-        "problem": "Using Caddy plugins on NixOS",
-        "solution": "As is Nix, if you're using different plugins, run rebuild & replace hash values\n```nix\nservices.caddy = {\n    enable = true;\n    package = (pkgs.callPackage \"${builtins.fetchurl https://raw.githubusercontent.com/jpds/nixpkgs/a33b02fa9d664f31dadc8a874eb1a5dbaa9f4ecf/pkgs/servers/caddy/default.nix}\" {\n        externalPlugins = [\n            {name = \"caddy-dns/porkbun\"; repo = \"github.com/caddy-dns/porkbun\"; version = \"70de9b4c18f94dd2203927ab00ba104d62cb99a8\"; }\n        ];\n        vendorHash = \"sha256-mdz2kAuHtWAph8hOcUa/a1DaCOlY/JaUBRvqz3vvuhE=\";\n    });\n    globalConfig = ''    \n      acme_dns porkbun {\n        api_key {$API_KEY}\n        api_secret_key {$API_SECRET_KEY}\n      }\n    '';\n    virtualHosts = {\n      \"example.com\".extraConfig = '''';\n    };\n  };\n  systemd.services.caddy.serviceConfig.EnvironmentFile = [\"/home/cat/.caddy\"];\n```",
-        "related": [
-            1
-        ]
     },
     {
         "id": "using-directus-to-data-in-github-actions",
@@ -442,6 +411,34 @@
         ],
         "problem": "NixOS: mounting multiple Hetzner storageboxes",
         "solution": "```nix\n{\n  # ...\n  fileSystems = builtins.mapAttrs (name: value: {\n    device = \"//${value.storageUser}.your-storagebox.de/${value.storageUser}\";\n    fsType = \"cifs\";\n      mountPoint = name;\n      options = [\n        # https://wiki.nixos.org/wiki/Samba#CIFS_mount_configuration\n        \"x-systemd.automount\"\n        \"noauto\"\n        \"x-systemd.idle-timeout=60\"\n        \"x-systemd.device-timeout=5s\"\n        \"x-systemd.mount-timeout=5s\"\n        \"credentials=${value.credentials}\"\n        # https://docs.hetzner.com/robot/storage-box/access/access-samba-cifs#encrypt-samba-connection\n        \"iocharset=utf8\"\n        \"rw\"\n        \"nofail\"\n        \"seal\"\n        # Custom\n        \"mfsymlinks\"\n        \"uid=${value.uid}\"\n        \"gid=${value.gid}\"\n        \"file_mode=0740\"\n        \"dir_mode=0740\"\n      ];\n  }) {\n    \"/mnt/storage-1\" = {\n      storageUser = \"uxxxxxx-sub1\";\n      credentials = \"/home/user/sb-1.conf\";\n      uid = builtins.toString config.users.users.foo.uid;\n      gid = builtins.toString config.users.groups.users.gid;\n    };\n    \"/mnt/storage-2\" = {\n      storageUser = \"uxxxxxx-sub2\";\n      credentials = \"/home/user/sb-2.conf\";\n      uid = builtins.toString config.users.users.bar.uid;\n      gid = builtins.toString config.users.groups.users.gid;\n    };\n    \"/mnt/storage-2\" = {\n      storageUser = \"uxxxxxx-sub4\";\n      credentials = \"/home/user/sb-3.conf\";\n      uid = builtins.toString config.users.users.example.uid;\n      gid = builtins.toString config.users.groups.users.gid;\n    };\n  };\n  # ...\n}\n```",
+        "related": []
+    },
+    {
+        "id": "nixos-remote-rebuild",
+        "status": "published",
+        "sort": null,
+        "date_created": "2025-06-23T10:17:50",
+        "date_updated": "2025-06-23T10:22:18",
+        "links": null,
+        "tags": [
+            "NixOS"
+        ],
+        "problem": "NixOS: Remote rebuild",
+        "solution": "Remote/target server configuration.nix:\n```nix\n{\n    nix.settings.trusted-users = [ \"yourname\" ];\n}\n```\nMake sure to use `nixos-rebuild switch` at least once after adding this line, otherwise it won't take effect and your remote build will be blocked.\n\n\nDevice to build on:\n```sh\nnixos-rebuild switch --use-remote-sudo --target-host yourname@example.com -I nixos-config=$(pwd)/configuration.nix\n``\n",
+        "related": []
+    },
+    {
+        "id": "nixos-securely-passing-env-vars-with-caddy-quickstart",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2025-06-23T10:42:20",
+        "date_updated": null,
+        "links": null,
+        "tags": [
+            "NixOS"
+        ],
+        "problem": "NixOS: securely passing environment variables w/ Caddy quickstart",
+        "solution": "Nix will - sadly - **expose** any direct **text** passed in your **nix files**. To circumvent this for sensitive data, secret managing schemes can be used.\n\n```nix\nservices.caddy = {\n    enable = true;\n    package = pkgs.caddy.withPlugins {\n      plugins = [ \"github.com/caddy-dns/porkbun@v0.3.1\" ];\n      hash = \"sha256-YZ4Bq0hfOJpa0C2lKipEY4fqwzJbEFM7ci5ys9S3uAo=\";\n    };\n    globalConfig = ''\n        acme_dns porkbun {\n            api_key {$CADDY_API_KEY}\n            api_secret_key {$CADDY_API_SECRET_KEY}\n        }\n    '';\n    virtualHosts = {\n        \"example.com\".extraConfig = ''\n          reverse_proxy 127.0.0.1:5000\n        '';\n    };\n};\nsystemd.services.caddy.serviceConfig.EnvironmentFile = [\"/path/to/.env.caddy\"];\n```\n\n```ini\n# /path/to/.env.caddy\nCADDY_API_KEY=YOUR_KEY\nCADDY_API_SECRET_KEY=YOUR_OTHER_KEY\n```",
         "related": []
     }
 ]
