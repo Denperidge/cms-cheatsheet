@@ -484,5 +484,31 @@
             7,
             8
         ]
+    },
+    {
+        "id": "meow",
+        "status": "archived",
+        "sort": null,
+        "date_created": "2025-06-23T20:47:03",
+        "date_updated": "2025-06-23T20:50:25",
+        "links": null,
+        "tags": null,
+        "problem": null,
+        "solution": null,
+        "related": []
+    },
+    {
+        "id": "git-signing-commits-with-ssh",
+        "status": "published",
+        "sort": null,
+        "date_created": "2025-07-01T14:52:47",
+        "date_updated": "2025-07-01T15:01:56",
+        "links": null,
+        "tags": [
+            "Git"
+        ],
+        "problem": "Git: Signing commits with an SSH key",
+        "solution": "## Setup repo\n```bash\n# Setup repo with signing\nusername=\"MyUsername\"\nemail=\"MyEmail\"\nsshkey=\"~/.ssh/filename_id_ed25519.pub\"\nscope=\"local\"\n\n# Replace --$scope with global to apply globally\ngit config --$scope user.name $username\ngit config --$scope user.email $email\ngit config --$scope gpg.format ssh\ngit config --$scope user.signingKey $sshkey\n```\n\n## Setup Git host\n- Codeberg:  [Profile SSH settings](https://codeberg.org/user/settings/keys) & [relevant documentation](https://docs.codeberg.org/security/ssh-key/)\n- GitHub: [Profile SSH settings](https://github.com/settings/keys) & [relevant documentation](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)",
+        "related": []
     }
 ]
