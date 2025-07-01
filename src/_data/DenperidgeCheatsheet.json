@@ -319,14 +319,14 @@
         "status": "draft",
         "sort": null,
         "date_created": "2024-12-23T18:27:38",
-        "date_updated": "2025-06-21T15:27:12",
+        "date_updated": "2025-07-01T15:48:14",
         "links": null,
         "tags": [
             "Eleventy",
             "JavaScript"
         ],
         "problem": "directus-to-data: basic usage",
-        "solution": "The following example. You can replace the `yarn` command with `npm run`\n```\n# package.json\n{\n  \"scripts\": {\n    \"data\": \"directus-to-data -c CollectionOne -c CollectionTwo --collection-output src/_data/{{collectionName}}.json\",\n    \"_schema\": \"directus-to-data -c CollectionOne -c CollectionTwo --collection-output NO_WRITE --assets-output NO_WRITE\",\n    \"schema:backup\": \"yarn _schema --backup-schema .directus.schema.json\",\n    \"schema:restore\": \"yarn _schema --restore-schema .directus.schema.json\",\n    \"schema:apply\": \"yarn schema:restore --apply-schema\"\n  }\n}\n\n# .directus.json\n{\n    \"cmsUrl\": \"https://cms.example.com\",\n    \"staticToken\": \"DAE_DOJ?1-edOJQHDS\"\n}\n```\n\nTo install, use the following command:\n```bash\n# npm\nnpm install --save-dev directus-to-data\n# Yarn\nyarn add -D directus-to-data\n```",
+        "solution": "The following example. You can replace the `yarn` command with `npm run`\n```json\n# package.json\n{\n  \"scripts\": {\n    \"data\": \"directus-to-data -c CollectionOne -c CollectionTwo --collection-output src/_data/{{collectionName}}.json\",\n    \"_schema\": \"directus-to-data -c CollectionOne -c CollectionTwo --collection-output NO_WRITE --assets-output NO_WRITE\",\n    \"schema:backup\": \"yarn _schema --backup-schema .directus.schema.json\",\n    \"schema:restore\": \"yarn _schema --restore-schema .directus.schema.json\",\n    \"schema:apply\": \"yarn schema:restore --apply-schema\"\n  }\n}\n\n# .directus.json\n{\n    \"cmsUrl\": \"https://cms.example.com\",\n    \"staticToken\": \"DAE_DOJ?1-edOJQHDS\"\n}\n```\n\nTo install, use the following command:\n```bash\n# npm\nnpm install --save-dev directus-to-data\n# Yarn\nyarn add -D directus-to-data\n```",
         "related": []
     },
     {
@@ -490,13 +490,30 @@
         "status": "published",
         "sort": null,
         "date_created": "2025-07-01T14:52:47",
-        "date_updated": "2025-07-01T15:01:56",
-        "links": null,
+        "date_updated": "2025-07-01T15:47:23",
+        "links": [
+            {
+                "label": "Codeberg: Profile SSH settings",
+                "url": "https://codeberg.org/user/settings/keys"
+            },
+            {
+                "label": "Codeberg: Relevant documentation",
+                "url": "https://docs.codeberg.org/security/ssh-key/"
+            },
+            {
+                "label": "GitHub: Profile SSH settings",
+                "url": "https://github.com/settings/keys"
+            },
+            {
+                "label": "GitHub: Relevant documentation",
+                "url": "https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits"
+            }
+        ],
         "tags": [
             "Git"
         ],
         "problem": "Git: Signing commits with an SSH key",
-        "solution": "## Setup repo\n```bash\n# Setup repo with signing\nusername=\"MyUsername\"\nemail=\"MyEmail\"\nsshkey=\"~/.ssh/filename_id_ed25519.pub\"\nscope=\"local\"\n\n# Replace --$scope with global to apply globally\ngit config --$scope user.name $username\ngit config --$scope user.email $email\ngit config --$scope gpg.format ssh\ngit config --$scope user.signingKey $sshkey\n```\n\n## Setup Git host\n- Codeberg:  [Profile SSH settings](https://codeberg.org/user/settings/keys) & [relevant documentation](https://docs.codeberg.org/security/ssh-key/)\n- GitHub: [Profile SSH settings](https://github.com/settings/keys) & [relevant documentation](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)",
+        "solution": "## Setup repo\n```bash\n# Setup repo with signing\nusername=\"MyUsername\"\nemail=\"MyEmail\"\nsshkey=\"~/.ssh/filename_id_ed25519.pub\"\nscope=\"local\"\n\n# Replace --$scope with global to apply globally\ngit config --$scope user.name $username\ngit config --$scope user.email $email\ngit config --$scope gpg.format ssh\ngit config --$scope user.signingKey $sshkey\n```",
         "related": []
     }
 ]
