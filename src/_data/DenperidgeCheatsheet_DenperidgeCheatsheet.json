@@ -1,10 +1,5 @@
 [
     {
-        "id": 1,
-        "DenperidgeCheatsheet_id": null,
-        "related_DenperidgeCheatsheet_id": null
-    },
-    {
         "id": 2,
         "DenperidgeCheatsheet_id": "using-directus-to-data-in-github-actions",
         "related_DenperidgeCheatsheet_id": "deploy-eleventy-using-github-actions"
