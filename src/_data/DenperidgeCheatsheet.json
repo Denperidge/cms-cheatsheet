@@ -460,7 +460,7 @@
         "status": "published",
         "sort": null,
         "date_created": "2025-06-23T13:59:34",
-        "date_updated": "2025-06-23T14:02:12",
+        "date_updated": "2025-10-05T18:08:52",
         "links": [
             {
                 "label": "Find packages & NixOS options on search.nixos.org",
@@ -479,7 +479,7 @@
             "NixOS"
         ],
         "problem": "NixOS: basic commands",
-        "solution": "```sh\n# Apply /etc/configuration.nix immediately\nsudo nixos-rebuild switch\n# Apply /etc/configuration.nix on next boot\nsudo nixos-rebuild boot\n\n# Create a temporary shell environment with the specified packages \nnix-shell -p wget nodejs_22 yarn\n```",
+        "solution": "```sh\n# Apply /etc/configuration.nix immediately\nsudo nixos-rebuild switch\n# Apply /etc/configuration.nix on next boot\nsudo nixos-rebuild boot\n\n# Create a temporary shell environment with the specified packages \nnix-shell -p wget nodejs_22 yarn\n\n# Switch to a system user/consistent path to executables\nsudo su lauti -s /run/current-system/sw/bin/bash\n```",
         "related": [
             7,
             8
@@ -514,6 +514,32 @@
         ],
         "problem": "Git: Signing commits with an SSH key",
         "solution": "## Setup repo\n```bash\n# Setup repo with signing\nusername=\"MyUsername\"\nemail=\"MyEmail\"\nsshkey=\"~/.ssh/filename_id_ed25519.pub\"\nscope=\"local\"\n\n# Replace --$scope with global to apply globally\ngit config --$scope user.name $username\ngit config --$scope user.email $email\ngit config --$scope gpg.format ssh\ngit config --$scope user.signingKey $sshkey\n```",
+        "related": []
+    },
+    {
+        "id": "pipx-script-starter",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2025-08-18T12:36:29",
+        "date_updated": null,
+        "links": null,
+        "tags": null,
+        "problem": "Pipx script starter: shebang & in-script dependency management",
+        "solution": "```python\n#!/usr/bin/env -S pipx run\n\n# pipx metadata\n# /// script\n# dependencies = [\"requests\"]\n# ///\n\nif __name__ == \"__main__\":\n    pass\n```\nAssuming you have pipx installed, you can now directly run the python file and have pipx manage everything.",
+        "related": []
+    },
+    {
+        "id": "linux-steam",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2025-08-21T16:55:46",
+        "date_updated": "2025-08-21T17:10:47",
+        "links": null,
+        "tags": [
+            "Linux"
+        ],
+        "problem": null,
+        "solution": "- `WINEPREFIX=\"$(pwd)\" wine \"/path/to/file.exe\"`  # Run exe using current folder as wineprefix\n- `~/.steam/steam/steamapps/compatdata/`  # Default Steam prefix locations (~ is a shortcut your home directory)\n- `~/.steam/steam/steamapps/common/Proton\\ 9.0\\ \\(Beta\\)/proton`  # Default proton binary location (for Proton 9)\n",
         "related": []
     }
 ]
