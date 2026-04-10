@@ -93,6 +93,9 @@ export default function (eleventyConfig) {
 
     const tagSet = new Set();
     cheatsheet.forEach(entry => {
+        if (!entry.tags || entry.tags.length < 1) {
+            throw new Error(`${entry.id} does not have tags!`)
+        }
         entry.tags.forEach(tag => {
             tagSet.add(tag);
         })

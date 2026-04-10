@@ -521,9 +521,11 @@
         "status": "draft",
         "sort": null,
         "date_created": "2025-08-18T12:36:29",
-        "date_updated": null,
+        "date_updated": "2026-04-10T13:36:48",
         "links": null,
-        "tags": null,
+        "tags": [
+            "Python"
+        ],
         "problem": "Pipx script starter: shebang & in-script dependency management",
         "solution": "```python\n#!/usr/bin/env -S pipx run\n\n# pipx metadata\n# /// script\n# dependencies = [\"requests\"]\n# ///\n\nif __name__ == \"__main__\":\n    pass\n```\nAssuming you have pipx installed, you can now directly run the python file and have pipx manage everything.",
         "related": []
