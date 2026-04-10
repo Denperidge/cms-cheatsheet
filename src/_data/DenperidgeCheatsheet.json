@@ -541,5 +541,24 @@
         "problem": null,
         "solution": "- `WINEPREFIX=\"$(pwd)\" wine \"/path/to/file.exe\"`  # Run exe using current folder as wineprefix\n- `~/.steam/steam/steamapps/compatdata/`  # Default Steam prefix locations (~ is a shortcut your home directory)\n- `~/.steam/steam/steamapps/common/Proton\\ 9.0\\ \\(Beta\\)/proton`  # Default proton binary location (for Proton 9)\n",
         "related": []
+    },
+    {
+        "id": "generate-ssh-key",
+        "status": "published",
+        "sort": null,
+        "date_created": "2026-04-10T13:21:36",
+        "date_updated": null,
+        "links": [
+            {
+                "label": "GitHub docs",
+                "url": "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
+            }
+        ],
+        "tags": [
+            "Linux"
+        ],
+        "problem": "Generate SSH key",
+        "solution": "```sh\nssh-keygen -t ed25519 -C \"your_email@example.com\"\n```",
+        "related": []
     }
 ]
