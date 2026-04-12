@@ -535,12 +535,12 @@
         "status": "draft",
         "sort": null,
         "date_created": "2025-08-21T16:55:46",
-        "date_updated": "2025-08-21T17:10:47",
+        "date_updated": "2026-04-12T16:41:18",
         "links": null,
         "tags": [
             "Linux"
         ],
-        "problem": null,
+        "problem": "Linux Steam helpers",
         "solution": "- `WINEPREFIX=\"$(pwd)\" wine \"/path/to/file.exe\"`  # Run exe using current folder as wineprefix\n- `~/.steam/steam/steamapps/compatdata/`  # Default Steam prefix locations (~ is a shortcut your home directory)\n- `~/.steam/steam/steamapps/common/Proton\\ 9.0\\ \\(Beta\\)/proton`  # Default proton binary location (for Proton 9)\n",
         "related": []
     },
@@ -580,6 +580,25 @@
         ],
         "problem": "Run Alacritty with shell command",
         "solution": "```sh\nalacritty -e sh -c \"echo test && sleep 2\"\n```",
+        "related": []
+    },
+    {
+        "id": "tar",
+        "status": "published",
+        "sort": null,
+        "date_created": "2026-04-12T17:04:29",
+        "date_updated": null,
+        "links": [
+            {
+                "label": "Scope limited & doc expanded version of cheat.sh/tar",
+                "url": "https://cheat.sh/tar"
+            }
+        ],
+        "tags": [
+            "Linux"
+        ],
+        "problem": "tar basics",
+        "solution": "```sh\n# Extract tar.gz\ntar -xzvf archive.tar.gz\n#\t\t--extract --gzip --verbose --file=archive.tar.gz\n\n# Create tar.gz\ntar -czvf archive.tar.gz file1.md file2.png\n#\t\t--create --gzip --verbose --file=archive.tar.gz paths to archive\n```\nFor non-gzip (e.g. just the `.tar` extension), simply remove `-z`/`--gzip`",
         "related": []
     }
 ]
