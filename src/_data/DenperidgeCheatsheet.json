@@ -562,5 +562,24 @@
         "problem": "Generate SSH key",
         "solution": "```sh\nssh-keygen -t ed25519 -C \"your_email@example.com\"\n```",
         "related": []
+    },
+    {
+        "id": "run-alacritty-with-shell-command",
+        "status": "published",
+        "sort": null,
+        "date_created": "2026-04-12T16:13:29",
+        "date_updated": null,
+        "links": [
+            {
+                "label": "Based on olution by France_linux_css (reddit.com/r/kde)",
+                "url": "https://www.reddit.com/r/kde/comments/yict9f/comment/ixu6p3t/"
+            }
+        ],
+        "tags": [
+            "Linux"
+        ],
+        "problem": "Run Alacritty with shell command",
+        "solution": "```sh\nalacritty -e sh -c \"echo test && sleep 2\"\n```",
+        "related": []
     }
 ]
