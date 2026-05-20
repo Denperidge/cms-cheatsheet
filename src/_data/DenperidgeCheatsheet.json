@@ -535,13 +535,18 @@
         "status": "draft",
         "sort": null,
         "date_created": "2025-08-21T16:55:46",
-        "date_updated": "2026-04-12T16:41:18",
-        "links": null,
+        "date_updated": "2026-05-20T17:28:58",
+        "links": [
+            {
+                "label": "Executable replacement by sedme0 on Reddit",
+                "url": "https://www.reddit.com/r/linux_gaming/comments/u5wz7p/redirecting_steam_to_launch_a_different/"
+            }
+        ],
         "tags": [
             "Linux"
         ],
         "problem": "Linux Steam helpers",
-        "solution": "- `WINEPREFIX=\"$(pwd)\" wine \"/path/to/file.exe\"`  # Run exe using current folder as wineprefix\n- `~/.steam/steam/steamapps/compatdata/`  # Default Steam prefix locations (~ is a shortcut your home directory)\n- `~/.steam/steam/steamapps/common/Proton\\ 9.0\\ \\(Beta\\)/proton`  # Default proton binary location (for Proton 9)\n",
+        "solution": "- `WINEPREFIX=\"$(pwd)\" wine \"/path/to/file.exe\"`  # Run exe using current folder as wineprefix\n- `~/.steam/steam/steamapps/compatdata/`  # Default Steam prefix locations (~ is a shortcut your home directory)\n- `~/.steam/steam/steamapps/common/Proton\\ 9.0\\ \\(Beta\\)/proton`  # Default proton binary location (for Proton 9)\n- `$(echo %command% | sed -r \"s/proton waitforexitandrun .*/proton waitforexitandrun/\") \"$STEAM_COMPAT_INSTALL_PATH/SA2ModManager.exe\"`  # Launch options: replace default used executable with a different one",
         "related": []
     },
     {
