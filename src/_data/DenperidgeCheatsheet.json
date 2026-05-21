@@ -535,7 +535,7 @@
         "status": "draft",
         "sort": null,
         "date_created": "2025-08-21T16:55:46",
-        "date_updated": "2026-05-20T17:28:58",
+        "date_updated": "2026-05-21T14:59:49",
         "links": [
             {
                 "label": "Executable replacement by sedme0 on Reddit",
@@ -546,7 +546,7 @@
             "Linux"
         ],
         "problem": "Linux Steam helpers",
-        "solution": "- `WINEPREFIX=\"$(pwd)\" wine \"/path/to/file.exe\"`  # Run exe using current folder as wineprefix\n- `~/.steam/steam/steamapps/compatdata/`  # Default Steam prefix locations (~ is a shortcut your home directory)\n- `~/.steam/steam/steamapps/common/Proton\\ 9.0\\ \\(Beta\\)/proton`  # Default proton binary location (for Proton 9)\n- `$(echo %command% | sed -r \"s/proton waitforexitandrun .*/proton waitforexitandrun/\") \"$STEAM_COMPAT_INSTALL_PATH/SA2ModManager.exe\"`  # Launch options: replace default used executable with a different one",
+        "solution": "- `WINEPREFIX=\"$(pwd)\" wine \"/path/to/file.exe\"`  # Run exe using current folder as prefix in Wine (not Proton!)\n- `STEAM_COMPAT_DATA_PATH=\"/mnt/videosgame/SteamLibrary/steamapps/compatdata/1245620/\" %command%`  # Change prefix for proton within Steam (non-Steam: replace %command% with `proton /path/to/file.exe`)\n\n- `~/.steam/steam/steamapps/compatdata/`  # Default Steam prefix locations (~ is a shortcut your home directory)\n- `~/.steam/steam/steamapps/common/Proton\\ 9.0\\ \\(Beta\\)/proton`  # Default proton binary location (for Proton 9)\n- `$(echo %command% | sed -r \"s/proton waitforexitandrun .*/proton waitforexitandrun/\") \"$STEAM_COMPAT_INSTALL_PATH/SA2ModManager.exe\"`  # Launch options: replace default used executable with a different one",
         "related": []
     },
     {
