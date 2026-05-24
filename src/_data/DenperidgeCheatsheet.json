@@ -418,13 +418,13 @@
         "status": "published",
         "sort": null,
         "date_created": "2025-06-23T10:17:50",
-        "date_updated": "2025-06-23T10:22:18",
+        "date_updated": "2026-05-24T19:31:40",
         "links": null,
         "tags": [
             "NixOS"
         ],
         "problem": "NixOS: Remote rebuild",
-        "solution": "Remote/target server configuration.nix:\n```nix\n{\n    nix.settings.trusted-users = [ \"yourname\" ];\n}\n```\nMake sure to use `nixos-rebuild switch` at least once after adding this line, otherwise it won't take effect and your remote build will be blocked.\n\n\nDevice to build on:\n```sh\nnixos-rebuild switch --use-remote-sudo --target-host yourname@example.com -I nixos-config=$(pwd)/configuration.nix\n``\n",
+        "solution": "Remote/target server configuration.nix:\n```nix\n{\n    nix.settings.trusted-users = [ \"yourname\" ];\n}\n```\nMake sure to use `nixos-rebuild switch` at least once after adding this line, otherwise it won't take effect and your remote build will be blocked.\n\n\nDevice to build on:\n```sh\nnixos-rebuild switch --use-remote-sudo --target-host yourname@example.com -I nixos-config=$(pwd)/configuration.nix\n```\n",
         "related": []
     },
     {
@@ -627,6 +627,25 @@
         ],
         "problem": "ffmpeg: extract one frame",
         "solution": "```sh\nffmpeg -i  input.mp4  -an -ss 00:03:00 -t 00:00:00.040 '%01d.png'\n```",
+        "related": []
+    },
+    {
+        "id": "nixos-channels",
+        "status": "draft",
+        "sort": null,
+        "date_created": "2026-05-24T19:29:48",
+        "date_updated": "2026-05-24T19:34:19",
+        "links": [
+            {
+                "label": "NixOS manual on upgrading",
+                "url": "https://nixos.org/manual/nixos/stable/#sec-upgrading"
+            }
+        ],
+        "tags": [
+            "NixOS"
+        ],
+        "problem": "NixOS: Channels basics",
+        "solution": "#### Upgrading NixOS/changing channels\n**Note:** sudo is usually needed for NixOS installations in the commands below. Check if the first command returns a valid url without using sudo. If yes, you probably don't have to/shouldn't use sudo from the following commands!\n```bash\n# View current NixOS channel\nsudo nix-channel --list | grep nixos\n\n# Set new NixOS channel/upgrade NixOS\nsudo nix-channel --add https://channels.nixos.org/nixos-25.11 nixos\n```\n\nYou can view the latest stable channel from the manual link below or checking the channel options in [search.nixos.org](https://search.nixos.org)!\n\n#### Using packages from other channels\n```nix\n{ config, pkgs, ... }:\n\nlet\n  unstable = import (builtins.fetchTarball\n    \"https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz\"\n  ) {\n    config.allowUnfree = true;\n  };\nin\n{\n  # Method 1: singular package from another channel \n  environment.systemPackages = with pkgs; [\n    alacritty  # Default channel\n    unstable.hyprlock  # From unstable\n  ] ++ (with unstable; [\n    # Method 2: Multiple packages from another channel\n    stremio-linux-shell\n    discord\n  ]);\n}\n\n```",
         "related": []
     }
 ]
